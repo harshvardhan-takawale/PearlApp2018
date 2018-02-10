@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">PearlApp2018</string>
     <string name="action_settings">Settings</string>
+    <string name="about_us">Sports have always been one of the primary channels used by man to quench his thirst for competition as well as promote camaraderie and unity among participants and fans alike. It is the spirit of the game that urges man to dream, push his limits, and achieve glory. Once a year, here at BITS Pilani Hyderabad Campus, we allow this spirit to entirely consume us as we host our annual sports fest, Arena.\n\n Arena is one of the biggest sporting festivals conducted in India. The preparation ahead of the fest is grueling, the buildup intense, and participation nothing short of mind blowing as we welcome competitors not only from Telangana and Andhra Pradesh but on a national level as well.\n\n In keeping with the ambitions and expectations from a campus such as ours, we are envisioning a bigger, grander and more thrilling fest for the 6th edition of Arena. Join us as we compete to the limits of our capabilities, vie for glory on the field and most importantly enjoy the game.</string>
+
+    <string name="directions">From Secunderabad Railway Station to BITS Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Aalankrita Resorts in Thumkunta Village and then take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS sign boards indicating the directions are available on the way.\n\n
+There is a direct Bus No. 212 from Secunderabad Railway Station (Gurudwara Point) to BITS Pilani Hyderabad Campus Main Gate.\n\n
+APSRTC City Bus Timings : Bus No.212\n\n
+From Secunderabad Railway Station (Gurudwara Point) to BITS Main Gate:\n\n
+07:50, 8:20, 8:50, 09:50, 11:00, 12:00, 13:00, 14:10, 15:05, 16:05, 17:20, 18:15, 19:15, 20:15, 21:15.\n\n
+From BITS Main Gate to Secunderabad Railway Station :\n\n
+06:55, 07:55, 08:50, 09:20, 09:50, 11:00, 12:00, 13:00, 14:00, 15:05, 16:05, 18:15, 19:15, 20:15\n\n
+Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 which ply from Secunderabad Railway Station to various destinations on the Campus side. Further, there are many APSRTC buses from Secunderabad and Jubilee bus stand to Karim Nagar, Siddhipet, Ramagundam, Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.\n</string>
+
 </resources>

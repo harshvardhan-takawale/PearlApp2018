@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    tools:context=".Articles.TextDisplayActivity">
+
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
+        android:id="@+id/tv_display"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:breakStrategy="simple"
+        android:layout_width="match_parent"
+        android:textSize="18sp"
+        android:layout_height="wrap_content" />
+
+</ScrollView>
