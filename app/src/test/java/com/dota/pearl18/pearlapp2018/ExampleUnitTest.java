@@ -1,4 +1,4 @@
-package com.example.harshvardhan.pearlapp2018;
+package com.dota.pearl18.pearlapp2018;
 
 import org.junit.Test;
 
