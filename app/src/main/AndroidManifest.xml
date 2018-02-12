@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAaQ9psIfF5rGHmN_i2O2SqUh8rzAkoUCU"/>
         <activity
             android:name="com.dota.pearl18.pearlapp2018.Articles.MainActivity"
             android:label="@string/app_name"
