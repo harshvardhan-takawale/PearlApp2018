@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
                 PlaceDetectionClient mPlaceDetectionClient;
 
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
-                    mPlaceDetectionClient = Places.getPlaceDetectionClient(this, null);
+                    mPlaceDetectionClient = Places.getPlaceDetectionClient(getApplicationContext(), null);
                     Task<PlaceLikelihoodBufferResponse> placeResult = mPlaceDetectionClient.getCurrentPlace(null);
                     placeResult.addOnCompleteListener(new OnCompleteListener<PlaceLikelihoodBufferResponse>() {
                         @Override
