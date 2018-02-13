@@ -1,23 +1,20 @@
 package com.dota.pearl18.pearlapp2018.Articles;
 
-import android.Manifest;
 import android.content.Intent;
+
+import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
+import com.dota.pearl18.pearlapp2018.activities.MapsActivity;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
@@ -29,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
     private Button contactUsButton;
     private Button TreasureHuntButton;
+
+    Button mGuideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mGuideBtn = findViewById(R.id.main_guide_btn);
+        mGuideBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+            }
+        });
 
         TreasureHuntButton = findViewById(R.id.treasure);
 
