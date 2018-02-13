@@ -1,6 +1,7 @@
 package com.dota.pearl18.pearlapp2018.Articles;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
@@ -25,12 +27,22 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
+    private Button contactUsButton;
     private Button TreasureHuntButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        contactUsButton = findViewById(R.id.contact_us);
+        contactUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         TreasureHuntButton = findViewById(R.id.treasure);
@@ -67,6 +79,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 }
