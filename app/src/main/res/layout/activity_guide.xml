@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dota.pearl18.pearlapp2018.guide.GuideActivity"
+    android:orientation="vertical"
+    android:layout_margin="50dp"
+    android:padding="16dp">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guide_about_btn"
+        android:text="ABOUT"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guide_reach_btn"
+        android:text="REACH US"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guide_map_btn"
+        android:text="CAMPUS MAP"/>
+
+</LinearLayout>
