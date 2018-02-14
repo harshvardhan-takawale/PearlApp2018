@@ -21,5 +21,5 @@
     string in this file.
     -->
     <!-- TODO: Change The Maps Key -->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCKtS6MufYMwIY4NfqI-ojcr2VhdIoTxKM</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB1XaiMjb3mPHnAG5JR3urnGF6-jbzQecc</string>
 </resources>
