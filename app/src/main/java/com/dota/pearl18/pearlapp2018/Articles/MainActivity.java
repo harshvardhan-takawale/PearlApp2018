@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
 import com.dota.pearl18.pearlapp2018.activities.MapsActivity;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
     private Button contactUsButton;
     private Button TreasureHuntButton;
+    private Button creditsButton;
 
     Button mGuideBtn;
 
@@ -38,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         contactUsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this, ContactsActivity.class));
             }
         });
 
@@ -48,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+            }
+        });
+
+        creditsButton = findViewById(R.id.credits);
+        creditsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CreditsActivity.class));
             }
         });
 
