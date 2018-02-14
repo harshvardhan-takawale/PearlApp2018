@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.activities.MapsActivity;
+import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mGuideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                startActivity(new Intent(getApplicationContext(),GuideActivity.class));
             }
         });
 
