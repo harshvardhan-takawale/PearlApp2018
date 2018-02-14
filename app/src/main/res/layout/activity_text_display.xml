@@ -4,13 +4,13 @@
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121"
+    android:background="#fff"
     tools:context=".Articles.TextDisplayActivity">
 
     <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/tv_display"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:breakStrategy="simple"
         android:layout_width="match_parent"
         android:textSize="18sp"
