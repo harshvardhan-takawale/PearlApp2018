@@ -14,14 +14,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
-<<<<<<< HEAD
 import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
-import com.dota.pearl18.pearlapp2018.activities.MapsActivity;
-||||||| merged common ancestors
-import com.dota.pearl18.pearlapp2018.activities.MapsActivity;
-=======
 import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
->>>>>>> 046c0a10e72217fdcc9f08f243d0ffdd50c83ec6
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
 import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
