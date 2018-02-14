@@ -31,8 +31,8 @@
             android:name=".activities.ContactsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".guide.MapsActivity" />
-        <activity android:name=".activities.TextDisplayActivity" />
-        <activity android:name=".guide.GuideActivity"></activity>
+        <activity android:name=".guide.GuideActivity"/>
+        <activity android:name=".Articles.TextDisplayActivity"/>
     </application>
 
 </manifest>
