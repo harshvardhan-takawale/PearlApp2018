@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button contactUsButton;
     private Button TreasureHuntButton;
     private Button creditsButton;
+    private Button RegisterButton;
 
     Button mGuideBtn;
 
@@ -57,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, CreditsActivity.class));
+            }
+        });
+
+        RegisterButton = findViewById(R.id.register);
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.bits-pearl.org/"); 
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
 
