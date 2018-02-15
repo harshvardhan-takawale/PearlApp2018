@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1002142500931",
+    "firebase_url": "https://pearl-app-2018.firebaseio.com",
+    "project_id": "pearl-app-2018",
+    "storage_bucket": "pearl-app-2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002142500931:android:92bc309cb15c6abe",
+        "android_client_info": {
+          "package_name": "com.dota.pearl18.pearlapp2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002142500931-3c1ubv6sre3p41lr0bedvulir8r5efge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dota.pearl18.pearlapp2018",
+            "certificate_hash": "84cdc68a04f9e12b4a9154d3f32dd2fb86a94ac1"
+          }
+        },
+        {
+          "client_id": "1002142500931-fbc22nqgm5hv1rgk4eism06jc8idr3gk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQOFWDXKlnYDxZJcDut19ArvygDOk8oKw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002142500931-fbc22nqgm5hv1rgk4eism06jc8idr3gk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

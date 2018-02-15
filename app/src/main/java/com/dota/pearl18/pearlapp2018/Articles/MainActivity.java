@@ -16,6 +16,7 @@ import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
+import com.dota.pearl18.pearlapp2018.activities.TreasureHuntActivity;
 import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
 import com.google.android.gms.location.places.PlaceDetectionClient;
 import com.google.android.gms.location.places.PlaceLikelihood;
@@ -23,6 +24,7 @@ import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseApp.initializeApp(this);
 
         contactUsButton = findViewById(R.id.contact_us);
         contactUsButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                PlaceDetectionClient mPlaceDetectionClient;
+                startActivity(new Intent(MainActivity.this, TreasureHuntActivity.class));
+
+               /* PlaceDetectionClient mPlaceDetectionClient;
 
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
@@ -98,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                     return;
-                }
+                }*/
             }
         });
 
