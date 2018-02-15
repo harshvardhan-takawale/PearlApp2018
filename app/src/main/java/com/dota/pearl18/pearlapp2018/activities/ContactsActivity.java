@@ -36,12 +36,17 @@ public class ContactsActivity extends AppCompatActivity {
         }
         @Override
         public Fragment getItem(int position) {
+            Bundle args = new Bundle();
             switch(position){
                 case 0:
-                    OrganisersFragment organisersFragment = new OrganisersFragment();
+                    ContactsFragment organisersFragment = new ContactsFragment();
+                    args.putInt(ContactsFragment.CONTACTS_SWITCH, 0);
+                    organisersFragment.setArguments(args);
                     return organisersFragment;
                 case 1:
-                    ClubSenateFragment clubSenateFragment = new ClubSenateFragment();
+                    ContactsFragment clubSenateFragment = new ContactsFragment();
+                    args.putInt(ContactsFragment.CONTACTS_SWITCH, 1);
+                    clubSenateFragment.setArguments(args);
                     return clubSenateFragment;
             }
             return null;
