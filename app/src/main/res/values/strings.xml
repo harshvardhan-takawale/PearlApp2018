@@ -15,4 +15,42 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="organiser_names">
+        <item>Abhinav Ettireddy</item>
+        <item>Aditya Iyer</item>
+        <item>Chandan Kumar</item>
+        <item>K Vaishnavi Reddy</item>
+        <item>Manas Bansal</item>
+        <item>Uday Yalamanchili</item>
+        <item>Mayank</item>
+        <item>Pratik Vishwajit Bhavsar</item>
+        <item>Abhishek Yadav</item>
+        <item>Nunna Krishna Teja</item>
+        <item>Mohit Goyal</item>
+        <item>Nagaraju M.</item>
+        <item>Ananthula Pavan Kumar</item>
+        <item>Pradeep Reddy Sagili</item>
+        <item>Girish Nadiger</item>
+    </string-array>
+
+    <string-array name="organisers_designations">
+        <item>President</item>
+        <item>General Secretary</item>
+        <item>Cultural Secretary(Boys)</item>
+        <item>Cultural Secretary(Girls)</item>
+        <item>Sponsorship and Marketing</item>
+        <item>Publicity</item>
+        <item>Photography</item>
+        <item>Hospitality</item>
+        <item>Technical Arts</item>
+        <item>Visual Effects</item>
+        <item>Lights and Sound</item>
+        <item>Arts and Decoration</item>
+        <item>Controlz</item>
+        <item>Professional Events</item>
+        <item>Recreational Activities</item>
+    </string-array>
+
+    <string name="places_api">AIzaSyA58q_mMRmAW6MIguA9e8e_jNKL9E_FBO8</string>
+
 </resources>

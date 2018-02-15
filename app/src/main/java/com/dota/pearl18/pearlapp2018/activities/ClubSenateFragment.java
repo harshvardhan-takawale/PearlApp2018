@@ -19,6 +19,7 @@ public class ClubSenateFragment extends Fragment {
     RecyclerView mRecyclerView;
     ContactAdapter mContactAdapter;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

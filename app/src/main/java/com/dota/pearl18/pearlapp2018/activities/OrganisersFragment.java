@@ -1,5 +1,6 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,10 @@ public class OrganisersFragment extends Fragment {
     RecyclerView mRecyclerView;
     ContactAdapter mContactAdapter;
 
+    private String[] names, designations;
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +32,10 @@ public class OrganisersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        Resources res = container.getResources();
+        names = res.getStringArray(R.array.organiser_names);
+        designations = res.getStringArray(R.array.organisers_designations);
         return inflater.inflate(R.layout.fragment_organisers, container, false);
     }
 
@@ -44,8 +52,8 @@ public class OrganisersFragment extends Fragment {
     }
 
     public void feedData(){
-        for(int i = 1; i < 20 ; i++){
-            data.add(new Contact("Organiser: " + i, "Designation: " + i));
+        for(int i = 0; i < 12 ; i++){
+            data.add(new Contact(names[i],designations[i]));
         }
     }
 
