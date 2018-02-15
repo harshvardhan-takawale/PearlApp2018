@@ -322,8 +322,7 @@
             android:layout_marginTop="8dp"
             android:text="CLOSE"
             android:textColor="@android:color/white"
-            android:alpha="0.5"
-            app:font='@{"SF-UI-Display-Semibold.ttf"}' />
+            android:alpha="0.5" />
     </LinearLayout>
 
     <LinearLayout
