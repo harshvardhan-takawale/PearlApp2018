@@ -1,10 +1,13 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
@@ -36,9 +39,19 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     }
 
     @Override
-    public void onBindViewHolder(ContactViewHolder holder, int position) {
+    public void onBindViewHolder(final ContactViewHolder holder, int position) {
         holder.name.setText(mArrayList.get(position).getName());
         holder.designation.setText(mArrayList.get(position).getDesignation());
+        holder.callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mobile = mArrayList.get(holder.getAdapterPosition()).getMobile();
+                if(mobile != null){
+                    Uri number = Uri.parse("tel:" + mArrayList.get(holder.getAdapterPosition()).getMobile());
+                    holder.itemView.getContext().startActivity(new Intent(Intent.ACTION_DIAL, number));
+                }
+            }
+        });
     }
 
     @Override
@@ -49,10 +62,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     public class ContactViewHolder extends RecyclerView.ViewHolder{
         TextView name;
         TextView designation;
+        ImageView callButton;
         public ContactViewHolder(View view){
             super(view);
             name = view.findViewById(R.id.name);
             designation = view.findViewById(R.id.designation);
+            callButton = view.findViewById(R.id.call_button);
         }
     }
 }

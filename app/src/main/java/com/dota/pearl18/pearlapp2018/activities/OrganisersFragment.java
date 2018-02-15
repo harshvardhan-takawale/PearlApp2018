@@ -20,7 +20,7 @@ public class OrganisersFragment extends Fragment {
     RecyclerView mRecyclerView;
     ContactAdapter mContactAdapter;
 
-    private String[] names, designations;
+    private String[] names, designations, numbers;
 
 
 
@@ -36,6 +36,7 @@ public class OrganisersFragment extends Fragment {
         Resources res = container.getResources();
         names = res.getStringArray(R.array.organiser_names);
         designations = res.getStringArray(R.array.organisers_designations);
+        numbers = res.getStringArray(R.array.organisers_phone_numbers);
         return inflater.inflate(R.layout.fragment_organisers, container, false);
     }
 
@@ -53,7 +54,7 @@ public class OrganisersFragment extends Fragment {
 
     public void feedData(){
         for(int i = 0; i < 12 ; i++){
-            data.add(new Contact(names[i],designations[i]));
+            data.add(new Contact(names[i],designations[i],numbers[i]));
         }
     }
 

@@ -46,7 +46,7 @@ public class ClubSenateFragment extends Fragment {
 
     public void feedData(){
         for(int i = 1; i < 20 ; i++){
-            data.add(new Contact("Name: " + i, "Designation: " + i));
+            data.add(new Contact("Name: " + i, "Designation: " + i, null));
         }
     }
 }

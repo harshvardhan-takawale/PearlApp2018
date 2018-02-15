@@ -28,14 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.ContactsActivity" />
+        <activity android:name=".activities.ContactsActivity"
+            android:label="Contact Us"
+            android:parentActivityName=".Articles.MainActivity"/>
         <activity android:name=".activities.TreasureHuntActivity" />
         <activity android:name=".guide.GuideActivity"/>
         <activity android:name=".guide.MapsActivity"/>
         <activity android:name=".Articles.TextDisplayActivity"/>
         <activity android:name=".activities.CreditsActivity"
-            android:label="App Credits">
+            android:label="App Credits"
+            android:parentActivityName=".Articles.MainActivity">
         </activity>
         <activity android:name=".activities.EventsActivity"
             android:theme="@style/AppTheme.NoActionBar">

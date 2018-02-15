@@ -7,12 +7,13 @@ import com.dota.pearl18.pearlapp2018.R;
  */
 
 public class Contact {
-    private int mImage;
+
     private String mName, mDesignation, mMobile;
 
-    public Contact(String name, String designation){
+    public Contact(String name, String designation, String mobile){
         mName = name;
         mDesignation = designation;
+        mMobile = mobile;
     }
 
     public String getName() {
@@ -21,5 +22,9 @@ public class Contact {
 
     public String getDesignation() {
         return mDesignation;
+    }
+
+    public String getMobile() {
+        return mMobile;
     }
 }
