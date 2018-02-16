@@ -25,9 +25,10 @@
         android:text="Pro Shows"/>
 
     <Button
+        android:id="@+id/schedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Schedule"/>
+        android:text="Schedule" />
 
     <Button
         android:id="@+id/main_guide_btn"
