@@ -90,7 +90,7 @@
             app:layout_constraintRight_toRightOf="@+id/header_text_2">
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/htv_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.8"
@@ -101,7 +101,7 @@
                 android:textSize="@dimen/header_name_text_size" />
 
             <TextView
-                android:id="@+id/tv_info"
+                android:id="@+id/htv_desc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.5"

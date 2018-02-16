@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ArticleDetails {
     @SerializedName("_id")
     String id;
-    @SerializedName("title")
+    @SerializedName("eventName")
     String title;
     @SerializedName("text")
     String content;
