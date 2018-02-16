@@ -10,9 +10,10 @@
     tools:showIn="@layout/activity_main">
 
     <Button
+        android:id="@+id/display_events"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EVENTS"/>
+        android:text="EVENTS" />
 
     <Button
         android:layout_width="match_parent"

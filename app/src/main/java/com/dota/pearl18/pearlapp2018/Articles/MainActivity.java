@@ -16,6 +16,7 @@ import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
+import com.dota.pearl18.pearlapp2018.activities.EventsActivity;
 import com.dota.pearl18.pearlapp2018.activities.ScheduleActivity;
 import com.dota.pearl18.pearlapp2018.activities.TreasureHuntActivity;
 import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button contactUsButton;
     private Button TreasureHuntButton;
     private Button creditsButton;
-    private Button RegisterButton,Schedule;
+    private Button RegisterButton,Schedule,Events;
 
     Button mGuideBtn;
 
@@ -84,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Events=findViewById(R.id.display_events);
+        Events.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, EventsActivity.class));
+            }
+        });
 
         TreasureHuntButton = findViewById(R.id.treasure);
 

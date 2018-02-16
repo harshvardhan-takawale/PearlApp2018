@@ -27,7 +27,7 @@ public class OuterAdapter extends TailAdapter<OuterItem> {
 
     @Override
     public OuterItem onCreateViewHolder(ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_outer_item, parent, false);
         return new OuterItem(view, mPool);
     }
 
