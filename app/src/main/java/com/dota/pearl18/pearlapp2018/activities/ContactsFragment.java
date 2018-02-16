@@ -36,9 +36,21 @@ public class ContactsFragment extends Fragment {
                              Bundle savedInstanceState) {
         switchContacts = getArguments().getInt(CONTACTS_SWITCH);
         Resources res = container.getResources();
-        names = res.getStringArray(R.array.organiser_names);
-        designations = res.getStringArray(R.array.organisers_designations);
-        numbers = res.getStringArray(R.array.organisers_phone_numbers);
+        switch(switchContacts){
+            case 0:
+                names = res.getStringArray(R.array.organiser_names);
+                designations = res.getStringArray(R.array.organisers_designations);
+                numbers = res.getStringArray(R.array.organisers_phone_numbers);
+                break;
+            case 1:
+                names = res.getStringArray(R.array.club_secretaries);
+                designations = res.getStringArray(R.array.club_names);
+                numbers = res.getStringArray(R.array.club_senate_phone_numbers);
+                break;
+        }
+
+
+
         return inflater.inflate(R.layout.fragment_club_senate, container, false);
     }
 
@@ -55,15 +67,8 @@ public class ContactsFragment extends Fragment {
     }
 
     public void feedData(){
-        switch (switchContacts){
-            case 0:
-                for(int i = 0; i < 12 ; i++){
-                    data.add(new Contact(names[i],designations[i],numbers[i]));
-                }
-            case 1:
-                for(int i = 1; i < 12 ; i++){
-                    data.add(new Contact("Name: " + i, "Designation: " + i, null));
-                }
+        for(int i = 0; i < 12 ; i++){
+            data.add(new Contact(names[i],designations[i],numbers[i]));
         }
     }
 }

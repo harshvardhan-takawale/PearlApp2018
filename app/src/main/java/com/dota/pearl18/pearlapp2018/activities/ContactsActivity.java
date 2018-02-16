@@ -37,19 +37,19 @@ public class ContactsActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             Bundle args = new Bundle();
+            ContactsFragment contactsFragment = new ContactsFragment();
             switch(position){
+                //Organisers Contact List
                 case 0:
-                    ContactsFragment organisersFragment = new ContactsFragment();
                     args.putInt(ContactsFragment.CONTACTS_SWITCH, 0);
-                    organisersFragment.setArguments(args);
-                    return organisersFragment;
+                    break;
+                //Club Senate Contact List
                 case 1:
-                    ContactsFragment clubSenateFragment = new ContactsFragment();
                     args.putInt(ContactsFragment.CONTACTS_SWITCH, 1);
-                    clubSenateFragment.setArguments(args);
-                    return clubSenateFragment;
+                    break;
             }
-            return null;
+            contactsFragment.setArguments(args);
+            return contactsFragment;
         }
 
         @Override
