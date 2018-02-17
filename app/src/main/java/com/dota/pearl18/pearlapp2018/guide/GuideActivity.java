@@ -7,6 +7,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,8 +28,9 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
-        Button mMapBtn = findViewById(R.id.guide_map_btn);
-        mMapBtn.setOnClickListener(new View.OnClickListener() {
+        //Button mMapBtn = findViewById(R.id.guide_map_btn);
+        CardView mMapCard = findViewById(R.id.cardOne);
+        mMapCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 permCheck = ContextCompat.checkSelfPermission(GuideActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
@@ -40,8 +42,9 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 
-        Button mAboutBtn = findViewById(R.id.guide_about_btn);
-        mAboutBtn.setOnClickListener(new View.OnClickListener() {
+        CardView mAboutCard = findViewById(R.id.cardTwo);
+        //Button mAboutBtn = findViewById(R.id.guide_about_btn);
+        mAboutCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent aboutIntent = new Intent(GuideActivity.this, TextDisplayActivity.class);
@@ -50,8 +53,9 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 
-        Button mReachBtn = findViewById(R.id.guide_reach_btn);
-        mReachBtn.setOnClickListener(new View.OnClickListener() {
+        CardView mReachCard = findViewById(R.id.cardThree);
+        // mReachBtn = findViewById(R.id.guide_reach_btn);
+        mReachCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent reachUsIntent = new Intent(GuideActivity.this,TextDisplayActivity.class);
