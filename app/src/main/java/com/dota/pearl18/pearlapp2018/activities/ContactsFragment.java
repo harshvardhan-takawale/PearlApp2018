@@ -67,14 +67,8 @@ public class ContactsFragment extends Fragment {
     }
 
     public void feedData(){
-        if (switchContacts ==0) {
-            for (int i = 0; i < 15; i++) {
-                data.add(new Contact(names[i], designations[i], numbers[i]));
-            }
-        }else if (switchContacts == 1){
-            for (int i = 0; i < 14; i++) {
-                data.add(new Contact(names[i], designations[i], numbers[i]));
-            }
+        for(int i = 0; i < names.length ; i++){
+            data.add(new Contact(names[i],designations[i],numbers[i]));
         }
     }
 }
