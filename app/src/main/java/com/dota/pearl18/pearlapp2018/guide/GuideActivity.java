@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,39 +29,21 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
-        //Button mMapBtn = findViewById(R.id.guide_map_btn);
-        CardView mMapCard = findViewById(R.id.cardOne);
-        mMapCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                permCheck = ContextCompat.checkSelfPermission(GuideActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
-                if (permCheck == PERMISSION_DENIED) {
-                    ActivityCompat.requestPermissions(GuideActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-                } else {
-                    startActivity(new Intent(GuideActivity.this,MapsActivity.class));
-                }
-            }
-        });
-
         CardView mAboutCard = findViewById(R.id.cardTwo);
-        //Button mAboutBtn = findViewById(R.id.guide_about_btn);
         mAboutCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent aboutIntent = new Intent(GuideActivity.this, TextDisplayActivity.class);
-                aboutIntent.putExtra("text","about");
-                startActivity(aboutIntent);
+                animateText(view,"about");
             }
         });
+
 
         CardView mReachCard = findViewById(R.id.cardThree);
         // mReachBtn = findViewById(R.id.guide_reach_btn);
         mReachCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent reachUsIntent = new Intent(GuideActivity.this,TextDisplayActivity.class);
-                reachUsIntent.putExtra("text","dir");
-                startActivity(reachUsIntent);
+                animateText(view,"dir");
             }
         });
     }
@@ -79,5 +62,36 @@ public class GuideActivity extends AppCompatActivity {
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+    }
+
+    public void animateMaps(View view) {
+        permCheck = ContextCompat.checkSelfPermission(GuideActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (permCheck == PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(GuideActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        } else {
+            Intent intent = new Intent(GuideActivity.this,MapsActivity.class);
+
+            // Get the transition name from the string
+            String transitionName = getString(R.string.transition_string);
+
+            // Define the view that the animation will start from
+            View viewStart = findViewById(R.id.cardOne);
+
+            ActivityOptionsCompat options =
+
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                            viewStart,   // Starting view
+                            transitionName    // The String
+                    );
+            //Start the Intent
+            ActivityCompat.startActivity(this, intent, options.toBundle());
+        }
+
+    }
+
+    public void animateText(View view, String text) {
+        Intent aboutIntent = new Intent(GuideActivity.this, TextDisplayActivity.class);
+        aboutIntent.putExtra("text",text);
+        startActivity(aboutIntent);
     }
 }

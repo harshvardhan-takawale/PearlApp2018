@@ -206,4 +206,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             78.575632,
             78.575606,
             78.574045};
-}
+    }

@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:transitionName="@string/transition_string"
     tools:context="com.dota.pearl18.pearlapp2018.guide.MapsActivity">
 
     <com.quinny898.library.persistentsearch.SearchBox

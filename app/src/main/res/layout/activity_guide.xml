@@ -25,6 +25,8 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardOne"
+                android:onClick="animateMaps"
+                android:transitionName="@string/transition_string"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_margin="24dp"
