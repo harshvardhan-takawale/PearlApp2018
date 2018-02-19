@@ -67,7 +67,7 @@ public class ContactsFragment extends Fragment {
     }
 
     public void feedData(){
-        for(int i = 0; i < 12 ; i++){
+        for(int i = 0; i < names.length ; i++){
             data.add(new Contact(names[i],designations[i],numbers[i]));
         }
     }
