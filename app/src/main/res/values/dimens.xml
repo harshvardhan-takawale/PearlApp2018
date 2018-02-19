@@ -35,4 +35,7 @@
     <dimen name="profile_texts_h_offset">32dp</dimen>
     <dimen name="profile_texts_v_max_offset">66dp</dimen>
     <dimen name="profile_texts_v_min_offset">8dp</dimen>
+
+    <dimen name="margin_side">40dp</dimen>
+    <dimen name="landing_row_height">200dp</dimen>
 </resources>

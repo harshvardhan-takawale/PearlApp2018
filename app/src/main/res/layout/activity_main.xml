@@ -50,6 +50,7 @@
         android:text="Contact us"/>
 
     <Button
+        android:id="@+id/sponsors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sponsors"/>
