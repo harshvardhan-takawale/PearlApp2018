@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.api.ScheduleData;
+import com.dota.pearl18.pearlapp2018.api.EventDetails;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ScheduleFragment extends Fragment
 {
     private RecyclerView recyclerView;
     private ScheduleAdapter adapter;
-    private List<ScheduleData> list;
+    private List<EventDetails> list;
 
 
     @Nullable

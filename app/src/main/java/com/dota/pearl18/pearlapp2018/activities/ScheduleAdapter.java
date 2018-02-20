@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.api.ScheduleData;
+import com.dota.pearl18.pearlapp2018.api.EventDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
 
-    List<ScheduleData> list = new ArrayList<>();
+    List<EventDetails> list = new ArrayList<>();
     Context context;
 
 
-    public ScheduleAdapter(List<ScheduleData> list,Context context)
+    public ScheduleAdapter(List<EventDetails> list,Context context)
     {
         this.list = list;
         this.context  =context;
