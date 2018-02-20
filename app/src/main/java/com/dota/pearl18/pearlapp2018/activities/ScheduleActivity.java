@@ -8,6 +8,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.dota.pearl18.pearlapp2018.R;
 
@@ -16,6 +17,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private PagerAdapter adapter;
     private TabLayout tabs;
+    private String TAG = ScheduleActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,7 @@ public class ScheduleActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            ScheduleFragment fragment = new ScheduleFragment();
+           ScheduleFragment fragment = new ScheduleFragment();
             return fragment;
         }
 

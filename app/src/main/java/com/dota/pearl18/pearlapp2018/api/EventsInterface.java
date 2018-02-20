@@ -11,9 +11,9 @@ import retrofit2.http.GET;
 
 public interface EventsInterface {
 
-    @GET("event")
+    @GET("events")
     Call<ArrayList<EventDetails>> getEvents();
 
-    @GET("event/schedule")
+    @GET("events/schedule")
     Call<ArrayList<EventDetails>> getEventSchedule();
 }

@@ -14,10 +14,10 @@ public class EventDetails {
     @SerializedName("name")
     String eventname;
 
-    @SerializedName("starttime")
+    @SerializedName("startTime")
     String starttime;
 
-    @SerializedName("endtime")
+    @SerializedName("endTime")
     String endtime;
 
     public EventDetails(String eventid, String eventname, String starttime, String endtime) {

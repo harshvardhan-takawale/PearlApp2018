@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.EventDetails;
@@ -37,17 +38,20 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+       holder.event_name.setText(list.get(position).getEventname());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        if(list!=null){return list.size();}
+        return 0;
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
+        TextView event_name;
         public ViewHolder(View itemView) {
             super(itemView);
+            event_name = itemView.findViewById(R.id.event_name);
         }
     }
 }
