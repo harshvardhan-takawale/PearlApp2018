@@ -4,6 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     }
 
-    public  class viewpageradapter extends FragmentPagerAdapter {
+    public  class viewpageradapter extends FragmentStatePagerAdapter{
 
         public viewpageradapter(FragmentManager fm) {
             super(fm);
@@ -39,8 +40,7 @@ public class ScheduleActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-           ScheduleFragment fragment = new ScheduleFragment();
-            return fragment;
+            return ScheduleFragment.newInstance(position);
         }
 
         @Override
@@ -50,18 +50,9 @@ public class ScheduleActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Day1";
-                case 1:
-                    return "Day2";
-                case 2:
-                    return "Day3";
-
-
-            }
-            return null;
+            return "Day"+String.valueOf(position+1) ;
         }
-        }
+    }
+
 
 }

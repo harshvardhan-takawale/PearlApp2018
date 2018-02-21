@@ -28,8 +28,27 @@ public class ScheduleFragment extends Fragment
 {
     private RecyclerView recyclerView;
     private ScheduleAdapter adapter;
-    private List<EventDetails> list;
+    private List<EventDetails> list = new ArrayList<>();
+    private List<EventDetails> page_list = new ArrayList<>();
     private  String TAG = "ScheduleFragment";
+    private int page;
+    private String day;
+    public static ScheduleFragment newInstance(int page)
+    {
+        ScheduleFragment fragment = new ScheduleFragment();
+        Bundle args = new Bundle();
+        args.putInt("page_no",page);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        page = getArguments().getInt("page_no",0);
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +59,7 @@ public class ScheduleFragment extends Fragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
-        adapter = new ScheduleAdapter(list,getContext());
+        adapter = new ScheduleAdapter(page_list,getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         EventsInterface apiservice = ApiClient.getClient().create(EventsInterface.class);
@@ -49,6 +68,17 @@ public class ScheduleFragment extends Fragment
             @Override
             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
                 list = response.body();
+
+                int i=0, n=0;
+                switch(page){
+                    case 0 : i=0;n=9;break;
+                    case 1 : i=9;n=15;break;
+                    case 2 : i=15;n=list.size();break;
+                }
+                for(int k=i;k<n;k++)
+                {
+                    page_list.add(list.get(k));
+                }
                 adapter.notifyDataSetChanged();
             }
 

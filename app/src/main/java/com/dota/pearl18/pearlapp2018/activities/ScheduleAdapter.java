@@ -39,6 +39,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
        holder.event_name.setText(list.get(position).getEventname());
+       holder.event_time.setText(list.get(position).getStarttime());
     }
 
     @Override
@@ -48,10 +49,11 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
-        TextView event_name;
+        TextView event_name,event_time;
         public ViewHolder(View itemView) {
             super(itemView);
             event_name = itemView.findViewById(R.id.event_name);
+            event_time = itemView.findViewById(R.id.event_time);
         }
     }
 }
