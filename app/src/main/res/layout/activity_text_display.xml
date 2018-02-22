@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".Articles.TextDisplayActivity">
+    tools:context=".activities.TextDisplayActivity">
 
     <com.uncopt.android.widget.text.justify.JustifiedTextView
         android:id="@+id/tv_display"

@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.dota.pearl18.pearlapp2018.Articles.TextDisplayActivity;
 import com.dota.pearl18.pearlapp2018.R;
 
 import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
