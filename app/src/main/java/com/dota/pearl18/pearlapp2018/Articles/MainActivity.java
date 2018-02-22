@@ -3,14 +3,10 @@ package com.dota.pearl18.pearlapp2018.Articles;
 import android.content.Intent;
 
 import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
-import android.Manifest;
-import android.content.pm.PackageManager;
+
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,13 +16,7 @@ import com.dota.pearl18.pearlapp2018.activities.EventsActivity;
 import com.dota.pearl18.pearlapp2018.activities.ScheduleActivity;
 import com.dota.pearl18.pearlapp2018.activities.SponsorsActivity;
 import com.dota.pearl18.pearlapp2018.activities.TreasureHuntActivity;
-import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
-import com.google.android.gms.location.places.PlaceDetectionClient;
-import com.google.android.gms.location.places.PlaceLikelihood;
-import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
-import com.google.android.gms.location.places.Places;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.dota.pearl18.pearlapp2018.activities.GuideActivity;
 import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {

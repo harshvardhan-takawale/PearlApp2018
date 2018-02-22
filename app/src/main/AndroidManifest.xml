@@ -34,8 +34,8 @@
             android:label="Contact Us"
             android:parentActivityName=".Articles.MainActivity"/>
         <activity android:name=".activities.TreasureHuntActivity"/>
-        <activity android:name=".guide.GuideActivity"/>
-        <activity android:name=".guide.MapsActivity"/>
+        <activity android:name=".activities.GuideActivity"/>
+        <activity android:name=".activities.MapsActivity"/>
         <activity android:name=".Articles.TextDisplayActivity"/>
         <activity
             android:name=".activities.CreditsActivity"

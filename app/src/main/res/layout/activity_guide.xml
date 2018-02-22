@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dota.pearl18.pearlapp2018.guide.GuideActivity"
+    tools:context="com.dota.pearl18.pearlapp2018.activities.GuideActivity"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#000000">
@@ -48,27 +48,17 @@
                 android:padding="2dp"
                 android:visibility="gone"/>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardTwo"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_margin="24dp"
-                android:layout_toEndOf="@+id/cardOne"
-                android:background="#000"
-                android:clickable="true"
-                android:padding="2dp"
-                android:visibility="gone"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guide_reach_btn"
+                android:text="@string/reach_us"/>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardThree"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_margin="24dp"
-                android:layout_toEndOf="@+id/cardTwo"
-                android:background="#fff"
-                android:clickable="true"
-                android:padding="2dp"
-                android:visibility="gone"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guide_about_btn"
+                android:text="@string/about_us"/>
 
         </RelativeLayout>
     </HorizontalScrollView>

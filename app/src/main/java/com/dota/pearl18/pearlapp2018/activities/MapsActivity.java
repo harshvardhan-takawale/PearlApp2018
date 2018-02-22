@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.guide;
+package com.dota.pearl18.pearlapp2018.activities;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
