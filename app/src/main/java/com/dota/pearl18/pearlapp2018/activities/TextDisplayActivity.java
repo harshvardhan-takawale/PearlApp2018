@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.Articles;
+package com.dota.pearl18.pearlapp2018.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;

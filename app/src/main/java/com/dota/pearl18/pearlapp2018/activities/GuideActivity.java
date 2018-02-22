@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.guide;
+package com.dota.pearl18.pearlapp2018.activities;
 
 import android.Manifest;
 import android.animation.ValueAnimator;
@@ -9,14 +9,12 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.dota.pearl18.pearlapp2018.Articles.TextDisplayActivity;
 import com.dota.pearl18.pearlapp2018.R;
 
 import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
@@ -32,26 +30,24 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
-        CardView mAboutCard = findViewById(R.id.cardTwo);
-        mAboutCard.setOnClickListener(new View.OnClickListener() {
+        Button mAboutBtn = findViewById(R.id.guide_about_btn);
+        mAboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 animateText(view,"about");
             }
         });
 
-
-        CardView mReachCard = findViewById(R.id.cardThree);
-        // mReachBtn = findViewById(R.id.guide_reach_btn);
-        mReachCard.setOnClickListener(new View.OnClickListener() {
+        Button mReachBtn = findViewById(R.id.guide_reach_btn);
+        mReachBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 animateText(view,"dir");
             }
         });
 
-        final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
-        final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_two);
+        final ImageView backgroundOne = findViewById(R.id.background_one);
+        final ImageView backgroundTwo = findViewById(R.id.background_two);
 
         final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -93,10 +89,8 @@ public class GuideActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(GuideActivity.this,MapsActivity.class);
 
-            // Get the transition name from the string
             String transitionName = getString(R.string.transition_string);
 
-            // Define the view that the animation will start from
             View viewStart = findViewById(R.id.cardOne);
 
             ActivityOptionsCompat options =
@@ -105,7 +99,6 @@ public class GuideActivity extends AppCompatActivity {
                             viewStart,   // Starting view
                             transitionName    // The String
                     );
-            //Start the Intent
             ActivityCompat.startActivity(this, intent, options.toBundle());
         }
 

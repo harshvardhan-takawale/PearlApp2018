@@ -1,33 +1,13 @@
-package com.dota.pearl18.pearlapp2018.Articles;
+package com.dota.pearl18.pearlapp2018.activities;
 
 import android.content.Intent;
-
-import com.dota.pearl18.pearlapp2018.activities.ContactsActivity;
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
-import com.dota.pearl18.pearlapp2018.activities.EventsActivity;
-import com.dota.pearl18.pearlapp2018.activities.QRScannerActivity;
-import com.dota.pearl18.pearlapp2018.activities.ScheduleActivity;
-import com.dota.pearl18.pearlapp2018.activities.SponsorsActivity;
-import com.dota.pearl18.pearlapp2018.activities.TreasureHuntActivity;
-import com.dota.pearl18.pearlapp2018.guide.GuideActivity;
-import com.google.android.gms.location.places.PlaceDetectionClient;
-import com.google.android.gms.location.places.PlaceLikelihood;
-import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
-import com.google.android.gms.location.places.Places;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,9 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private Button contactUsButton;
     private Button TreasureHuntButton;
     private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, Sponsors;
+    private Button RegisterButton,Schedule,Events, Sponsors, mGuideBtn, newsButton;
 
-    Button mGuideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),GuideActivity.class));
+            }
+        });
+
+        newsButton = findViewById(R.id.main_news_btn);
+        newsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ArticleDisplayActivity.class));
             }
         });
 

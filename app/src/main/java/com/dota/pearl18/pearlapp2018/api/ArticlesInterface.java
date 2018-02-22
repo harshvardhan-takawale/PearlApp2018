@@ -12,9 +12,9 @@ import retrofit2.http.Query;
  */
 
 public interface ArticlesInterface {
-    @GET("news")
-    Call<ArrayList<ArticleDetails>> getArticlesList(@Query("fields") String fields);
+    @GET("feed")
+    Call<ArrayList<ArticleDetails>> getArticlesList(/*@Query("fields") String fields*/);
 
-    @GET("news/{id}")
+    @GET("feed/{id}")
     Call<ArticleDetails> getArticle(@Path("id") String id);
 }
