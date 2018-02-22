@@ -123,4 +123,7 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
     <string name="places_api">AIzaSyA58q_mMRmAW6MIguA9e8e_jNKL9E_FBO8</string>
     <string name="reach_us">Reach Us</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

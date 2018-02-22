@@ -47,6 +47,7 @@
         <activity android:name=".activities.ScheduleActivity"/>
         <activity android:name=".activities.SponsorsActivity">
         </activity>
+        <activity android:name=".activities.ArticleDisplayActivity"/>
     </application>
 
 </manifest>

@@ -16,9 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private Button contactUsButton;
     private Button TreasureHuntButton;
     private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, Sponsors;
+    private Button RegisterButton,Schedule,Events, Sponsors, mGuideBtn, newsButton;
 
-    Button mGuideBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),GuideActivity.class));
+            }
+        });
+
+        newsButton = findViewById(R.id.main_news_btn);
+        newsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ArticleDisplayActivity.class));
             }
         });
 

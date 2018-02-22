@@ -9,8 +9,10 @@ import java.util.ArrayList;
 public class ArticleDetails {
     @SerializedName("_id")
     String id;
-    @SerializedName("eventName")
+    @SerializedName("title")
     String title;
+    @SerializedName("updatedAt")
+    String time;
     @SerializedName("text")
     String content;
     @SerializedName("keywords")
@@ -18,9 +20,10 @@ public class ArticleDetails {
     @SerializedName("authors")
     ArrayList<String> authors;
 
-    public ArticleDetails(String id, String title, String content, ArrayList<String> keywords, ArrayList<String> authors) {
+    public ArticleDetails(String id,String title, String time, String content, ArrayList<String> keywords, ArrayList<String> authors) {
         this.id = id;
-        this.title = title;
+        this.title=title;//TODO: ADD TITLE when we get in response
+        this.time = time;
         this.content = content;
         this.keywords = keywords;
         this.authors = authors;
@@ -34,12 +37,20 @@ public class ArticleDetails {
         this.id = id;
     }
 
-    public String getTitle() {
+    public String getTitle(){
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title){
+        this.title=title;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getContent() {
