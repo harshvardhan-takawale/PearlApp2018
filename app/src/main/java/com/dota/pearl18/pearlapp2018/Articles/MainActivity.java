@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.CreditsActivity;
 import com.dota.pearl18.pearlapp2018.activities.EventsActivity;
+import com.dota.pearl18.pearlapp2018.activities.QRScannerActivity;
 import com.dota.pearl18.pearlapp2018.activities.ScheduleActivity;
 import com.dota.pearl18.pearlapp2018.activities.SponsorsActivity;
 import com.dota.pearl18.pearlapp2018.activities.TreasureHuntActivity;
@@ -134,8 +135,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        ((Button) findViewById(R.id.qrscan)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, QRScannerActivity.class));
+            }
+        });
 
     }
 
