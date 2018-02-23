@@ -19,13 +19,13 @@ import java.util.List;
 
 public class EventsActivity extends AppCompatActivity {
 
-    List<List<InnerData>> outerData;
+    //List<List<InnerData>> outerData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-
-        outerData = new ArrayList<>();
+        //TODO: Remove garland view commented portion if not to be used
+        /*outerData = new ArrayList<>();
         for (int i=0;i<5;i++) {
             final List<InnerData> innerData = new ArrayList<>();
             for (int j=0;j<5; j++) {
@@ -33,9 +33,11 @@ public class EventsActivity extends AppCompatActivity {
             }
             outerData.add(innerData);
         }
-        initRecyclerView(outerData);
+        initRecyclerView(outerData);*/
+
+
     }
-    private void initRecyclerView(List<List<InnerData>> data) {
+    /*private void initRecyclerView(List<List<InnerData>> data) {
 
         final TailRecyclerView rv = findViewById(R.id.tail_recycler);
         ((TailLayoutManager)rv.getLayoutManager()).setPageTransformer(new HeaderTransformer());
@@ -45,5 +47,5 @@ public class EventsActivity extends AppCompatActivity {
     public InnerData createInnerData()
     {
         return new InnerData("Dance","hello2","hello","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS",20000);
-    }
+    }*/
 }
