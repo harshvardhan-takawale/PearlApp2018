@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.dota.pearl18.pearlapp2018.api.ApiClient;
+import com.dota.pearl18.pearlapp2018.api.ClubDetails;
+import com.dota.pearl18.pearlapp2018.api.ClubInterface;
 import com.dota.pearl18.pearlapp2018.eventsAdapter.InnerData;
 import com.dota.pearl18.pearlapp2018.eventsAdapter.OuterAdapter;
 import com.ramotion.garlandview.TailLayoutManager;
@@ -17,13 +20,34 @@ import com.dota.pearl18.pearlapp2018.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class EventsActivity extends AppCompatActivity {
 
     //List<List<InnerData>> outerData;
+    ArrayList<ClubDetails> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
+
+        ClubInterface apiService = ApiClient.getClient().create(ClubInterface.class);
+        Call<ArrayList<ClubDetails>> call = apiService.getClubList();
+        call.enqueue(new Callback<ArrayList<ClubDetails>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ClubDetails>> call, Response<ArrayList<ClubDetails>> response) {
+                list=response.body();
+                Log.d("Bodies list",list.get(0).getName());
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
+                Log.e("Error:","Error in Connectivity");
+            }
+        });
+
         //TODO: Remove garland view commented portion if not to be used
         /*outerData = new ArrayList<>();
         for (int i=0;i<5;i++) {
