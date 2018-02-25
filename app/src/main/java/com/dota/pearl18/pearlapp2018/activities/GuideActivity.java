@@ -48,6 +48,7 @@ public class GuideActivity extends AppCompatActivity {
 
         final ImageView backgroundOne = findViewById(R.id.background_one);
         final ImageView backgroundTwo = findViewById(R.id.background_two);
+        final ImageView backgroundThree = findViewById(R.id.background_three);
 
         final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -58,9 +59,10 @@ public class GuideActivity extends AppCompatActivity {
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
                 final float width = backgroundOne.getWidth();
-                final float translationX = width * progress;
+                final float translationX = width * (progress * 2.0f);
                 backgroundOne.setTranslationX(translationX);
                 backgroundTwo.setTranslationX(translationX - width);
+                backgroundThree.setTranslationX(translationX - 2 * width);
             }
         });
         animator.start();

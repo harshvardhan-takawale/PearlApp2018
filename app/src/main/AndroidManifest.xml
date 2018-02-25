@@ -35,7 +35,7 @@
             android:label="Contact Us"
             android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.TreasureHuntActivity"/>
-        <activity android:name=".activities.GuideActivity"/>
+        <activity android:name=".activities.GuideActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activities.MapsActivity"/>
         <activity android:name=".activities.TextDisplayActivity"/>
         <activity
@@ -48,8 +48,6 @@
         <activity android:name=".activities.ScheduleActivity"/>
         <activity android:name=".activities.SponsorsActivity"/>
         <activity android:name=".activities.QRScannerActivity"/>
-        <activity android:name=".activities.SponsorsActivity">
-        </activity>
         <activity android:name=".activities.ArticleDisplayActivity"/>
     </application>
 

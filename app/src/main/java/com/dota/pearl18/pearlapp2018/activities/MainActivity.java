@@ -1,11 +1,14 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.google.firebase.FirebaseApp;
@@ -128,6 +131,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, QRScannerActivity.class));
             }
         });
+
+        final ImageView backgroundOne = findViewById(R.id.background_one);
+        final ImageView backgroundTwo = findViewById(R.id.background_two);
+        final ImageView backgroundThree = findViewById(R.id.background_three);
+
+        final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(10000L);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * (progress * 2.0f);
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX - width);
+                backgroundThree.setTranslationX(translationX - 2 * width);
+            }
+        });
+        animator.start();
 
     }
 
