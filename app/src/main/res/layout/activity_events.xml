@@ -6,10 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.dota.pearl18.pearlapp2018.activities.EventsActivity">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/event_viewer"
-        android:scrollbars="none">
-    </HorizontalScrollView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/club_recycler"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
 </android.support.constraint.ConstraintLayout>

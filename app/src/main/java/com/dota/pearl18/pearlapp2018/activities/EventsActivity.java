@@ -2,6 +2,9 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
@@ -28,17 +31,25 @@ public class EventsActivity extends AppCompatActivity {
 
     //List<List<InnerData>> outerData;
     ArrayList<ClubDetails> list;
+    private ClubAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
+        final RecyclerView recyclerView=findViewById(R.id.club_recycler);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         ClubInterface apiService = ApiClient.getClient().create(ClubInterface.class);
         Call<ArrayList<ClubDetails>> call = apiService.getClubList();
         call.enqueue(new Callback<ArrayList<ClubDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<ClubDetails>> call, Response<ArrayList<ClubDetails>> response) {
                 list=response.body();
+                adapter=new ClubAdapter(list);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
                 Log.d("Bodies list",list.get(0).getName());
             }
 
