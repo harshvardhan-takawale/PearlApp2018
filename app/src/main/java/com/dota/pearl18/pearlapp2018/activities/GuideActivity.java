@@ -46,6 +46,9 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 
+        // backgroundOne is the initially visible image. It will then be scrolled off the screen
+        // toward the left, and the other two will scroll in. This goes on till the third image
+        // i.e. backgroundThree perfectly fits the screen. After which we switch to backgroundOne.
         final ImageView backgroundOne = findViewById(R.id.background_one);
         final ImageView backgroundTwo = findViewById(R.id.background_two);
         final ImageView backgroundThree = findViewById(R.id.background_three);
@@ -59,10 +62,12 @@ public class GuideActivity extends AppCompatActivity {
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
                 final float width = backgroundOne.getWidth();
-                final float translationX = width * (progress * 2.0f);
-                backgroundOne.setTranslationX(translationX);
-                backgroundTwo.setTranslationX(translationX - width);
-                backgroundThree.setTranslationX(translationX - 2 * width);
+                // determine how much to the left should the image be shifted.
+                // when the animation terminates, backgroundOne should be at (-2 * width)
+                final float translationX = width * (progress * 2.0f); // this is a positive value
+                backgroundOne.setTranslationX(0 - translationX);
+                backgroundTwo.setTranslationX(width - translationX);
+                backgroundThree.setTranslationX(2 * width - translationX);
             }
         });
         animator.start();
