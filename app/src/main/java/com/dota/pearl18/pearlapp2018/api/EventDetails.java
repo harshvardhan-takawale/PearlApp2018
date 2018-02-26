@@ -2,11 +2,13 @@ package com.dota.pearl18.pearlapp2018.api;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by ashwik on 20-02-2018.
  */
 
-public class EventDetails {
+public class EventDetails extends RealmObject {
 
     @SerializedName("_id")
     String eventid ;
@@ -20,12 +22,9 @@ public class EventDetails {
     @SerializedName("endTime")
     String endtime;
 
-    public EventDetails(String eventid, String eventname, String starttime, String endtime) {
-        this.eventid = eventid;
-        this.eventname = eventname;
-        this.starttime = starttime;
-        this.endtime = endtime;
-    }
+    @SerializedName("tagline")
+    String eventDescription ;
+
 
     public String getEventid() {
         return eventid;
@@ -57,5 +56,13 @@ public class EventDetails {
 
     public void setEndtime(String endtime) {
         this.endtime = endtime;
+    }
+
+    public String getEventDescription() {
+        return eventDescription;
+    }
+
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 }

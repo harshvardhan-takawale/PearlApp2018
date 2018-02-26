@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
@@ -19,6 +20,8 @@ import com.dota.pearl18.pearlapp2018.api.EventsInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,10 +32,13 @@ public class ScheduleFragment extends Fragment
     private RecyclerView recyclerView;
     private ScheduleAdapter adapter;
     private List<EventDetails> list = new ArrayList<>();
-    private List<EventDetails> page_list = new ArrayList<>();
+    private List<EventDetails> realmlist = new ArrayList<>();
+    private Realm realm;
     private  String TAG = "ScheduleFragment";
     private int page;
     private String day;
+    private int i ;
+
     public static ScheduleFragment newInstance(int page)
     {
         ScheduleFragment fragment = new ScheduleFragment();
@@ -47,6 +53,7 @@ public class ScheduleFragment extends Fragment
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("page_no",0);
 
+
     }
 
     @Nullable
@@ -58,10 +65,19 @@ public class ScheduleFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        realm.init(getContext());
+        realm = Realm.getDefaultInstance();
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
-        adapter = new ScheduleAdapter(page_list,getContext());
+        adapter = new ScheduleAdapter(realmlist,getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        switch (page) {
+            case 0: CallApi();break;
+        }
+    }
+
+    private  void CallApi()
+    {
         EventsInterface apiservice = ApiClient.getClient().create(EventsInterface.class);
         Call<ArrayList<EventDetails>> call = apiservice.getEventSchedule();
         call.enqueue(new Callback<ArrayList<EventDetails>>() {
@@ -69,23 +85,67 @@ public class ScheduleFragment extends Fragment
             public void onResponse(Call<ArrayList<EventDetails>> call, Response<ArrayList<EventDetails>> response) {
                 list = response.body();
 
-                int i=0, n=0;
-                switch(page){
-                    case 0 : i=0;n=9;break;
-                    case 1 : i=9;n=15;break;
-                    case 2 : i=15;n=list.size();break;
-                }
-                for(int k=i;k<n;k++)
+                for(i=0;i<list.size();i++)
                 {
-                    page_list.add(list.get(k));
+                    addDatatoRealm(list.get(i));
+
                 }
-                adapter.notifyDataSetChanged();
+                getDatafromRealm(realm);
+                Log.e(TAG,"reach"+String.valueOf(list.size()));
+
             }
 
             @Override
             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
                 Log.e(TAG,"Error in Connectivity");
+                getDatafromRealm(realm);
             }
         });
+    }
+
+    private void addDatatoRealm(EventDetails details)
+    {
+        realm.beginTransaction();
+        EventDetails model = realm.where(EventDetails.class).equalTo("eventid",details.getEventid()).findFirst();
+        if(model==null)
+        {
+            EventDetails event = realm.createObject(EventDetails.class);
+            event.setEventid(details.getEventid());
+            event.setEventname(details.getEventname());
+            event.setStarttime(details.getStarttime());
+            event.setEventDescription(details.getEventDescription());
+        }
+        else
+        {
+            model.setEventname(details.getEventname());
+            model.setStarttime(details.getStarttime());
+            model.setEventDescription(details.getEventDescription());
+
+        }
+        realm.commitTransaction();
+
+    }
+
+    private void getDatafromRealm(Realm realm1)
+    {
+        if(realm1!=null)
+        {
+            realmlist = new ArrayList<>();
+            RealmResults<EventDetails> results = realm1.where(EventDetails.class).findAll();
+            Log.e(TAG,"results="+String.valueOf(results.size()));
+
+            if(results.size()==0)
+            {
+                Toast.makeText(getContext(),"NO Internet",Toast.LENGTH_SHORT).show();
+            }
+            for(int j=0;j<results.size();j++)
+            {
+                realmlist.add(results.get(j));
+            }
+            Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
+
+            recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext()));
+        }
+
     }
 }
