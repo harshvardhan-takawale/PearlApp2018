@@ -145,7 +145,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:text="Prize Money"
                 android:textColor="@color/mainTextColor"
@@ -156,11 +155,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_marginBottom="2dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_toLeftOf="@id/content_prize_view"
                 android:layout_toStartOf="@id/content_prize_view"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"
@@ -259,7 +255,7 @@
                 android:layout_marginStart="10dp"
                 android:autoSizeTextType="uniform"
                 android:drawablePadding="8dp"
-                android:gravity="right"
+                android:gravity="end"
                 android:textColor="@color/mainTextColor"
                 android:textSize="16sp"
                 tools:text="BITS Pilani Hyderabad Campus" />
@@ -267,6 +263,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

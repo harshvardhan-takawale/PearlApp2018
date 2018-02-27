@@ -1,5 +1,6 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -7,11 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.ClubDetails;
 import com.dota.pearl18.pearlapp2018.api.ClubInterface;
+import com.dota.pearl18.pearlapp2018.api.EventAbout;
 import com.dota.pearl18.pearlapp2018.eventsAdapter.InnerData;
 import com.dota.pearl18.pearlapp2018.eventsAdapter.OuterAdapter;
 import com.ramotion.garlandview.TailLayoutManager;
@@ -20,6 +23,10 @@ import com.ramotion.garlandview.TailSnapHelper;
 import com.ramotion.garlandview.header.HeaderTransformer;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.yarolegovich.discretescrollview.DSVOrientation;
+import com.yarolegovich.discretescrollview.DiscreteScrollView;
+import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,27 +40,36 @@ public class EventsActivity extends AppCompatActivity {
     //List<List<InnerData>> outerData;
     ArrayList<ClubDetails> list;
     private ClubAdapter adapter;
+    private DiscreteScrollView itemPicker;
+    private InfiniteScrollAdapter infiniteAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        final RecyclerView recyclerView=findViewById(R.id.club_recycler);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        itemPicker = findViewById(R.id.club_list);
+        itemPicker.setOrientation(DSVOrientation.HORIZONTAL);
+        itemPicker.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+            @Override
+            public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+                onItemChanged(infiniteAdapter.getRealPosition(adapterPosition));
+            }
+        });
+
         ClubInterface apiService = ApiClient.getClient().create(ClubInterface.class);
         Call<ArrayList<ClubDetails>> call = apiService.getClubList();
         call.enqueue(new Callback<ArrayList<ClubDetails>>() {
             @Override
             public void onResponse(Call<ArrayList<ClubDetails>> call, Response<ArrayList<ClubDetails>> response) {
                 list=response.body();
-                adapter=new ClubAdapter(list);
-                recyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
-                Log.d("Bodies list",list.get(0).getName());
+                infiniteAdapter = InfiniteScrollAdapter.wrap(new ClubAdapter(list));
+                itemPicker.setAdapter(infiniteAdapter);
+                itemPicker.setItemTransitionTimeMillis(150);
+                itemPicker.setItemTransformer(new ScaleTransformer.Builder()
+                        .setMinScale(0.8f)
+                        .build());
+                onItemChanged(0);
             }
-
             @Override
             public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
@@ -73,6 +89,12 @@ public class EventsActivity extends AppCompatActivity {
         initRecyclerView(outerData);*/
 
 
+    }
+    private void onItemChanged(int pos) {
+        TextView name=findViewById(R.id.club_name);
+        name.setText(list.get(pos).getName());
+        //TextView prize=findViewById(R.id.club_prize);
+        //prize.setText("₹ "+list.get(pos).getPrize());
     }
     /*private void initRecyclerView(List<List<InnerData>> data) {
 

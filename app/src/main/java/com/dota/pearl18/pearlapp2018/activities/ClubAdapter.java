@@ -30,11 +30,9 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
     }
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        holder.cname.setText(clubs.get(position).getName());
         Glide.with(holder.context)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS")
                 .into(holder.background);
-        //displays list of events for a particular body/club
         holder.background.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,15 +52,12 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
         return clubs.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView cname,cprize;
         public ImageView background;
         public Context context;
 
         public MyViewHolder(View view) {
             super(view);
             context=view.getContext();
-            cname = view.findViewById(R.id.club_name);
-            cprize=view.findViewById(R.id.club_prize);
             background=view.findViewById(R.id.club_bg);
         }
     }
