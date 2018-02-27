@@ -37,21 +37,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
         holder.eprize.setText("₹ "+list.get(position).getPrize());
         Glide.with(holder.context)
                 .load("https://bits-pearl.org"+list.get(position).getThumbnail())
-                .placeholder(R.drawable.avatar_placeholder)
                 .bitmapTransform(new CropCircleTransformation(holder.context))
-                .listener(new RequestListener<String, GlideDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                        Log.d("Glide","Failed to load image");
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        Log.d("Glide","Image Loaded Successfully");
-                        return false;
-                    }
-                })
                 .into(holder.logo);
     }
     @Override
