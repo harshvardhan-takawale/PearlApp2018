@@ -30,9 +30,10 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
     }
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Glide.with(holder.context)
+        /*Glide.with(holder.context)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS")
-                .into(holder.background);
+                .into(holder.background);*/
+        holder.background.setImageResource(R.drawable.pearl);
         holder.background.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

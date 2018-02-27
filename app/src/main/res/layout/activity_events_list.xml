@@ -6,7 +6,26 @@
     android:layout_height="match_parent"
     android:background="#FF454B5A"
     tools:context="com.dota.pearl18.pearlapp2018.activities.EventsListActivity">
+    <ImageView
+        android:id="@+id/iv_background"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pearl"
+        android:transitionName="background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/details_image_gradient"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_background"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_background"
+        app:layout_constraintRight_toRightOf="@+id/iv_background"
+        app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
@@ -40,6 +59,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         android:orientation="vertical"
+        android:onClick="goBack"
         app:layout_constraintLeft_toLeftOf="@+id/event_recycler"
         app:layout_constraintRight_toRightOf="@+id/event_recycler"
         app:layout_constraintTop_toBottomOf="@+id/event_recycler"

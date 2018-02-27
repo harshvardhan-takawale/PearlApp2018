@@ -1,11 +1,13 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
@@ -58,5 +60,9 @@ public class EventsListActivity extends AppCompatActivity {
                 Log.e("Error:","Error in Connectivity");
             }
         });
+    }
+    public void goBack(View view)
+    {
+        super.onBackPressed();
     }
 }
