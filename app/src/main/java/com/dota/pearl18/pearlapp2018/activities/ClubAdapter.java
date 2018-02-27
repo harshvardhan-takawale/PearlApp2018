@@ -1,6 +1,7 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,11 +29,20 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
         this.clubs=club_list;
     }
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         holder.cname.setText(clubs.get(position).getName());
         Glide.with(holder.context)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS")
                 .into(holder.background);
+        //displays list of events for a particular body/club
+        holder.background.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),EventsListActivity.class);
+                intent.putExtra("id",clubs.get(position).getId());
+                view.getContext().startActivity(intent);
+            }
+        });
         //holder.cprize.setText();
     }
     @Override

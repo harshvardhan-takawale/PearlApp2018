@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.ClubDetails;
@@ -56,6 +57,7 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
+                Toast.makeText(getApplicationContext(),"Error in connectivity",Toast.LENGTH_SHORT).show();
             }
         });
 

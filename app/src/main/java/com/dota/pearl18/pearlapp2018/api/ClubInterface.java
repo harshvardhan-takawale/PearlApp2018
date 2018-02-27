@@ -12,4 +12,7 @@ import retrofit2.http.GET;
 public interface ClubInterface {
     @GET("bodies")
     Call<ArrayList<ClubDetails>> getClubList();
+
+    @GET("events")
+    Call<ArrayList<EventAbout>> getEventDetails();
 }
