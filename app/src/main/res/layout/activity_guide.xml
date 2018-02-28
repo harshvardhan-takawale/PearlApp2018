@@ -7,8 +7,15 @@
     android:layout_height="match_parent"
     tools:context="com.dota.pearl18.pearlapp2018.activities.GuideActivity"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="@color/sky_color_animation">
 
+    <!-- Fixed Sun frame, appears beneath the clouds-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sun"/>
+
+    <!-- Moving Frames -->
     <!-- First frame, right side -->
     <ImageView
         android:id="@+id/land_right_one"
@@ -53,7 +60,15 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/ic_clouds_right"/>
-    <!-- End of animation layers-->
+    <!-- End of Moving Frames -->
+
+    <!-- Relatively fixed bus frames -->
+    <ImageView
+        android:id="@+id/layer_bus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="4dp"
+        android:src="@drawable/bus_full"/>
 
     <HorizontalScrollView
         android:visibility="gone"

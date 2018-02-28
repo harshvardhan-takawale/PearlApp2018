@@ -59,6 +59,8 @@ public class GuideActivity extends AppCompatActivity {
         final ImageView landRightTwo = findViewById(R.id.land_right_two);
         final ImageView cloudRightTwo = findViewById(R.id.cloud_right_two);
 
+        final ImageView busFull = findViewById(R.id.layer_bus);
+
         final ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         landAnimator.setRepeatCount(ValueAnimator.INFINITE);
         landAnimator.setInterpolator(new LinearInterpolator());
@@ -101,8 +103,28 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 
+        final ValueAnimator busAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        busAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        busAnimator.setInterpolator(new LinearInterpolator());
+        busAnimator.setDuration(1000L);
+        busAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float displacement = 0.01f * busFull.getHeight(); // 0.5% of the total height
+                if (progress < 0.5f) {
+                    // move down for first half
+                    busFull.setTranslationY(2.0f * progress * displacement);
+                } else {
+                    // move back up for second half
+                    busFull.setTranslationY(2.0f * (1.0f - progress)* displacement);
+                }
+            }
+        });
+
         landAnimator.start();
         cloudAnimator.start();
+        busAnimator.start();
     }
 
     @Override
