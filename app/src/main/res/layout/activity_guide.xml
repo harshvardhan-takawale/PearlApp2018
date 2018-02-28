@@ -9,26 +9,51 @@
     android:orientation="vertical"
     android:background="#000000">
 
+    <!-- First frame, right side -->
     <ImageView
-        android:id="@+id/background_one"
+        android:id="@+id/land_right_one"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_right_everything"/>
+        android:src="@drawable/ic_land_right"/>
 
     <ImageView
-        android:id="@+id/background_two"
+        android:id="@+id/cloud_right_one"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_left_everything"/>
+        android:src="@drawable/ic_clouds_right"/>
+
+    <!-- Second frame, left side-->
+    <ImageView
+        android:id="@+id/land_left_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_land_left"/>
 
     <ImageView
-        android:id="@+id/background_three"
+        android:id="@+id/cloud_left_one"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_right_everything"/>
+        android:src="@drawable/ic_clouds_left"/>
+
+    <!-- Third frame, right side-->
+    <ImageView
+        android:id="@+id/land_right_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_land_right"/>
+
+    <ImageView
+        android:id="@+id/cloud_right_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_clouds_right"/>
+    <!-- End of animation layers-->
 
     <HorizontalScrollView
         android:visibility="gone"

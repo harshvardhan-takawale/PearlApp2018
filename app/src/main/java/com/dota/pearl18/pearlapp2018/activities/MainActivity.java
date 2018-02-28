@@ -132,12 +132,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*  LANDING ANIMATION CODE
         // backgroundOne is the initially visible image. It will then be scrolled off the screen
         // toward the left, and the other two will scroll in. This goes on till the third image
         // i.e. backgroundThree perfectly fits the screen. After which we switch to backgroundOne.
-        final ImageView backgroundOne = findViewById(R.id.background_one);
-        final ImageView backgroundTwo = findViewById(R.id.background_two);
-        final ImageView backgroundThree = findViewById(R.id.background_three);
+        final ImageView backgroundOne = findViewById(R.id.land_left_one);
+        final ImageView backgroundTwo = findViewById(R.id.land_left_one);
+        final ImageView backgroundThree = findViewById(R.id.land_right_two);
 
         final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
         animator.setRepeatCount(ValueAnimator.INFINITE);
@@ -157,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         animator.start();
+        */
 
     }
 

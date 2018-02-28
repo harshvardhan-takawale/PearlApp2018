@@ -46,31 +46,63 @@ public class GuideActivity extends AppCompatActivity {
             }
         });
 
-        // backgroundOne is the initially visible image. It will then be scrolled off the screen
-        // toward the left, and the other two will scroll in. This goes on till the third image
-        // i.e. backgroundThree perfectly fits the screen. After which we switch to backgroundOne.
-        final ImageView backgroundOne = findViewById(R.id.background_one);
-        final ImageView backgroundTwo = findViewById(R.id.background_two);
-        final ImageView backgroundThree = findViewById(R.id.background_three);
+        // landRightOne and cloudRightOne are the initially visible layers.
+        // They will then be scrolled off the screen toward the left, and the other two will scroll in.
+        // This goes on till the third image perfectly fits the screen.
+        // After which we switch back to the RightOne(s).
+        final ImageView landRightOne = findViewById(R.id.land_right_one);
+        final ImageView cloudRightOne = findViewById(R.id.cloud_right_one);
 
-        final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.setDuration(10000L);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        final ImageView landLeftOne = findViewById(R.id.land_left_one);
+        final ImageView cloudLeftOne = findViewById(R.id.cloud_left_one);
+
+        final ImageView landRightTwo = findViewById(R.id.land_right_two);
+        final ImageView cloudRightTwo = findViewById(R.id.cloud_right_two);
+
+        final ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        landAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        landAnimator.setInterpolator(new LinearInterpolator());
+        landAnimator.setDuration(10000L);
+        landAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
-                final float width = backgroundOne.getWidth();
+                final float width = landRightOne.getWidth();
                 // determine how much to the left should the image be shifted.
                 // when the animation terminates, backgroundOne should be at (-2 * width)
                 final float translationX = width * (progress * 2.0f); // this is a positive value
-                backgroundOne.setTranslationX(0 - translationX);
-                backgroundTwo.setTranslationX(width - translationX);
-                backgroundThree.setTranslationX(2 * width - translationX);
+
+                landRightOne.setTranslationX(0 - translationX);
+
+                landLeftOne.setTranslationX(width - translationX);
+
+                landRightTwo.setTranslationX(2 * width - translationX);
             }
         });
-        animator.start();
+
+        final ValueAnimator cloudAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        cloudAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        cloudAnimator.setInterpolator(new LinearInterpolator());
+        cloudAnimator.setDuration(30000L);
+        cloudAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = cloudRightOne.getWidth();
+                // determine how much to the left should the image be shifted.
+                // when the animation terminates, backgroundOne should be at (-2 * width)
+                final float translationX = width * (progress * 2.0f); // this is a positive value
+
+                cloudRightOne.setTranslationX(0 - translationX);
+
+                cloudLeftOne.setTranslationX(width - translationX);
+
+                cloudRightTwo.setTranslationX(2 * width - translationX);
+            }
+        });
+
+        landAnimator.start();
+        cloudAnimator.start();
     }
 
     @Override
