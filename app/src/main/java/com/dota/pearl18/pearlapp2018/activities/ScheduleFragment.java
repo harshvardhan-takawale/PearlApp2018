@@ -1,6 +1,7 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +41,7 @@ public class ScheduleFragment extends Fragment
     private int page;
     private String day;
     private int i ;
+    private Context context;
 
     public static ScheduleFragment newInstance(int page)
     {
@@ -54,6 +56,7 @@ public class ScheduleFragment extends Fragment
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("page_no",0);
+        context = getContext();
 
 
     }
@@ -67,15 +70,23 @@ public class ScheduleFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        realm.init(getContext());
+        realm.init(context);
         realm = Realm.getDefaultInstance();
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
-        adapter = new ScheduleAdapter(realmlist,getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ScheduleAdapter(realmlist,context);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
+
         switch (page) {
             case 0: CallApi();break;
         }
+       /* switch (page){
+            case 0 : day = "27";break;
+            case 1 : day = "28";break;
+            case 2 : day = "29";break;
+        }
+        CallApi();*/
+
     }
 
     private  void CallApi()
@@ -114,37 +125,16 @@ public class ScheduleFragment extends Fragment
             EventDetails event = realm.createObject(EventDetails.class);
             event.setEventid(details.getEventid());
             event.setEventname(details.getEventname());
-            /*
-            // The format of the startTime string is yyyy-MM-dd-HH-mm
-            // HH-mm is the time in 24 hour format. Use this after conversion to 12 hour format.
-
-            String pattern = "\\d{4}(-\\d{2}){4}";
-
-            // testdate corresponds to 10:05 AM (10:05 hours), 11th August 2018
-            String testdate = "2018-08-11-10-05"; // replace with details.getStartTime()
-
-            // validation condition. If false, do not parse the time, and have a default fallback option
-            if (testdate.matches(pattern)){
-                // Split the testdate String, to obtain the various parts of the time
-                String[] parts = testdate.split("-");
-                // wrt to testdate
-                // parts[0] => yyyy => 2018
-                // parts[1] => MM => 08
-                // parts[2] => DD => 11
-                // parts[3] => HH => 10
-                // parts[4] => mm => 5
-            }
-            */
-            
             event.setStarttime(details.getStarttime());
             event.setEventDescription(details.getEventDescription());
+            //event.setEventdate(getEventTime(details.getStarttime())[2]);
         }
         else
         {
             model.setEventname(details.getEventname());
             model.setStarttime(details.getStarttime());
             model.setEventDescription(details.getEventDescription());
-
+            //model.setEventdate(getEventTime(details.getStarttime())[2]);
         }
         realm.commitTransaction();
 
@@ -156,11 +146,12 @@ public class ScheduleFragment extends Fragment
         {
             realmlist = new ArrayList<>();
             RealmResults<EventDetails> results = realm1.where(EventDetails.class).findAll();
+           // RealmResults<EventDetails> results = realm1.where(EventDetails.class).equalTo("eventdate",day).findAll();
             Log.e(TAG,"results="+String.valueOf(results.size()));
 
             if(results.size()==0)
             {
-                Toast.makeText(getContext(),"NO Internet",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,"NO Internet",Toast.LENGTH_SHORT).show();
             }
             for(int j=0;j<results.size();j++)
             {
@@ -175,6 +166,33 @@ public class ScheduleFragment extends Fragment
 
             recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext()));
         }
+
+    }
+
+    public String[] getEventTime(String time)
+    {
+
+            // The format of the startTime string is yyyy-MM-dd-HH-mm
+            // HH-mm is the time in 24 hour format. Use this after conversion to 12 hour format.
+
+            String pattern = "\\d{4}(-\\d{2}){4}";
+            String[] parts;
+            // testdate corresponds to 10:05 AM (10:05 hours), 11th August 2018
+            String testdate = "2018-08-11-10-05"; // replace with details.getStartTime()
+
+            // validation condition. If false, do not parse the time, and have a default fallback option
+            if (time.matches(pattern)){
+                // Split the testdate String, to obtain the various parts of the time
+                 parts = time.split("-");
+                // wrt to testdate
+                // parts[0] => yyyy => 2018
+                // parts[1] => MM => 08
+                // parts[2] => DD => 11
+                // parts[3] => HH => 10
+                // parts[4] => mm => 5
+                 return parts;
+            }
+            return null;
 
     }
 }

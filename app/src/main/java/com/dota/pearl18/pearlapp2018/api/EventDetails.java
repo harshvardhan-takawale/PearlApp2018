@@ -25,6 +25,8 @@ public class EventDetails extends RealmObject {
     @SerializedName("tagline")
     String eventDescription ;
 
+    String eventdate;
+
 
     public String getEventid() {
         return eventid;
@@ -64,5 +66,13 @@ public class EventDetails extends RealmObject {
 
     public void setEventDescription(String eventDescription) {
         this.eventDescription = eventDescription;
+    }
+
+    public String getEventdate() {
+        return eventdate;
+    }
+
+    public void setEventdate(String eventdate) {
+        this.eventdate = eventdate;
     }
 }

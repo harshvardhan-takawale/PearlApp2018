@@ -26,6 +26,7 @@ import io.realm.RealmResults;
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder> {
 
     List<String> times = new ArrayList<>();
+
     Context context;
     private Realm realm;
 
@@ -34,6 +35,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     {
         this.times=times;
         this.context  =context;
+        times.add("10:00");
+        times.add("11:00");
     }
 
     @Override
@@ -63,7 +66,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             holder.circuarTop.setVisibility(View.VISIBLE);
         }
  //       ****Here time conversion is needed for desplaying the TextView time****
-        holder.time.setText("9:00 AM");
+        holder.time.setText(times.get(position));
         holder.bindRecycler(times.get(position));
 
     }
