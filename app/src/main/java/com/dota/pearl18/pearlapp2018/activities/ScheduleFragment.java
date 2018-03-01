@@ -114,6 +114,28 @@ public class ScheduleFragment extends Fragment
             EventDetails event = realm.createObject(EventDetails.class);
             event.setEventid(details.getEventid());
             event.setEventname(details.getEventname());
+            /*
+            // The format of the startTime string is yyyy-MM-dd-HH-mm
+            // HH-mm is the time in 24 hour format. Use this after conversion to 12 hour format.
+
+            String pattern = "\\d{4}(-\\d{2}){4}";
+
+            // testdate corresponds to 10:05 AM (10:05 hours), 11th August 2018
+            String testdate = "2018-08-11-10-05"; // replace with details.getStartTime()
+
+            // validation condition. If false, do not parse the time, and have a default fallback option
+            if (testdate.matches(pattern)){
+                // Split the testdate String, to obtain the various parts of the time
+                String[] parts = testdate.split("-");
+                // wrt to testdate
+                // parts[0] => yyyy => 2018
+                // parts[1] => MM => 08
+                // parts[2] => DD => 11
+                // parts[3] => HH => 10
+                // parts[4] => mm => 5
+            }
+            */
+            
             event.setStarttime(details.getStarttime());
             event.setEventDescription(details.getEventDescription());
         }
