@@ -44,4 +44,6 @@ dependencies {
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
     implementation 'com.yarolegovich:lovely-dialog:1.1.0'
     compile 'com.yarolegovich:discrete-scrollview:1.4.4'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+
 }

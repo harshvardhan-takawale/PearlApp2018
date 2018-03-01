@@ -1,34 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/event_schedule_card"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp">
 
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:text="9:00 AM"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sub_layout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="56dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/event_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/event_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textSize="14sp" />
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+    <RelativeLayout
+        android:id="@+id/topLine"
+        android:layout_width="20dp"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:translationZ="5dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomLine1"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_below="@+id/sub_layout"
+        android:layout_marginLeft="30dp">
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#fff"
+            android:translationZ="5dp" />
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageTop"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/topLine"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/circular_bg"
+        android:translationZ="6dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageBottom"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/sub_layout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/circular_bg"
+        android:translationZ="6dp"
+        app:layout_anchor="@id/bottomLine1"
+        app:layout_anchorGravity="top" />
+
+
+</RelativeLayout>

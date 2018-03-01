@@ -18,7 +18,9 @@ import com.dota.pearl18.pearlapp2018.api.EventDetails;
 import com.dota.pearl18.pearlapp2018.api.EventsInterface;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -32,8 +34,8 @@ public class ScheduleFragment extends Fragment
     private RecyclerView recyclerView;
     private ScheduleAdapter adapter;
     private List<EventDetails> list = new ArrayList<>();
-    private List<EventDetails> realmlist = new ArrayList<>();
-    private Realm realm;
+    private List<String> realmlist = new ArrayList<>();
+    public Realm realm;
     private  String TAG = "ScheduleFragment";
     private int page;
     private String day;
@@ -140,9 +142,14 @@ public class ScheduleFragment extends Fragment
             }
             for(int j=0;j<results.size();j++)
             {
-                realmlist.add(results.get(j));
+                realmlist.add(results.get(j).getStarttime());
             }
             Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
+
+            Set<String> set = new LinkedHashSet<>(realmlist);
+            realmlist.clear();
+            realmlist.addAll(set);
+            Log.e(TAG,"setsize"+String.valueOf(set.size())+""+realmlist.size());
 
             recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext()));
         }
