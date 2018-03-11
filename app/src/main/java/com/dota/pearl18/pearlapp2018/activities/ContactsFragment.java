@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dota.pearl18.pearlapp2018.adapters.ContactAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 
 import java.util.ArrayList;

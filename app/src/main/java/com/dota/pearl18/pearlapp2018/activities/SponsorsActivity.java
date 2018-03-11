@@ -2,10 +2,10 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.dota.pearl18.pearlapp2018.adapters.SponsorsAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 
 public class SponsorsActivity extends AppCompatActivity {

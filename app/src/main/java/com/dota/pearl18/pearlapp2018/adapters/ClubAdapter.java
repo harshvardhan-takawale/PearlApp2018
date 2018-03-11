@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.activities;
+package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,15 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.EventsListActivity;
 import com.dota.pearl18.pearlapp2018.api.ClubDetails;
 
 import java.util.List;
-
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
  * Created by pratd on 26-02-2018.

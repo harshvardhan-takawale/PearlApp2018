@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.dota.pearl18.pearlapp2018.adapters.CreditsAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 
 import java.util.ArrayList;

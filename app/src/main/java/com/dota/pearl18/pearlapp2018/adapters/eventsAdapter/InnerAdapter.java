@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.eventsAdapter;
+package com.dota.pearl18.pearlapp2018.adapters.eventsAdapter;
 
 //import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;

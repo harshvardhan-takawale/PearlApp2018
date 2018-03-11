@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import com.dota.pearl18.pearlapp2018.adapters.ScheduleAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.EventDetails;
