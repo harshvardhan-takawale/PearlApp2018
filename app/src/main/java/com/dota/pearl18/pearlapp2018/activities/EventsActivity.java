@@ -3,24 +3,15 @@ package com.dota.pearl18.pearlapp2018.activities;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dota.pearl18.pearlapp2018.adapters.ClubAdapter;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.ClubDetails;
 import com.dota.pearl18.pearlapp2018.api.ClubInterface;
-import com.dota.pearl18.pearlapp2018.api.EventAbout;
-import com.dota.pearl18.pearlapp2018.eventsAdapter.InnerData;
-import com.dota.pearl18.pearlapp2018.eventsAdapter.OuterAdapter;
-import com.ramotion.garlandview.TailLayoutManager;
-import com.ramotion.garlandview.TailRecyclerView;
-import com.ramotion.garlandview.TailSnapHelper;
-import com.ramotion.garlandview.header.HeaderTransformer;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.yarolegovich.discretescrollview.DSVOrientation;
@@ -29,7 +20,6 @@ import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.activities;
+package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.Contact;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.dota.pearl18.pearlapp2018.activities;
+package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.DeveloperDetails;
+import com.dota.pearl18.pearlapp2018.activities.DeveloperLayoutDetails;
 import com.jaouan.compoundlayout.CircleGradientRadioLayout;
 
 import java.util.ArrayList;
