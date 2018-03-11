@@ -16,9 +16,8 @@ import com.google.firebase.FirebaseApp;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
     private Button contactUsButton;
-    private Button TreasureHuntButton;
     private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, Sponsors, mGuideBtn, newsButton;
+    private Button RegisterButton,Schedule,Events, mGuideBtn, newsButton;
 
 
     @Override
@@ -82,46 +81,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, EventsActivity.class));
-            }
-        });
-
-        Sponsors = findViewById(R.id.sponsors);
-        Sponsors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SponsorsActivity.class));
-            }
-        });
-
-        TreasureHuntButton = findViewById(R.id.treasure);
-
-        TreasureHuntButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(MainActivity.this, TreasureHuntActivity.class));
-
-               /* PlaceDetectionClient mPlaceDetectionClient;
-
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    mPlaceDetectionClient = Places.getPlaceDetectionClient(getApplicationContext(), null);
-                    Task<PlaceLikelihoodBufferResponse> placeResult = mPlaceDetectionClient.getCurrentPlace(null);
-                    placeResult.addOnCompleteListener(new OnCompleteListener<PlaceLikelihoodBufferResponse>() {
-                        @Override
-                        public void onComplete(@NonNull Task<PlaceLikelihoodBufferResponse> task) {
-                            PlaceLikelihoodBufferResponse likelyPlaces = task.getResult();
-                            for (PlaceLikelihood placeLikelihood : likelyPlaces) {
-                                Log.i(TAG, String.format("Place '%s' has likelihood: %g",
-                                        placeLikelihood.getPlace().getName(),
-                                        placeLikelihood.getLikelihood()));
-                            }
-                            likelyPlaces.release();
-                        }
-                    });
-
-                    return;
-                }*/
             }
         });
 

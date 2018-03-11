@@ -34,8 +34,7 @@
             android:name=".activities.ContactsActivity"
             android:label="Contact Us"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.TreasureHuntActivity" />
-        <activity
+      <activity
             android:name=".activities.GuideActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.MapsActivity" />

@@ -56,18 +56,6 @@
             android:text="Contact us" />
 
         <Button
-            android:id="@+id/sponsors"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sponsors" />
-
-        <Button
-            android:id="@+id/treasure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Treasure Hunt" />
-
-        <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
