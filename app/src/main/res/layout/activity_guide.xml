@@ -6,72 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.dota.pearl18.pearlapp2018.activities.GuideActivity"
-    android:orientation="vertical"
-    android:background="@color/sky_color_animation">
-
-    <!-- Fixed Sun frame, appears beneath the clouds-->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/sun"/>
-
-    <!-- Moving Frames -->
-    <!-- First frame, right side -->
-    <ImageView
-        android:id="@+id/land_right_one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_land_right"/>
-
-    <ImageView
-        android:id="@+id/cloud_right_one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_clouds_right"/>
-
-    <!-- Second frame, left side-->
-    <ImageView
-        android:id="@+id/land_left_one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_land_left"/>
-
-    <ImageView
-        android:id="@+id/cloud_left_one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_clouds_left"/>
-
-    <!-- Third frame, right side-->
-    <ImageView
-        android:id="@+id/land_right_two"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_land_right"/>
-
-    <ImageView
-        android:id="@+id/cloud_right_two"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_clouds_right"/>
-    <!-- End of Moving Frames -->
-
-    <!-- Relatively fixed bus frames -->
-    <ImageView
-        android:id="@+id/layer_bus"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="4dp"
-        android:src="@drawable/bus_full"/>
+    android:orientation="vertical">
 
     <HorizontalScrollView
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/horizontalScrollView"
