@@ -1,16 +1,12 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
-import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.Adapters.LandingAdapter;
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_final);
+        setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
         Uri uri = Uri.parse("https://www.bits-pearl.org/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
