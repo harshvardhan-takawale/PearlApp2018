@@ -93,8 +93,9 @@ public class EventsActivity extends AppCompatActivity {
     private void onItemChanged(int pos) {
         TextView name=findViewById(R.id.club_name);
         name.setText(list.get(pos).getName());
-        //TextView prize=findViewById(R.id.club_prize);
+        TextView prize=findViewById(R.id.club_prize);
         //prize.setText("₹ "+list.get(pos).getPrize());
+        prize.setText("₹ 10,000");
     }
     /*private void initRecyclerView(List<List<InnerData>> data) {
 

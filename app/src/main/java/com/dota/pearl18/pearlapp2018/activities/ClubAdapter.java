@@ -42,7 +42,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
                 view.getContext().startActivity(intent);
             }
         });
-        //holder.cprize.setText();
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

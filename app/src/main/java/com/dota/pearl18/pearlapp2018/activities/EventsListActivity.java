@@ -32,7 +32,7 @@ public class EventsListActivity extends AppCompatActivity {
         final String id=bundle.getString("id");
         list=new ArrayList<EventAbout>();
         recyclerView=findViewById(R.id.event_recycler);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         ClubInterface apiService = ApiClient.getClient().create(ClubInterface.class);
