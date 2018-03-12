@@ -18,6 +18,7 @@ import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.EventDetails;
 import com.dota.pearl18.pearlapp2018.api.EventsInterface;
+import com.dota.pearl18.pearlapp2018.api.TestApiClient;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -78,21 +79,27 @@ public class ScheduleFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
-        switch (page) {
+       /* switch (page) {
             case 0: CallApi();break;
-        }
-       /* switch (page){
-            case 0 : day = "27";break;
-            case 1 : day = "28";break;
-            case 2 : day = "29";break;
-        }
-        CallApi();*/
+        }*/
+       switch (page) {
+           case 0:
+               day = "23";
+               break;
+           case 1:
+               day = "24";
+               break;
+           case 2:
+               day = "25";
+               break;
+       }
+        CallApi();
 
     }
 
     private  void CallApi()
     {
-        EventsInterface apiservice = ApiClient.getClient().create(EventsInterface.class);
+        EventsInterface apiservice = TestApiClient.getClient().create(EventsInterface.class);
         Call<ArrayList<EventDetails>> call = apiservice.getEventSchedule();
         call.enqueue(new Callback<ArrayList<EventDetails>>() {
             @Override
@@ -126,16 +133,16 @@ public class ScheduleFragment extends Fragment
             EventDetails event = realm.createObject(EventDetails.class);
             event.setEventid(details.getEventid());
             event.setEventname(details.getEventname());
-            event.setStarttime(details.getStarttime());
+            event.setStarttime(getEventTime(details.getStarttime())[3] + ":"+getEventTime(details.getStarttime())[4]);
             event.setEventDescription(details.getEventDescription());
-            //event.setEventdate(getEventTime(details.getStarttime())[2]);
+            event.setEventdate(getEventTime(details.getStarttime())[2]);
         }
         else
         {
             model.setEventname(details.getEventname());
-            model.setStarttime(details.getStarttime());
+            model.setStarttime(getEventTime(details.getStarttime())[3] + ":"+getEventTime(details.getStarttime())[4]);
             model.setEventDescription(details.getEventDescription());
-            //model.setEventdate(getEventTime(details.getStarttime())[2]);
+            model.setEventdate(getEventTime(details.getStarttime())[2]);
         }
         realm.commitTransaction();
 
@@ -146,8 +153,8 @@ public class ScheduleFragment extends Fragment
         if(realm1!=null)
         {
             realmlist = new ArrayList<>();
-            RealmResults<EventDetails> results = realm1.where(EventDetails.class).findAll();
-           // RealmResults<EventDetails> results = realm1.where(EventDetails.class).equalTo("eventdate",day).findAll();
+            //RealmResults<EventDetails> results = realm1.where(EventDetails.class).findAll();
+            RealmResults<EventDetails> results = realm1.where(EventDetails.class).equalTo("eventdate",day).findAll();
             Log.e(TAG,"results="+String.valueOf(results.size()));
 
             if(results.size()==0)
@@ -177,7 +184,7 @@ public class ScheduleFragment extends Fragment
             // HH-mm is the time in 24 hour format. Use this after conversion to 12 hour format.
 
             String pattern = "\\d{4}(-\\d{2}){4}";
-            String[] parts;
+            String[] parts ={"","","","",""};
             // testdate corresponds to 10:05 AM (10:05 hours), 11th August 2018
             String testdate = "2018-08-11-10-05"; // replace with details.getStartTime()
 
@@ -191,9 +198,11 @@ public class ScheduleFragment extends Fragment
                 // parts[2] => DD => 11
                 // parts[3] => HH => 10
                 // parts[4] => mm => 5
+                Log.e(TAG,parts[0]);
                  return parts;
             }
-            return null;
+
+            return parts;
 
     }
 }

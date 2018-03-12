@@ -33,8 +33,6 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     {
         this.times=times;
         this.context  =context;
-        times.add("10:00");
-        times.add("11:00");
     }
 
     @Override
