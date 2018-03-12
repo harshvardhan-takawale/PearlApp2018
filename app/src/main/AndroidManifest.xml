@@ -47,7 +47,6 @@
             android:name=".activities.EventsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ScheduleActivity" />
-        <activity android:name=".activities.SponsorsActivity" />
         <activity android:name=".activities.QRScannerActivity" />
         <activity android:name=".activities.ArticleDisplayActivity" />
         <activity android:name=".activities.EventsListActivity"
