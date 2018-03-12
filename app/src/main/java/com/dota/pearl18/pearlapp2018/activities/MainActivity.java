@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.sync.NewsSyncUtils;
 import com.google.firebase.FirebaseApp;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
@@ -178,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         cloudAnimator.start();
         busAnimator.start();
 
+        NewsSyncUtils.initialize(this);
     }
 
     private void onItemChanged(int pos) {
