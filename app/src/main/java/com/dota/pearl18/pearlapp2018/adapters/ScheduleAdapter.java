@@ -48,10 +48,10 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
 
        if (position == times.size() - 1) {
-            holder.bottomLine.setVisibility(View.GONE);
+           // holder.bottomLine.setVisibility(View.GONE);
             holder.circularBottom.setVisibility(View.GONE);
         } else {
-            holder.bottomLine.setVisibility(View.VISIBLE);
+          //  holder.bottomLine.setVisibility(View.VISIBLE);
             holder.circularBottom.setVisibility(View.VISIBLE);
         }
         if (position == 0) {
@@ -61,6 +61,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             holder.topLine.setVisibility(View.VISIBLE);
             holder.circuarTop.setVisibility(View.VISIBLE);
         }
+        holder.bottomLine.setVisibility(View.GONE);
  //       ****Here time conversion is needed for desplaying the TextView time****
         holder.time.setText(times.get(position));
         holder.bindRecycler(times.get(position));
@@ -101,7 +102,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
                 View v = LayoutInflater.from(context).inflate(R.layout.activity_schedule_sub_item,linearLayout,false);
 
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getEventname());
-
+                ((TextView) v.findViewById(R.id.event_tagline)).setText(set.getEventDescription());
                 linearLayout.addView(v);
                 if (i != sets.size() - 1) {
                     View divider = LayoutInflater.from(context).inflate(R.layout.divider, linearLayout, false);
