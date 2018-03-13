@@ -41,11 +41,17 @@ public class NewsSyncTask {
         if(list!=null && list.size()>0){
             String lastSavedId = NewsPrefs.getLastNewsId(context);
             ArticleDetails details = list.get(0);
-            if(details.getId().equals(lastSavedId)){
+            if(!details.getId().equals(lastSavedId)){
                 NewsNotification.showNotification(context, list.get(0));
+                NewsPrefs.setLastNewsId(context, list.get(0).getId());
             }
-            NewsPrefs.setLastNewsId(context, lastSavedId);
         }
+
     }
+
+    /*public static void testNotification(Context context){
+        ArticleDetails testDetail = new ArticleDetails("123", "Test title", null, null, null, null);
+        NewsNotification.showNotification(context, testDetail);
+    }*/
 
 }

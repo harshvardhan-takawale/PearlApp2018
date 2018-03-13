@@ -5,6 +5,14 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.Driver;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.Trigger;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,23 +22,30 @@ import java.util.concurrent.TimeUnit;
 public class NewsSyncUtils {
 
     private static final int SYNC_INTERVAL_MINUTES = 30;
-    private static final long SYNC_INTERVAL_MILLIS = (int) TimeUnit.MINUTES.toMillis(SYNC_INTERVAL_MINUTES);
-    private static final long SYNC_FLEXTIME_MILLIS = SYNC_INTERVAL_MILLIS/2;
+    private static final int SYNC_INTERVAL_MILLIS = (int) TimeUnit.MINUTES.toSeconds(SYNC_INTERVAL_MINUTES);
+    private static final int SYNC_FLEXTIME_MILLIS = SYNC_INTERVAL_MILLIS/2;
 
     private static boolean sInitialized;
 
-    private static final int NEWS_SYNC = 101;
+    private static final String NEWS_TAG = "news-tag";
 
     static void scheduleFirebaseJobDispatcherSync(Context context){
 
-        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        Driver driver = new GooglePlayDriver(context);
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(driver);
 
-        jobScheduler.schedule(new JobInfo.Builder(NEWS_SYNC, new ComponentName(context, NewsFirebaseJobService.class))
-                        .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-                        .setPeriodic(SYNC_INTERVAL_MILLIS)
-                        .build());
+        Job newsSyncJob = dispatcher.newJobBuilder()
+                .setService(NewsFirebaseJobService.class)
+                .setTag(NEWS_TAG)
+                .setConstraints(Constraint.ON_ANY_NETWORK)
+                .setLifetime(Lifetime.FOREVER)
+                .setRecurring(true)
+                .setTrigger(Trigger.executionWindow(
+                        SYNC_INTERVAL_MILLIS, SYNC_INTERVAL_MILLIS+SYNC_FLEXTIME_MILLIS))
+                .setReplaceCurrent(true)
+                .build();
 
-
+        dispatcher.schedule(newsSyncJob);
     }
 
     synchronized public static void initialize(final Context context){

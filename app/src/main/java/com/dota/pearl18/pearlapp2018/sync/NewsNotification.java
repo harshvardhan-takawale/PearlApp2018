@@ -24,6 +24,8 @@ public class NewsNotification {
 
     public static void showNotification(Context context, ArticleDetails details){
 
+        if(details == null) return;
+
         String title = "Pearl News";
         String content = details.getTitle();
 
