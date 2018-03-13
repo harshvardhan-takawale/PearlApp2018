@@ -51,7 +51,7 @@ public class GuideActivity extends AppCompatActivity {
         aboutIntent.putExtra("text","about");
 
         Intent reachIntent= new Intent(GuideActivity.this, TextDisplayActivity.class);
-        reachIntent.putExtra("text","about");
+        reachIntent.putExtra("text","dirit");
 
         buttonList.add(new LandingButtonDetails("About",
             aboutIntent,this));

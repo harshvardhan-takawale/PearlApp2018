@@ -1,10 +1,13 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.animation.ValueAnimator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,6 +81,81 @@ public class EventsActivity extends AppCompatActivity {
         }
         initRecyclerView(outerData);*/
 
+        final ImageView landRightOne = findViewById(R.id.land_right_one);
+        final ImageView cloudRightOne = findViewById(R.id.cloud_right_one);
+
+        final ImageView landLeftOne = findViewById(R.id.land_left_one);
+        final ImageView cloudLeftOne = findViewById(R.id.cloud_left_one);
+
+        final ImageView landRightTwo = findViewById(R.id.land_right_two);
+        final ImageView cloudRightTwo = findViewById(R.id.cloud_right_two);
+
+        final ImageView busFull = findViewById(R.id.layer_bus);
+
+        ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        landAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        landAnimator.setInterpolator(new LinearInterpolator());
+        landAnimator.setDuration(10000L);
+        landAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = landRightOne.getWidth();
+                // determine how much to the left should the image be shifted.
+                // when the animation terminates, backgroundOne should be at (-2 * width)
+                final float translationX = width * (progress * 2.0f); // this is a positive value
+
+                landRightOne.setTranslationX(0 - translationX);
+
+                landLeftOne.setTranslationX(width - translationX);
+
+                landRightTwo.setTranslationX(2 * width - translationX);
+            }
+        });
+
+        ValueAnimator cloudAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        cloudAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        cloudAnimator.setInterpolator(new LinearInterpolator());
+        cloudAnimator.setDuration(30000L);
+        cloudAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = cloudRightOne.getWidth();
+                // determine how much to the left should the image be shifted.
+                // when the animation terminates, backgroundOne should be at (-2 * width)
+                final float translationX = width * (progress * 2.0f); // this is a positive value
+
+                cloudRightOne.setTranslationX(0 - translationX);
+
+                cloudLeftOne.setTranslationX(width - translationX);
+
+                cloudRightTwo.setTranslationX(2 * width - translationX);
+            }
+        });
+
+        ValueAnimator busAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        busAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        busAnimator.setInterpolator(new LinearInterpolator());
+        busAnimator.setDuration(1000L);
+        busAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float displacement = 0.01f * busFull.getHeight(); // 0.5% of the total height
+                if (progress < 0.5f) {
+                    // move down for first half
+                    busFull.setTranslationY(2.0f * progress * displacement);
+                } else {
+                    // move back up for second half
+                    busFull.setTranslationY(2.0f * (1.0f - progress)* displacement);
+                }
+            }
+        });
+
+        landAnimator.start();
+        cloudAnimator.start();
+        busAnimator.start();
 
     }
     private void onItemChanged(int pos) {
