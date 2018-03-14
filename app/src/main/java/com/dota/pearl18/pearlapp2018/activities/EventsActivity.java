@@ -17,6 +17,7 @@ import com.dota.pearl18.pearlapp2018.api.ClubDetails;
 import com.dota.pearl18.pearlapp2018.api.ClubInterface;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.api.EventDetails;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
@@ -24,6 +25,8 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,14 +34,19 @@ import retrofit2.Response;
 public class EventsActivity extends AppCompatActivity {
 
     //List<List<InnerData>> outerData;
-    ArrayList<ClubDetails> list;
+    ArrayList<ClubDetails> list = new ArrayList<>();
+    ArrayList<ClubDetails> realmlist = new ArrayList<>();
     private ClubAdapter adapter;
     private DiscreteScrollView itemPicker;
     private InfiniteScrollAdapter infiniteAdapter;
+    private Realm realm;
+    private String TAG = EventsActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
+        realm.init(this);
+        realm = Realm.getDefaultInstance();
 
         itemPicker = findViewById(R.id.club_list);
         itemPicker.setOrientation(DSVOrientation.HORIZONTAL);
@@ -55,18 +63,19 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<ClubDetails>> call, Response<ArrayList<ClubDetails>> response) {
                 list=response.body();
-                infiniteAdapter = InfiniteScrollAdapter.wrap(new ClubAdapter(list));
-                itemPicker.setAdapter(infiniteAdapter);
-                itemPicker.setItemTransitionTimeMillis(150);
-                itemPicker.setItemTransformer(new ScaleTransformer.Builder()
-                        .setMinScale(0.8f)
-                        .build());
-                onItemChanged(0);
+                for(int i=0;i<list.size();i++)
+                {
+                    addDatatoRealm(list.get(i));
+                }
+                getDatafromRealm(realm);
+                setAdapter();
             }
             @Override
             public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
-                Toast.makeText(getApplicationContext(),"Error in connectivity",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Error in connectivity....Loading Offline Data",Toast.LENGTH_SHORT).show();
+                getDatafromRealm(realm);
+                setAdapter();
             }
         });
 
@@ -160,11 +169,12 @@ public class EventsActivity extends AppCompatActivity {
     }
     private void onItemChanged(int pos) {
         TextView name=findViewById(R.id.club_name);
-        name.setText(list.get(pos).getName());
+        name.setText(realmlist.get(pos).getName());
         TextView prize=findViewById(R.id.club_prize);
         //prize.setText("₹ "+list.get(pos).getPrize());
         prize.setText("₹ 10,000");
     }
+
     /*private void initRecyclerView(List<List<InnerData>> data) {
 
         final TailRecyclerView rv = findViewById(R.id.tail_recycler);
@@ -176,4 +186,53 @@ public class EventsActivity extends AppCompatActivity {
     {
         return new InnerData("Dance","hello2","hello","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS",20000);
     }*/
+
+    private void addDatatoRealm(ClubDetails clublist)
+    {
+        realm.beginTransaction();
+        ClubDetails model = realm.where(ClubDetails.class).equalTo("id",clublist.getId()).findFirst();
+        if(model==null)
+        {
+            ClubDetails club = realm.createObject(ClubDetails.class);
+            club.setId(clublist.getId());
+            club.setName(clublist.getName());
+
+        }
+        else
+        {
+           model.setName(clublist.getName());
+        }
+        realm.commitTransaction();
+    }
+
+    private void getDatafromRealm(Realm realm1)
+    {
+        if(realm1!=null)
+        {
+            realmlist= new ArrayList<>();
+            RealmResults<ClubDetails> results = realm1.where(ClubDetails.class).findAll();
+
+            if(results.size()==0)
+            {
+            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT) ;
+            }
+            else
+            {
+              realmlist.addAll(results);
+            }
+            Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));
+        }
+
+    }
+
+    private void setAdapter()
+    {
+        infiniteAdapter = InfiniteScrollAdapter.wrap(new ClubAdapter(realmlist));
+        itemPicker.setAdapter(infiniteAdapter);
+        itemPicker.setItemTransitionTimeMillis(150);
+        itemPicker.setItemTransformer(new ScaleTransformer.Builder()
+                .setMinScale(0.8f)
+                .build());
+        onItemChanged(0);
+    }
 }

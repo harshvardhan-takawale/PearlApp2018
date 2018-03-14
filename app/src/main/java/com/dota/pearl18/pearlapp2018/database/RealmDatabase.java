@@ -22,5 +22,6 @@ public class RealmDatabase extends Application {
 
         Realm.setDefaultConfiguration(realmConfiguration);
 
+
     }
 }
