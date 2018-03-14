@@ -106,7 +106,7 @@
             android:textColor="@android:color/white" />
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <com.dota.pearl18.pearlapp2018.activities.EventRecyclerView
         android:id="@+id/event_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -22,8 +22,9 @@ import retrofit2.Response;
 
 public class EventsListActivity extends AppCompatActivity {
     ArrayList<EventAbout> list;
-    RecyclerView recyclerView;
+    EventRecyclerView recyclerView;
     EventAboutAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
