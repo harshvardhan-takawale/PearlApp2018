@@ -2,11 +2,14 @@ package com.dota.pearl18.pearlapp2018.api;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+
 /**
  * Created by pratd on 27-02-2018.
  */
 
-public class EventAbout {
+public class EventAbout extends RealmObject {
     @SerializedName("_id")
     String id;
     @SerializedName("name")

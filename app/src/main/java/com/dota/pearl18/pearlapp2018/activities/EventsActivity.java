@@ -73,7 +73,7 @@ public class EventsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
-                Toast.makeText(getApplicationContext(),"Error in connectivity....Loading Offline Data",Toast.LENGTH_SHORT).show();
+
                 getDatafromRealm(realm);
                 setAdapter();
             }
@@ -168,11 +168,13 @@ public class EventsActivity extends AppCompatActivity {
 
     }
     private void onItemChanged(int pos) {
-        TextView name=findViewById(R.id.club_name);
-        name.setText(realmlist.get(pos).getName());
-        TextView prize=findViewById(R.id.club_prize);
-        //prize.setText("₹ "+list.get(pos).getPrize());
-        prize.setText("₹ 10,000");
+        if(realmlist.size()!=0) {
+            TextView name = findViewById(R.id.club_name);
+            name.setText(realmlist.get(pos).getName());
+            TextView prize = findViewById(R.id.club_prize);
+            //prize.setText("₹ "+list.get(pos).getPrize());
+            prize.setText("₹ 10,000");
+        }
     }
 
     /*private void initRecyclerView(List<List<InnerData>> data) {
@@ -214,11 +216,11 @@ public class EventsActivity extends AppCompatActivity {
 
             if(results.size()==0)
             {
-            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT) ;
+            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT).show(); ;
             }
             else
             {
-              realmlist.addAll(results);
+                realmlist.addAll(results);
             }
             Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));
         }
