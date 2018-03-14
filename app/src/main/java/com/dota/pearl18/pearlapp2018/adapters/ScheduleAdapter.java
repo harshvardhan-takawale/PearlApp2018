@@ -47,7 +47,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-       if (position == times.size() - 1) {
+       /*if (position == times.size() - 1) {
            // holder.bottomLine.setVisibility(View.GONE);
             holder.circularBottom.setVisibility(View.GONE);
         } else {
@@ -61,7 +61,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             holder.topLine.setVisibility(View.VISIBLE);
             holder.circuarTop.setVisibility(View.VISIBLE);
         }
-        holder.bottomLine.setVisibility(View.GONE);
+        holder.bottomLine.setVisibility(View.GONE);*/
  //       ****Here time conversion is needed for desplaying the TextView time****
         holder.time.setText(times.get(position));
         holder.bindRecycler(times.get(position));
@@ -82,11 +82,11 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
             time = itemView.findViewById(R.id.time);
-            topLine = itemView.findViewById(R.id.topLine);
-            bottomLine = itemView.findViewById(R.id.bottomLine1);
+            /*topLine = itemView.findViewById(R.id.topLine);
+            bottomLine = itemView.findViewById(R.id.bottomLine1);*/
             linearLayout =  itemView.findViewById(R.id.sub_layout);
-            circuarTop = itemView.findViewById(R.id.imageTop);
-            circularBottom = itemView.findViewById(R.id.imageBottom);
+            /*circuarTop = itemView.findViewById(R.id.imageTop);
+            circularBottom = itemView.findViewById(R.id.imageBottom);*/
         }
 
         public void bindRecycler(String time) {

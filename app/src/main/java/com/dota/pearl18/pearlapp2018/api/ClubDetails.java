@@ -2,11 +2,13 @@ package com.dota.pearl18.pearlapp2018.api;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Created by pratd on 25-02-2018.
  */
 
-public class ClubDetails {
+public class ClubDetails extends RealmObject{
     @SerializedName("_id")
     String id;
     @SerializedName("name")
