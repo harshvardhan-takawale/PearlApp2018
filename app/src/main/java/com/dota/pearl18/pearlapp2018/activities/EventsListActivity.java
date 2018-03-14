@@ -27,7 +27,7 @@ import retrofit2.Response;
 public class EventsListActivity extends AppCompatActivity {
     ArrayList<EventAbout> list = new ArrayList<>();
     ArrayList<EventAbout> realmlist = new ArrayList<>();
-    RecyclerView recyclerView;
+    EventRecyclerView recyclerView;
     EventAboutAdapter adapter;
     private Realm realm;
     private  String TAG = EventsListActivity.class.getSimpleName();
