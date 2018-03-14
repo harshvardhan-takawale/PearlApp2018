@@ -1,5 +1,6 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -37,7 +38,9 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.MyViewHo
     holder.background.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        list.get(position).getButtonContext().startActivity(holder.intent);
+        ActivityOptions options =
+            ActivityOptions.makeCustomAnimation(list.get(position).getButtonContext(), android.R.anim.fade_in, android.R.anim.fade_out);
+        list.get(position).getButtonContext().startActivity(holder.intent,options.toBundle());
       }
     });
 
