@@ -41,6 +41,7 @@ public class EventsActivity extends AppCompatActivity {
     private InfiniteScrollAdapter infiniteAdapter;
     private Realm realm;
     private String TAG = EventsActivity.class.getSimpleName();
+    private boolean isnetwork = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,13 +68,14 @@ public class EventsActivity extends AppCompatActivity {
                 {
                     addDatatoRealm(list.get(i));
                 }
+                isnetwork = true;
                 getDatafromRealm(realm);
                 setAdapter();
             }
             @Override
             public void onFailure(Call<ArrayList<ClubDetails>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
-
+                isnetwork = false;
                 getDatafromRealm(realm);
                 setAdapter();
             }
@@ -220,6 +222,9 @@ public class EventsActivity extends AppCompatActivity {
             }
             else
             {
+                if(isnetwork==false)
+                {Toast.makeText(this,"No Network...Loading Offline Data",Toast.LENGTH_SHORT).show();}
+
                 realmlist.addAll(results);
             }
             Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));

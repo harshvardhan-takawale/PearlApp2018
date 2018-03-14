@@ -31,6 +31,8 @@ public class EventsListActivity extends AppCompatActivity {
     EventAboutAdapter adapter;
     private Realm realm;
     private  String TAG = EventsListActivity.class.getSimpleName();
+    private String clubid;
+    private boolean isnetwork = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,8 @@ public class EventsListActivity extends AppCompatActivity {
         realm.init(this);
 
         Bundle bundle=getIntent().getExtras();
-        final String id=bundle.getString("id");
+        clubid=bundle.getString("id");
+        Log.e(TAG,clubid);
         list=new ArrayList<EventAbout>();
         recyclerView=findViewById(R.id.event_recycler);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -67,6 +70,7 @@ public class EventsListActivity extends AppCompatActivity {
                {
                    addDatatoRealm(list.get(i));
                }
+               isnetwork = true;
                 getDatafromRealm(realm);
                setAdapter();
             }
@@ -74,6 +78,7 @@ public class EventsListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ArrayList<EventAbout>> call, Throwable t) {
                 Log.e("Error:","Error in Connectivity");
+                isnetwork = false;
                 getDatafromRealm(realm);
                 setAdapter();
             }
@@ -115,7 +120,7 @@ public class EventsListActivity extends AppCompatActivity {
         if(realm1!=null)
         {
             realmlist = new ArrayList<>();
-            RealmResults<EventAbout> results = realm1.where(EventAbout.class).findAll();
+            RealmResults<EventAbout> results = realm1.where(EventAbout.class).equalTo("body",clubid).findAll();
             Log.e(TAG,"results="+String.valueOf(results.size()));
 
             if(results.size()==0)
