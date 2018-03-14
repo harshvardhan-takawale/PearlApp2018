@@ -29,7 +29,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
     }
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        Log.d("ImageLink",list.get(position).getThumbnail());
+        //Log.d("ImageLink",list.get(position).getThumbnail());
         holder.ename.setText(list.get(position).getName());
         holder.eprize.setText("₹ "+list.get(position).getPrize());
         Glide.with(holder.context)

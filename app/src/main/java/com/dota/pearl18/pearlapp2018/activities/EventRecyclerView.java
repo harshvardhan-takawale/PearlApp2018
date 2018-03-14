@@ -2,16 +2,25 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+
+import com.dota.pearl18.pearlapp2018.R;
 
 /**
  * Created by Vineeth on 3/14/2018.
  */
 
 public class EventRecyclerView extends RecyclerView {
+
+    public static final String TAG = "EventRecyclerView";
 
     public EventRecyclerView(Context context) {
         super(context);
@@ -28,6 +37,10 @@ public class EventRecyclerView extends RecyclerView {
     @Override
     public boolean fling(int velocityX, int velocityY) {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getLayoutManager();
+
+        if (linearLayoutManager.findViewByPosition(0) == linearLayoutManager.getFocusedChild()) {
+
+        }
 
         int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
 
@@ -52,6 +65,7 @@ public class EventRecyclerView extends RecyclerView {
             if (leftEdge > screenWidth / 2) {
                 // go to next page
                 smoothScrollBy(-scrollDistanceRight, 0);
+                Log.d(TAG, "smoothScrollBy(" + -scrollDistanceRight + "," + 0);
             } else if (rightEdge < screenWidth / 2) {
                 // go to next page
                 smoothScrollBy(scrollDistanceLeft, 0);
@@ -59,6 +73,7 @@ public class EventRecyclerView extends RecyclerView {
                 // stay at current page
                 if (velocityX > 0) {
                     smoothScrollBy(-scrollDistanceRight, 0);
+                    Log.d(TAG, "smoothScrollBy(" + -scrollDistanceRight + "," + 0);
                 } else {
                     smoothScrollBy(scrollDistanceLeft, 0);
                 }
@@ -78,38 +93,30 @@ public class EventRecyclerView extends RecyclerView {
         }
 
     }
+}
+
+class DividerItemDecoration extends RecyclerView.ItemDecoration {
+
+    private Drawable mDivider;
+
+    public DividerItemDecoration(Context context) {
+        mDivider = ContextCompat.getDrawable(context, R.drawable.divider);
+    }
 
     @Override
-    public void onScrollStateChanged(int state) {
-        super.onScrollStateChanged(state);
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
 
-        // If you tap on the phone while the RecyclerView is scrolling it will stop in the middle.
-        // This code fixes this. This code is not strictly necessary but it improves the behaviour.
+        int itemPosition = parent.getChildAdapterPosition(view);
+        int itemCount = state.getItemCount();
 
-        if (state == SCROLL_STATE_IDLE) {
-            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getLayoutManager();
+        //first item
+        if(itemPosition == 0){
+            outRect.left = mDivider.getMinimumWidth();
+        }
 
-            int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-
-            // views on the screen
-            int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
-            View lastView = linearLayoutManager.findViewByPosition(lastVisibleItemPosition);
-            int firstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
-            View firstView = linearLayoutManager.findViewByPosition(firstVisibleItemPosition);
-
-            // distance we need to scroll
-            int leftMargin = (screenWidth - lastView.getWidth()) / 2;
-            int rightMargin = (screenWidth - firstView.getWidth()) / 2 + firstView.getWidth();
-            int leftEdge = lastView.getLeft();
-            int rightEdge = firstView.getRight();
-            int scrollDistanceLeft = leftEdge - leftMargin;
-            int scrollDistanceRight = rightMargin - rightEdge;
-
-            if (leftEdge > screenWidth / 2) {
-                smoothScrollBy(-scrollDistanceRight, 0);
-            } else if (rightEdge < screenWidth / 2) {
-                smoothScrollBy(scrollDistanceLeft, 0);
-            }
+        else if(itemPosition>0 && itemPosition == itemCount-1){
+            outRect.right = mDivider.getMinimumWidth();
         }
     }
 }

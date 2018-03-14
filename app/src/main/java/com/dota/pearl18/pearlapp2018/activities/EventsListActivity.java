@@ -29,6 +29,7 @@ public class EventsListActivity extends AppCompatActivity {
     ArrayList<EventAbout> realmlist = new ArrayList<>();
     EventRecyclerView recyclerView;
     EventAboutAdapter adapter;
+    RecyclerView.ItemDecoration itemDecoration;
     private Realm realm;
     private  String TAG = EventsListActivity.class.getSimpleName();
     private String clubid;
@@ -48,6 +49,9 @@ public class EventsListActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.event_recycler);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(mLayoutManager);
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(this));
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         ClubInterface apiService = ApiClient.getClient().create(ClubInterface.class);
