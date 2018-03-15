@@ -59,15 +59,6 @@ public class ProshowActivity extends AppCompatActivity {
     mRecycler.scrollToPosition(2);
   }
 
-  @Override
-  public void onBackPressed() {
-    super.onBackPressed();
-    Intent i = new Intent(ProshowActivity.this, MainActivity.class);
-    i.putExtra("scrollTo",1);
-    startActivity(i);
-    finish();
-  }
-
   class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
     int resId[] = new int[]{
         R.drawable.proshow_lagori,
