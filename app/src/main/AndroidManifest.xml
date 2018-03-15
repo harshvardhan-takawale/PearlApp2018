@@ -51,10 +51,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.ScheduleActivity" />
         <activity android:name=".activities.QRScannerActivity" />
-      <activity android:name=".activities.ProshowActivity" />
+      <activity android:name=".activities.ProshowActivity"
+                android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activities.ArticleDisplayActivity" />
         <activity android:name=".activities.EventsListActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".activities.DetailsActivity"/>
 
         <service android:name=".sync.NewsFirebaseJobService"
