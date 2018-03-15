@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.sync.NewsSyncUtils;
-import com.google.firebase.FirebaseApp;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
@@ -25,9 +24,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
-    private Button contactUsButton;
-    private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, mGuideBtn, newsButton;
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
@@ -38,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseApp.initializeApp(this);
         Uri uri = Uri.parse("https://www.bits-pearl.org/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
@@ -164,13 +159,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
-                final float displacement = 0.01f * busFull.getHeight(); // 0.5% of the total height
+                final float displacement = 0.004f * busFull.getHeight();
                 if (progress < 0.5f) {
-                    // move down for first half
-                    busFull.setTranslationY(2.0f * progress * displacement);
+                    // move up for first half
+                    busFull.setTranslationY(-2.0f * progress * displacement);
                 } else {
-                    // move back up for second half
-                    busFull.setTranslationY(2.0f * (1.0f - progress)* displacement);
+                    // move back down for second half
+                    busFull.setTranslationY(-2.0f * (1.0f - progress) * displacement);
                 }
             }
         });
