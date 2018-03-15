@@ -45,22 +45,19 @@ public class ScheduleFragment extends Fragment
     private int i ;
     private Context context;
 
-    public static ScheduleFragment newInstance(int page)
+  /*  public static ScheduleFragment newInstance(int page)
     {
         ScheduleFragment fragment = new ScheduleFragment();
         Bundle args = new Bundle();
         args.putInt("page_no",page);
         fragment.setArguments(args);
         return fragment;
-    }
+    }*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("page_no",0);
         context = getContext();
-
-
     }
 
     @Nullable
@@ -74,14 +71,16 @@ public class ScheduleFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
         realm.init(context);
         realm = Realm.getDefaultInstance();
+         page = getArguments().getInt("page",0);
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
-        adapter = new ScheduleAdapter(realmlist,context);
+        adapter = new ScheduleAdapter(realmlist,context,day);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
        /* switch (page) {
             case 0: CallApi();break;
         }*/
+       Log.e(TAG,"pagein:"+String.valueOf(page));
        switch (page) {
            case 0:
                day = "23";
@@ -93,13 +92,14 @@ public class ScheduleFragment extends Fragment
                day = "25";
                break;
        }
+       Log.e(TAG,"day:"+day);
         CallApi();
 
     }
 
     private  void CallApi()
     {
-        EventsInterface apiservice = TestApiClient.getClient().create(EventsInterface.class);
+        EventsInterface apiservice = ApiClient.getClient().create(EventsInterface.class);
         Call<ArrayList<EventDetails>> call = apiservice.getEventSchedule();
         call.enqueue(new Callback<ArrayList<EventDetails>>() {
             @Override
@@ -172,7 +172,7 @@ public class ScheduleFragment extends Fragment
             realmlist.addAll(set);
             Log.e(TAG,"setsize"+String.valueOf(set.size())+""+realmlist.size());
 
-            recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext()));
+            recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext(),day));
         }
 
     }
@@ -198,7 +198,6 @@ public class ScheduleFragment extends Fragment
                 // parts[2] => DD => 11
                 // parts[3] => HH => 10
                 // parts[4] => mm => 5
-                Log.e(TAG,parts[0]);
                  return parts;
             }
 

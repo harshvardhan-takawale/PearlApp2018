@@ -2,6 +2,7 @@ package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.DetailsActivity;
+import com.dota.pearl18.pearlapp2018.activities.ScheduleFragment;
 import com.dota.pearl18.pearlapp2018.api.EventDetails;
 
 import java.util.ArrayList;
@@ -29,12 +31,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
     Context context;
     private Realm realm;
+    private String day;
 
 
-    public ScheduleAdapter(List<String> times,Context context)
+    public ScheduleAdapter(List<String> times,Context context,String day)
     {
         this.times=times;
         this.context  =context;
+        this.day = day;
     }
 
     @Override
@@ -94,7 +98,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         public void bindRecycler(String time) {
 
 
-            RealmResults<EventDetails> results = realm.where(EventDetails.class).equalTo("starttime",time).findAll();
+            RealmResults<EventDetails> results = realm.where(EventDetails.class).equalTo("eventdate",day).equalTo("starttime",time).findAll();
             final List<EventDetails> sets = new ArrayList<>();
             sets.addAll(results);
             linearLayout.removeAllViews();
@@ -105,9 +109,13 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getEventname());
                 ((TextView) v.findViewById(R.id.event_tagline)).setText(set.getEventDescription());
-                ((TextView) v.findViewById(R.id.schedule_item_cardview)).setOnClickListener(new View.OnClickListener() {
+                ((CardView) v.findViewById(R.id.schedule_item_cardview)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        Intent i  = new Intent(view.getContext(),DetailsActivity.class);
+                        i.putExtra("id",set.getEventid());
+                        view.getContext().startActivity(i);
 
                     }
                 });

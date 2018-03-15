@@ -31,7 +31,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     }
 
-    public  class viewpageradapter extends FragmentStatePagerAdapter{
+    public  class viewpageradapter extends FragmentPagerAdapter{
 
         public viewpageradapter(FragmentManager fm) {
             super(fm);
@@ -39,8 +39,13 @@ public class ScheduleActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            Log.e(TAG,"page:"+String.valueOf(position));
 
-            return ScheduleFragment.newInstance(position);
+            ScheduleFragment scheduleFragment = new ScheduleFragment();
+            Bundle args = new Bundle();
+            args.putInt("page",position);
+            scheduleFragment.setArguments(args);
+            return scheduleFragment;
         }
 
         @Override
