@@ -40,7 +40,7 @@ public class EventsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events_list);
 
         realm = Realm.getDefaultInstance();
-        realm.init(this);
+        Realm.init(this);
 
         Bundle bundle=getIntent().getExtras();
         clubid=bundle.getString("id");

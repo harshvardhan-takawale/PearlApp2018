@@ -46,7 +46,7 @@ public class EventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        realm.init(this);
+        Realm.init(this);
         realm = Realm.getDefaultInstance();
 
         itemPicker = findViewById(R.id.club_list);
@@ -195,7 +195,7 @@ public class EventsActivity extends AppCompatActivity {
 
             if(results.size()==0)
             {
-            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT).show(); ;
+            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT).show();
             }
             else
             {

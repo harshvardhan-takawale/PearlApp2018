@@ -45,7 +45,7 @@ public class DetailsActivity extends AppCompatActivity {
         starttime = findViewById(R.id.starttime);
 
         realm = Realm.getDefaultInstance();
-        realm.init(this);
+        Realm.init(this);
 
         Bundle bundle=getIntent().getExtras();
         id=bundle.getString("id");

@@ -43,7 +43,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        realm.init(context);
+        Realm.init(context);
         realm = Realm.getDefaultInstance();
         View v = LayoutInflater.from(context).inflate(R.layout.activity_schedule_item,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
@@ -109,7 +109,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getEventname());
                 ((TextView) v.findViewById(R.id.event_tagline)).setText(set.getEventDescription());
-                ((CardView) v.findViewById(R.id.schedule_item_cardview)).setOnClickListener(new View.OnClickListener() {
+                v.findViewById(R.id.schedule_item_cardview).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 

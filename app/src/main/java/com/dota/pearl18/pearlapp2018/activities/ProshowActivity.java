@@ -36,7 +36,7 @@ public class ProshowActivity extends AppCompatActivity {
 
     final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
     mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-    final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
+    final RecyclerView mRecycler = findViewById(R.id.recycler_pro_show);
     mRecycler.setLayoutManager(mLayoutManager);
     mRecycler.setHasFixedSize(true);
     new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
@@ -88,7 +88,7 @@ public class ProshowActivity extends AppCompatActivity {
 
       ProShowViewHolder(View v) {
         super(v);
-        img = (ImageView) v.findViewById(R.id.image_pro_show);
+        img = v.findViewById(R.id.image_pro_show);
       }
     }
 

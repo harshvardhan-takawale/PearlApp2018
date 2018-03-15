@@ -69,7 +69,7 @@ public class ScheduleFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        realm.init(context);
+        Realm.init(context);
         realm = Realm.getDefaultInstance();
          page = getArguments().getInt("page",0);
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
