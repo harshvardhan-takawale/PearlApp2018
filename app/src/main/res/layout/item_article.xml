@@ -20,7 +20,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:padding="16dp"
+            android:padding="8dp"
             tools:text="About us"
             android:textColor="#000"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />

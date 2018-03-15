@@ -24,7 +24,7 @@ public class NewsActivity extends AppCompatActivity {
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
-    private InfiniteScrollAdapter infiniteAdapter;
+    //private InfiniteScrollAdapter infiniteAdapter;
     private TextView name;
 
     @Override
@@ -43,18 +43,13 @@ public class NewsActivity extends AppCompatActivity {
         buttonList.add(new LandingButtonDetails("Articles",
                 articlesIntent,this));
         buttonAdapter = new LandingAdapter(buttonList);
-        infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
+        //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
         discreteScrollView = findViewById(R.id.Button_list);
         discreteScrollView.setOrientation(DSVOrientation.HORIZONTAL);
-        discreteScrollView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
-            @Override
-            public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
-                onItemChanged(infiniteAdapter.getRealPosition(adapterPosition));
-            }
-        });
 
-        discreteScrollView.setAdapter(infiniteAdapter);
+
+        discreteScrollView.setAdapter(buttonAdapter);
         discreteScrollView.setItemTransitionTimeMillis(150);
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
                 .setMinScale(0.8f)
