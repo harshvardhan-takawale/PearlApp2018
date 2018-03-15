@@ -7,14 +7,12 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-/**
- * Created by TheGamer007 on 11/1/18.
- */
+
 
 public interface ArticlesInterface {
-    @GET("feed")
+    @GET("news")
     Call<ArrayList<ArticleDetails>> getArticlesList(/*@Query("fields") String fields*/);
 
-    @GET("feed/{id}")
+    @GET("news/{id}")
     Call<ArticleDetails> getArticle(@Path("id") String id);
 }

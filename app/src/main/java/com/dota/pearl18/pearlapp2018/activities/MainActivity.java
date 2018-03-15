@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             this));
 
         buttonList.add(new LandingButtonDetails("News",
-            new Intent(getApplicationContext(),ArticleDisplayActivity.class),
+            new Intent(getApplicationContext(),NewsActivity.class),
             this));
 
         buttonList.add(new LandingButtonDetails("Pro Shows",

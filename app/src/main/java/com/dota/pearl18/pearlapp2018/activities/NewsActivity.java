@@ -1,22 +1,14 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
-import android.Manifest;
 import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
@@ -27,51 +19,41 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
 
-import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
-import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
+public class NewsActivity extends AppCompatActivity {
 
-public class GuideActivity extends AppCompatActivity {
-
-    private static int permCheck;
-    public static final int REQUEST_LOCATION = 1;
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
-    private InfiniteScrollAdapter infiniteAdapter;
+    //private InfiniteScrollAdapter infiniteAdapter;
     private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide);
+        setContentView(R.layout.activity_news);
 
         buttonList = new ArrayList<LandingButtonDetails>();
 
-        Intent aboutIntent = new Intent(GuideActivity.this, TextDisplayActivity.class);
-        aboutIntent.putExtra("text","about");
+        Intent articlesIntent = new Intent(NewsActivity.this,ArticlesActivity.class);
+        Intent feedIntent = new Intent(NewsActivity.this,FeedActivity.class);
 
-        Intent reachIntent= new Intent(GuideActivity.this, TextDisplayActivity.class);
-        reachIntent.putExtra("text","dir");
+        buttonList.add(new LandingButtonDetails("Feed",
+                feedIntent,this));
 
-        buttonList.add(new LandingButtonDetails("About",
-            aboutIntent,this));
-
-        buttonList.add(new LandingButtonDetails("Reach",
-            reachIntent,this));
-
-        buttonList.add(new LandingButtonDetails("Maps",
-            new Intent(this,MapsActivity.class),this));
-
+        buttonList.add(new LandingButtonDetails("Articles",
+                articlesIntent,this));
         buttonAdapter = new LandingAdapter(buttonList);
         //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
         discreteScrollView = findViewById(R.id.Button_list);
         discreteScrollView.setOrientation(DSVOrientation.HORIZONTAL);
+
+
         discreteScrollView.setAdapter(buttonAdapter);
         discreteScrollView.setItemTransitionTimeMillis(150);
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
-            .setMinScale(0.8f)
-            .build());
+                .setMinScale(0.8f)
+                .build());
         onItemChanged(0);
 
         // landRightOne and cloudRightOne are the initially visible layers.
@@ -160,4 +142,6 @@ public class GuideActivity extends AppCompatActivity {
         name = findViewById(R.id.Button_name);
         name.setText(buttonList.get(pos).getButtonName());
     }
+
+
 }
