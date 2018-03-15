@@ -1,6 +1,7 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.activities.DetailsActivity;
 import com.dota.pearl18.pearlapp2018.api.EventDetails;
 
 import java.util.ArrayList;
@@ -99,10 +101,16 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
 
             for (int i = 0; i < sets.size(); i++) {
                 final EventDetails set = sets.get(i);
-                View v = LayoutInflater.from(context).inflate(R.layout.activity_schedule_sub_item,linearLayout,false);
+                final View v = LayoutInflater.from(context).inflate(R.layout.activity_schedule_sub_item,linearLayout,false);
 
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getEventname());
                 ((TextView) v.findViewById(R.id.event_tagline)).setText(set.getEventDescription());
+                ((TextView) v.findViewById(R.id.schedule_item_cardview)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
                 linearLayout.addView(v);
                 if (i != sets.size() - 1) {
                     View divider = LayoutInflater.from(context).inflate(R.layout.divider, linearLayout, false);

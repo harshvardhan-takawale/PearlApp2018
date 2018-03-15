@@ -4,23 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-        <TextView
-            android:id="@+id/details"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/montserrat"
-            android:lineSpacingExtra="2dp"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="@tools:sample/lorem/random" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="3:00-4:00"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/montserrat"
+                android:lineSpacingExtra="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                tools:text="@tools:sample/lorem/random"/>
+
+        </LinearLayout>
+
+        />
 
     </android.support.v4.widget.NestedScrollView>
 

@@ -26,6 +26,10 @@ public class EventAbout extends RealmObject {
     String teamSize;
     @SerializedName("thumbnail")
     String thumbnail;
+    @SerializedName("startTime")
+    String startTime;
+    @SerializedName("endTime")
+    String endTime;
     public void setName(String name) {this.name = name;}
     public void setId(String id) {this.id = id;}
     public void setBody(String body) {this.body = body;}
@@ -34,6 +38,12 @@ public class EventAbout extends RealmObject {
     public void setPrize(String prize) {this.prize = prize;}
     public void setTeamSize(String teamSize) {this.teamSize = teamSize;}
     public void setThumbnail(String thumbnail) {this.thumbnail = thumbnail;}
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
     public String getName() {return name;}
     public String getBody() {return body;}
@@ -43,4 +53,10 @@ public class EventAbout extends RealmObject {
     public String getPrize() {return prize;}
     public String getTeamSize() {return teamSize;}
     public String getThumbnail() {return thumbnail;}
+    public String getStartTime() {
+        return startTime;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
 }

@@ -30,17 +30,19 @@ public class DetailsActivity extends AppCompatActivity {
 
     private EventAbout event;
     private EventAbout model;
-    private TextView eventdetails;
+    private TextView eventdetails,starttime;
     private String TAG = DetailsActivity.class.getSimpleName();
     private boolean isnetwork = false;
     private Realm realm;
     private String id;
+    private String time;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventdetails);
         eventdetails = findViewById(R.id.details);
+        starttime = findViewById(R.id.starttime);
 
         realm = Realm.getDefaultInstance();
         realm.init(this);
@@ -55,7 +57,9 @@ public class DetailsActivity extends AppCompatActivity {
               event = response.body();
               addDatatoRealm(event);
               eventdetails.setText(event.getAbout());
-
+              time = getEventTime(event.getStartTime())[3] + ":"+getEventTime(event.getStartTime())[4]+" - "+
+                      getEventTime(event.getEndTime())[3]+":"+getEventTime(event.getEndTime())[4];
+              starttime.setText(time);
             }
 
             @Override
@@ -71,6 +75,8 @@ public class DetailsActivity extends AppCompatActivity {
         realm.beginTransaction();
         EventAbout model = realm.where(EventAbout.class).equalTo("id",id).findFirst();
         model.setAbout(details.getAbout());
+        model.setStartTime(details.getStartTime());
+        model.setEndTime(details.getEndTime());
         realm.commitTransaction();
 
     }
@@ -88,8 +94,42 @@ public class DetailsActivity extends AppCompatActivity {
             else
             {
                 eventdetails.setText(result.getAbout());
+                time = getEventTime(result.getStartTime())[3] + ":"+getEventTime(result.getStartTime())[4]+" - "+
+                        getEventTime(result.getEndTime())[3]+":"+getEventTime(result.getEndTime())[4];
+                        starttime.setText(time);
             }
         }
 
     }
+
+    public String[] getEventTime(String time)
+    {
+
+        // The format of the startTime string is yyyy-MM-dd-HH-mm
+        // HH-mm is the time in 24 hour format. Use this after conversion to 12 hour format.
+
+        String pattern = "\\d{4}(-\\d{2}){4}";
+        String[] parts ={"","","","",""};
+        // testdate corresponds to 10:05 AM (10:05 hours), 11th August 2018
+        String testdate = "2018-08-11-10-05"; // replace with details.getStartTime()
+
+        // validation condition. If false, do not parse the time, and have a default fallback option
+        if (time.matches(pattern)){
+            // Split the testdate String, to obtain the various parts of the time
+            parts = time.split("-");
+            // wrt to testdate
+            // parts[0] => yyyy => 2018
+            // parts[1] => MM => 08
+            // parts[2] => DD => 11
+            // parts[3] => HH => 10
+            // parts[4] => mm => 5
+            Log.e(TAG,parts[0]);
+            return parts;
+        }
+
+        return parts;
+
+    }
+
+
 }
