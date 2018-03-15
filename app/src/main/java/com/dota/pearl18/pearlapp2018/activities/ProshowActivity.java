@@ -3,17 +3,24 @@ package com.dota.pearl18.pearlapp2018.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.text.util.LinkifyCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.azoft.carousellayoutmanager.CarouselChildSelectionListener;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.dota.pearl18.pearlapp2018.R;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
+import com.yarolegovich.lovelydialog.ViewConfigurator;
 
 /**
  * Created by lenovo on 3/14/2018.
@@ -35,7 +42,11 @@ public class ProshowActivity extends AppCompatActivity {
     new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
       @Override
       protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-
+        int pos = recyclerView.getChildAdapterPosition(v);
+        new LovelyInfoDialog(ProshowActivity.this)
+            .setTopColorRes(R.color.colorPrimaryDark)
+            .setMessage("Hello World")
+            .show();
       }
 
       @Override
@@ -45,7 +56,7 @@ public class ProshowActivity extends AppCompatActivity {
       }
     };
     mRecycler.setAdapter(new ProShowAdapter());
-    mRecycler.scrollToPosition(0);
+    mRecycler.scrollToPosition(2);
   }
 
   @Override
