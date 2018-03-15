@@ -54,6 +54,7 @@
         <activity android:name=".activities.ArticleDisplayActivity" />
         <activity android:name=".activities.EventsListActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".activities.DetailsActivity"/>
 
         <service android:name=".sync.NewsFirebaseJobService"
                  android:permission="android.permission.BIND_JOB_SERVICE">

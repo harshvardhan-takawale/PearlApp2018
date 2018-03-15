@@ -15,4 +15,7 @@ public interface ClubInterface {
 
     @GET("events")
     Call<ArrayList<EventAbout>> getEventDetails();
+
+    @GET("events?fields=about")
+    Call<ArrayList<EventAbout>> getEventListDetails();
 }
