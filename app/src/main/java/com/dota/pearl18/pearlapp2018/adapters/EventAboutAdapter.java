@@ -44,7 +44,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
         });
 
         Glide.with(holder.context)
-                .load(loadImage(holder.ename.toString()))
+                .load(loadImage(holder.ename.getText().toString()))
                 .bitmapTransform(new CropCircleTransformation(holder.context))
                 .into(holder.logo);
     }
@@ -75,6 +75,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
 
     public Integer loadImage(String eventName){
         String lowerCaseName = eventName.toLowerCase();
+        Log.i("EventAboutAdapter", "loadImage: testing against " + lowerCaseName);
         if (lowerCaseName.contains("abhivy")){
             return R.drawable.event_abhivyaktika;
         }else if (lowerCaseName.contains("album")){
@@ -107,16 +108,12 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
             return R.drawable.event_football_manager;
         }else if (lowerCaseName.contains("fraglore")){
             return R.drawable.event_fraglore;
-        }else if (lowerCaseName.contains("fxed")){
+        }else if (lowerCaseName.contains("fx")){
             return R.drawable.event_fxed;
         }else if (lowerCaseName.contains("gandhaara")){
             return R.drawable.event_gandhaara;
         }else if (lowerCaseName.contains("general")){
-            if (lowerCaseName.contains("open")){
-                return R.drawable.event_open_general_quiz;
-            }else {
-               return R.drawable.event_general_quiz;
-            }
+            return R.drawable.event_general_quiz;
         }else if (lowerCaseName.contains("glitterati")){
             return R.drawable.event_glitterati;
         }else if (lowerCaseName.contains("what")){
