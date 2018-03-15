@@ -24,9 +24,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MyActivity";
-    private Button contactUsButton;
-    private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, mGuideBtn, newsButton;
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
@@ -37,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Uri uri = Uri.parse("https://www.bits-pearl.org/");
+
+        Uri uri = Uri.parse("https://www.townscript.com/e/pearl2018-240304");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
         buttonList = new ArrayList<LandingButtonDetails>();
@@ -162,13 +160,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
-                final float displacement = 0.01f * busFull.getHeight(); // 0.5% of the total height
+                final float displacement = 0.004f * busFull.getHeight();
                 if (progress < 0.5f) {
-                    // move down for first half
-                    busFull.setTranslationY(2.0f * progress * displacement);
+                    // move up for first half
+                    busFull.setTranslationY(-2.0f * progress * displacement);
                 } else {
-                    // move back up for second half
-                    busFull.setTranslationY(2.0f * (1.0f - progress)* displacement);
+                    // move back down for second half
+                    busFull.setTranslationY(-2.0f * (1.0f - progress) * displacement);
                 }
             }
         });

@@ -92,5 +92,13 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:paddingBottom="4dp"
-      android:src="@drawable/bus_full"/>
+      android:src="@drawable/bus_top_with_padding"/>
+
+    <ImageView
+        android:id="@+id/layer_wheels"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="4dp"
+        android:src="@drawable/wheels_with_padding"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -121,13 +121,13 @@ public class NewsActivity extends AppCompatActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 final float progress = (float) animation.getAnimatedValue();
-                final float displacement = 0.01f * busFull.getHeight(); // 0.5% of the total height
+                final float displacement = 0.004f * busFull.getHeight();
                 if (progress < 0.5f) {
-                    // move down for first half
-                    busFull.setTranslationY(2.0f * progress * displacement);
+                    // move up for first half
+                    busFull.setTranslationY(-2.0f * progress * displacement);
                 } else {
-                    // move back up for second half
-                    busFull.setTranslationY(2.0f * (1.0f - progress)* displacement);
+                    // move back down for second half
+                    busFull.setTranslationY(-2.0f * (1.0f - progress) * displacement);
                 }
             }
         });
