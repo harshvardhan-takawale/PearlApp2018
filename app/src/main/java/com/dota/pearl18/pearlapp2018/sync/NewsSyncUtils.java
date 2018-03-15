@@ -21,9 +21,9 @@ import java.util.concurrent.TimeUnit;
 
 public class NewsSyncUtils {
 
-    private static final int SYNC_INTERVAL_MINUTES = 30;
-    private static final int SYNC_INTERVAL_MILLIS = (int) TimeUnit.MINUTES.toSeconds(SYNC_INTERVAL_MINUTES);
-    private static final int SYNC_FLEXTIME_MILLIS = SYNC_INTERVAL_MILLIS/2;
+    private static final int SYNC_INTERVAL_MINUTES = 15;
+    private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.MINUTES.toSeconds(SYNC_INTERVAL_MINUTES);
+    private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS / 3;
 
     private static boolean sInitialized;
 
@@ -41,7 +41,7 @@ public class NewsSyncUtils {
                 .setLifetime(Lifetime.FOREVER)
                 .setRecurring(true)
                 .setTrigger(Trigger.executionWindow(
-                        SYNC_INTERVAL_MILLIS, SYNC_INTERVAL_MILLIS+SYNC_FLEXTIME_MILLIS))
+                        SYNC_INTERVAL_SECONDS, SYNC_INTERVAL_SECONDS+SYNC_FLEXTIME_SECONDS))
                 .setReplaceCurrent(true)
                 .build();
 

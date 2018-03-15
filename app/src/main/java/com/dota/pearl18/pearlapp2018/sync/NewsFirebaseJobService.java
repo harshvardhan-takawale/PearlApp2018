@@ -29,6 +29,7 @@ public class NewsFirebaseJobService extends JobService{
             protected void onPostExecute(Void aVoid) {
                 jobFinished(jobParameters, false);
             }
+
         };
 
         mCheckNewsTask.execute();

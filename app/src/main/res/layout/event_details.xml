@@ -146,62 +146,6 @@
 
         <!-- divider line -->
         <ImageView
-            android:id="@+id/firstline"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="9dp"
-            android:clickable="false"
-            android:src="@color/contentDividerLine"
-            tools:ignore="ContentDescription" />
-
-        <RelativeLayout
-            android:id="@+id/content_contact_captain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:layout_marginStart="10dp"
-                android:text="Team Size"
-                android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
-
-        <!-- divider line -->
-        <ImageView
-            android:id="@+id/secondline"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="9dp"
-            android:clickable="false"
-            android:src="@color/contentDividerLine"
-            tools:ignore="ContentDescription" />
-
-        <RelativeLayout
-            android:id="@+id/content_rules"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/content_rules_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:layout_marginStart="10dp"
-                android:text="Partcipation Fee"
-                android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
-
-        </RelativeLayout>
-
-        <!-- divider line -->
-        <ImageView
             android:id="@+id/thirdline"
             android:layout_width="match_parent"
             android:layout_height="1dp"
