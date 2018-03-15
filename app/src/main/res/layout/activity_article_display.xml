@@ -13,14 +13,13 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
             tools:text="Pure HTML, Multiple elements. Should be interesting. Also, long heading. Have fun."
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/tv_authors"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            tools:text="By: C Shri Akhil, Rohitt Vashishta"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

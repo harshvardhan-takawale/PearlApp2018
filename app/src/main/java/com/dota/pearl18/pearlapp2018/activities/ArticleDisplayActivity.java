@@ -41,7 +41,8 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         mAuthors = findViewById(R.id.tv_authors);
         mContent = findViewById(R.id.tv_content);
 
-        ArticlesInterface articlesInterface = ApiClient.getClient().create(ArticlesInterface.class);
+        //TODO: CHANGE THIS ALSO TO APICLIENT
+        ArticlesInterface articlesInterface = TestApiClient.getClient().create(ArticlesInterface.class);
 
         Call<ArticleDetails> call  = articlesInterface.getArticle(id);
         call.enqueue(new Callback<ArticleDetails>() {
