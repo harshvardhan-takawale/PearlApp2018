@@ -32,9 +32,6 @@ public class ArticleDisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_display);
-        ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
         id = getIntent().getStringExtra("_id");
 
         mTitle = findViewById(R.id.tv_title);

@@ -39,9 +39,6 @@ public class ArticlesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_articles);
-        ActionBar actionBar =getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeButtonEnabled(true);
 
         mRefresh = findViewById(R.id.articles_swiperefresh);
         mRecycler = findViewById(R.id.articles_recycler);
