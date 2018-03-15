@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             this));
 
         buttonList.add(new LandingButtonDetails("Pro Shows",
-            new Intent(MainActivity.this, ScheduleActivity.class),
+            new Intent(MainActivity.this, ProshowActivity.class),
             this));
 
         buttonList.add(new LandingButtonDetails("Schedule",
