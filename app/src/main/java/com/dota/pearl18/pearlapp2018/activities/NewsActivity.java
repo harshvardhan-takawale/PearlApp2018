@@ -2,20 +2,16 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.animation.LinearInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
 import com.dota.pearl18.pearlapp2018.R;
-import com.dota.pearl18.pearlapp2018.sync.NewsSyncUtils;
-import com.google.firebase.FirebaseApp;
+import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
@@ -23,11 +19,8 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MyActivity";
-    private Button contactUsButton;
-    private Button creditsButton;
-    private Button RegisterButton,Schedule,Events, mGuideBtn, newsButton;
+public class NewsActivity extends AppCompatActivity {
+
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
@@ -37,49 +30,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        FirebaseApp.initializeApp(this);
-        Uri uri = Uri.parse("https://www.bits-pearl.org/");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        setContentView(R.layout.activity_news);
 
         buttonList = new ArrayList<LandingButtonDetails>();
 
-        buttonList.add(new LandingButtonDetails("Events",
-            new Intent(MainActivity.this, EventsActivity.class),
-            this));
+        Intent articlesIntent = new Intent(NewsActivity.this,ArticleDisplayActivity.class);
+        Intent feedIntent = new Intent(NewsActivity.this,FeedActivity.class);
 
-        buttonList.add(new LandingButtonDetails("News",
-            new Intent(getApplicationContext(),NewsActivity.class),
-            this));
+        buttonList.add(new LandingButtonDetails("Feed",
+                feedIntent,this));
 
-        buttonList.add(new LandingButtonDetails("Pro Shows",
-            new Intent(MainActivity.this, ProshowActivity.class),
-            this));
-
-        buttonList.add(new LandingButtonDetails("Schedule",
-            new Intent(MainActivity.this, ScheduleActivity.class),
-            this));
-
-        buttonList.add(new LandingButtonDetails("Guide",
-            new Intent(getApplicationContext(),GuideActivity.class),
-            this));
-
-        buttonList.add(new LandingButtonDetails("App Credits",
-            new Intent(MainActivity.this, CreditsActivity.class),
-            this));
-
-        buttonList.add(new LandingButtonDetails("Contact Us",
-            new Intent(MainActivity.this, ContactsActivity.class),
-            this));
-
-        buttonList.add(new LandingButtonDetails("Register",
-            intent,
-            this));
-
-        buttonList.add(new LandingButtonDetails("QR Scanner",
-            new Intent(MainActivity.this, QRScannerActivity.class),
-            this));
-
+        buttonList.add(new LandingButtonDetails("Articles",
+                articlesIntent,this));
         buttonAdapter = new LandingAdapter(buttonList);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
@@ -95,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         discreteScrollView.setAdapter(infiniteAdapter);
         discreteScrollView.setItemTransitionTimeMillis(150);
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
-            .setMinScale(0.8f)
-            .build());
+                .setMinScale(0.8f)
+                .build());
         onItemChanged(0);
 
         // landRightOne and cloudRightOne are the initially visible layers.
@@ -179,11 +141,12 @@ public class MainActivity extends AppCompatActivity {
         cloudAnimator.start();
         busAnimator.start();
 
-        NewsSyncUtils.initialize(this);
     }
 
     private void onItemChanged(int pos) {
         name = findViewById(R.id.Button_name);
         name.setText(buttonList.get(pos).getButtonName());
     }
+
+
 }
