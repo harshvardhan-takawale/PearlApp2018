@@ -81,17 +81,6 @@ public class EventsActivity extends AppCompatActivity {
             }
         });
 
-        //TODO: Remove garland view commented portion if not to be used
-        /*outerData = new ArrayList<>();
-        for (int i=0;i<5;i++) {
-            final List<InnerData> innerData = new ArrayList<>();
-            for (int j=0;j<5; j++) {
-                innerData.add(createInnerData());
-            }
-            outerData.add(innerData);
-        }
-        initRecyclerView(outerData);*/
-
         final ImageView landRightOne = findViewById(R.id.land_right_one);
         final ImageView cloudRightOne = findViewById(R.id.cloud_right_one);
 
@@ -178,18 +167,6 @@ public class EventsActivity extends AppCompatActivity {
             prize.setText("₹ 10,000");
         }
     }
-
-    /*private void initRecyclerView(List<List<InnerData>> data) {
-
-        final TailRecyclerView rv = findViewById(R.id.tail_recycler);
-        ((TailLayoutManager)rv.getLayoutManager()).setPageTransformer(new HeaderTransformer());
-        rv.setAdapter(new OuterAdapter(data));
-        new TailSnapHelper().attachToRecyclerView(rv);
-    }
-    public InnerData createInnerData()
-    {
-        return new InnerData("Dance","hello2","hello","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS",20000);
-    }*/
 
     private void addDatatoRealm(ClubDetails clublist)
     {
