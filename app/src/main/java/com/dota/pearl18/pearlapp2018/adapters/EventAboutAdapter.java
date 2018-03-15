@@ -44,7 +44,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
         });
 
         Glide.with(holder.context)
-                .load("https://bits-pearl.org"+list.get(position).getThumbnail())
+                .load(loadImage(holder.ename.toString()))
                 .bitmapTransform(new CropCircleTransformation(holder.context))
                 .into(holder.logo);
     }
@@ -72,4 +72,118 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
             edetails =view.findViewById(R.id.tv_status);
         }
     }
+
+    public Integer loadImage(String eventName){
+        String lowerCaseName = eventName.toLowerCase();
+        if (lowerCaseName.contains("abhivy")){
+            return R.drawable.event_abhivyaktika;
+        }else if (lowerCaseName.contains("album")){
+            return R.drawable.event_album_art;
+        }else if (lowerCaseName.contains("alfaaz")){
+            return R.drawable.event_alfaaz;
+        }else if (lowerCaseName.contains("antak")){
+            return R.drawable.event_antakshari;
+        }else if (lowerCaseName.contains("bull")){
+            return R.drawable.event_bullseye;
+        }else if (lowerCaseName.contains("caption")){
+            return R.drawable.event_caption_it;
+        }else if (lowerCaseName.contains("caricature")){
+            return R.drawable.event_caricature;
+        }else if (lowerCaseName.contains("charades")){
+            return R.drawable.event_charades;
+        }else if (lowerCaseName.contains("cinematic")){
+            return R.drawable.event_cinematic_trailer;
+        }else if (lowerCaseName.contains("debate")){
+            return R.drawable.event_debate;
+        }else if (lowerCaseName.contains("doodler")){
+            return R.drawable.event_doodler;
+        }else if (lowerCaseName.contains("ent")){
+            return R.drawable.event_ent_quiz;
+        }else if (lowerCaseName.contains("expressions")){
+            return R.drawable.event_expressions;
+        }else if (lowerCaseName.contains("face")){
+            return R.drawable.event_face_painting;
+        }else if (lowerCaseName.contains("football")){
+            return R.drawable.event_football_manager;
+        }else if (lowerCaseName.contains("fraglore")){
+            return R.drawable.event_fraglore;
+        }else if (lowerCaseName.contains("fxed")){
+            return R.drawable.event_fxed;
+        }else if (lowerCaseName.contains("gandhaara")){
+            return R.drawable.event_gandhaara;
+        }else if (lowerCaseName.contains("general")){
+            if (lowerCaseName.contains("open")){
+                return R.drawable.event_open_general_quiz;
+            }else {
+               return R.drawable.event_general_quiz;
+            }
+        }else if (lowerCaseName.contains("glitterati")){
+            return R.drawable.event_glitterati;
+        }else if (lowerCaseName.contains("what")){
+            return R.drawable.event_guess_what;
+        }else if (lowerCaseName.contains("hunt")){
+            return R.drawable.event_ha_ha_hunt;
+        }else if (lowerCaseName.contains("india")){
+            return R.drawable.event_india_quiz;
+        }else if (lowerCaseName.contains("jhankaar")){
+            return R.drawable.event_jhankaar;
+        }else if (lowerCaseName.contains("kaleidoscope")){
+            return R.drawable.event_kaleidoscope;
+        }else if (lowerCaseName.contains("masterstroke")){
+            return R.drawable.event_masterstroke;
+        }else if (lowerCaseName.contains("midnight")){
+            return R.drawable.event_midnight_av;
+        }else if (lowerCaseName.contains("minute")){
+            return R.drawable.event_minute_to_win_it;
+        }else if (lowerCaseName.contains("acting")){
+            return R.drawable.event_mono_acting;
+        }else if (lowerCaseName.contains("pearl")){
+            if (lowerCaseName.contains("jam")){
+               return R.drawable.event_pearl_jam;
+            }else {
+                return R.drawable.event_mr_ms_pearl;
+            }
+        }else if (lowerCaseName.contains("natya")){
+            return R.drawable.event_natya_shastra;
+        }else if (lowerCaseName.contains("nukkad")){
+            return R.drawable.event_nukkad_natak;
+        }else if (lowerCaseName.contains("pictionary")){
+            return R.drawable.event_pictionary;
+        }else if (lowerCaseName.contains("pitch")){
+            return R.drawable.event_pitch_it_to_win_it;
+        }else if (lowerCaseName.contains("retrospective")){
+            return R.drawable.event_retrospective;
+        }else if (lowerCaseName.contains("sherlocked")){
+            return R.drawable.event_sherlocked;
+        }else if (lowerCaseName.contains("soul")){
+            return R.drawable.event_soul_o;
+        }else if (lowerCaseName.contains("alert")){
+            return R.drawable.event_spoiler_alert;
+        }else if (lowerCaseName.contains("sports")){
+            return R.drawable.event_sports_quiz;
+        }else if (lowerCaseName.contains("synced")){
+            return R.drawable.event_synced_in;
+        }else if (lowerCaseName.contains("terpsichore")){
+            return R.drawable.event_terpsichore;
+        }else if (lowerCaseName.contains("deaf")){
+            return R.drawable.event_till_deaf;
+        }else if (lowerCaseName.contains("machine")){
+            return R.drawable.event_time_machine;
+        }else if (lowerCaseName.contains("torque")){
+            return R.drawable.event_torque_a_wheeee;
+        }else if (lowerCaseName.contains("living")){
+            return R.drawable.event_travel_and_living_quiz;
+        }else if (lowerCaseName.contains("travelogue")){
+            return R.drawable.event_travelogue;
+        }else if (lowerCaseName.contains("ukti")){
+            return R.drawable.event_ukti;
+        }else if (lowerCaseName.contains("feather")){
+            return R.drawable.event_words_of_a_feather;
+        }else if (lowerCaseName.contains("mahasabha")){
+            return R.drawable.event_youth_mahasabha;
+        }else {
+            return R.drawable.circular_bg;
+        }
+    }
+
 }

@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.dota.pearl18.pearlapp2018.adapters.LandingAdapter;
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.sync.NewsSyncUtils;
-import com.google.firebase.FirebaseApp;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseApp.initializeApp(this);
         Uri uri = Uri.parse("https://www.bits-pearl.org/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
