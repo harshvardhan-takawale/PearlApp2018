@@ -28,8 +28,8 @@ import retrofit2.Response;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    ArrayList<EventAbout> list = new ArrayList<>();
-    ArrayList<EventAbout> realmlist = new ArrayList<>();
+    private EventAbout event;
+    private EventAbout model;
     private TextView eventdetails;
     private String TAG = DetailsActivity.class.getSimpleName();
     private boolean isnetwork = false;
@@ -48,35 +48,28 @@ public class DetailsActivity extends AppCompatActivity {
         Bundle bundle=getIntent().getExtras();
         id=bundle.getString("id");
         ClubInterface apiservice = ApiClient.getClient().create(ClubInterface.class);
-        Call<ArrayList<EventAbout>> call = apiservice.getEventListDetails();
-        call.enqueue(new Callback<ArrayList<EventAbout>>() {
+        Call<EventAbout> call = apiservice.getEventListDetails(id);
+        call.enqueue(new Callback<EventAbout>() {
             @Override
-            public void onResponse(Call<ArrayList<EventAbout>> call, Response<ArrayList<EventAbout>> response) {
-                list = response.body();
-                for(int i=0;i<list.size();i++)
-                {
-                    addDatatoRealm(list.get(i));
-                }
-                isnetwork = true;
-                getDatafromRealm(realm);
-                eventdetails.setText(realmlist.get(0).getAbout());
+            public void onResponse(Call<EventAbout> call, Response<EventAbout> response) {
+              event = response.body();
+              addDatatoRealm(event);
+              eventdetails.setText(event.getAbout());
+
             }
 
             @Override
-            public void onFailure(Call<ArrayList<EventAbout>> call, Throwable t) {
-                Log.e("Error:", "Error in Connectivity");
-                isnetwork = false;
+            public void onFailure(Call<EventAbout> call, Throwable t) {
                 getDatafromRealm(realm);
-                if (realmlist.size() != 0) {
-                    eventdetails.setText(realmlist.get(0).getAbout());
-                }
+                Log.e(TAG,"error in connectivity");
+
             }
         });
     }
     private void addDatatoRealm(EventAbout details)
     {
         realm.beginTransaction();
-        EventAbout model = realm.where(EventAbout.class).equalTo("id",details.getId()).findFirst();
+        EventAbout model = realm.where(EventAbout.class).equalTo("id",id).findFirst();
         model.setAbout(details.getAbout());
         realm.commitTransaction();
 
@@ -86,20 +79,16 @@ public class DetailsActivity extends AppCompatActivity {
     {
         if(realm1!=null)
         {
-            realmlist = new ArrayList<>();
-            RealmResults<EventAbout> results = realm1.where(EventAbout.class).equalTo("id",id).findAll();
-            Log.e(TAG,"results="+String.valueOf(results.size()));
+            EventAbout result = realm1.where(EventAbout.class).equalTo("id",id).findFirst();
 
-            if(results.size()==0)
+            if(result==null)
             {
                 Toast.makeText(this,"NO Internet",Toast.LENGTH_SHORT).show();
             }
             else
             {
-                realmlist.addAll(results);
+                eventdetails.setText(result.getAbout());
             }
-            Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
-
         }
 
     }

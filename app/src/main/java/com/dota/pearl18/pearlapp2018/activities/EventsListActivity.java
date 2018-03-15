@@ -102,7 +102,7 @@ public class EventsListActivity extends AppCompatActivity {
             EventAbout eventabout = realm.createObject(EventAbout.class);
             eventabout.setId(details.getId());
             eventabout.setName(details.getName());
-            eventabout.setAbout(details.getAbout());
+//            eventabout.setAbout(details.getAbout());
             eventabout.setBody(details.getBody());
             eventabout.setPrice(details.getPrize());
             eventabout.setThumbnail(details.getThumbnail());
@@ -110,7 +110,7 @@ public class EventsListActivity extends AppCompatActivity {
         else
         {
             model.setName(details.getName());
-            model.setAbout(details.getAbout());
+//            model.setAbout(details.getAbout());
             model.setBody(details.getBody());
             model.setPrice(details.getPrize());
             model.setThumbnail(details.getThumbnail());
