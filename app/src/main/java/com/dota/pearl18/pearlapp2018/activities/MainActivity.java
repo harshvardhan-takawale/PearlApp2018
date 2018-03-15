@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Uri uri = Uri.parse("https://www.bits-pearl.org/");
+        Uri uri = Uri.parse("https://www.townscript.com/e/pearl2018-240304");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 
         buttonList = new ArrayList<LandingButtonDetails>();
