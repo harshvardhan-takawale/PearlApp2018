@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="com.dota.pearl18.pearlapp2018.activities.ArticleDisplayActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        android:layout_height="wrap_content">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/articles_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"  />
+        <TextView
+            android:id="@+id/tv_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+            tools:text="Pure HTML, Multiple elements. Should be interesting. Also, long heading. Have fun."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <TextView
+            android:id="@+id/tv_authors"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/divider"
+            android:layout_marginTop="8dp"
+            android:background="#E0E0E0"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="16sp"
+            tools:text="@tools:sample/lorem/random"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

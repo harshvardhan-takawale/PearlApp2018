@@ -34,7 +34,7 @@ public class NewsActivity extends AppCompatActivity {
 
         buttonList = new ArrayList<LandingButtonDetails>();
 
-        Intent articlesIntent = new Intent(NewsActivity.this,ArticleDisplayActivity.class);
+        Intent articlesIntent = new Intent(NewsActivity.this,ArticlesActivity.class);
         Intent feedIntent = new Intent(NewsActivity.this,FeedActivity.class);
 
         buttonList.add(new LandingButtonDetails("Feed",
