@@ -167,9 +167,6 @@ public class EventsActivity extends AppCompatActivity {
         if(realmlist.size()!=0) {
             TextView name = findViewById(R.id.club_name);
             name.setText(realmlist.get(pos).getName());
-            TextView prize = findViewById(R.id.club_prize);
-            //prize.setText("₹ "+list.get(pos).getPrize());
-            prize.setText("₹ 10,000");
         }
     }
 

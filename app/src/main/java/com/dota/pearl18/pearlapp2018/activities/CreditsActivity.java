@@ -39,7 +39,6 @@ public class CreditsActivity extends AppCompatActivity {
         return details;
     }
 
-    //TODO - Change the data
     private ArrayList<DeveloperDetails> getAndroidDevs(){
         ArrayList<DeveloperDetails> details = new ArrayList<>();
         details.add(new DeveloperDetails("C Shri Akhil", R.drawable.dev_akhil, new String[] {"https://www.facebook.com/c.akhil.shri","https://github.com/TheGamer007/","https://www.linkedin.com/in/shriakhilc/",null}));
