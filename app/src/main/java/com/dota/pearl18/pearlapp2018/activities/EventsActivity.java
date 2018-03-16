@@ -183,7 +183,7 @@ public class EventsActivity extends AppCompatActivity {
             club.setId(clublist.getId());
             if(clublist.getId().equals("5a83e757aefb42456b594b6d"))
             {
-               club.setName("HeadLiners");
+               club.setName("Headliners");
             }
             else {
                 club.setName(clublist.getName());
@@ -193,7 +193,7 @@ public class EventsActivity extends AppCompatActivity {
         {
             if(clublist.getId().equals("5a83e757aefb42456b594b6d"))
             {
-                model.setName("HeadLiners");
+                model.setName("Headliners");
             }
             else {
                 model.setName(clublist.getName());
