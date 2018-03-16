@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.TransitionInflater;
 import android.util.EventLog;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dota.pearl18.pearlapp2018.adapters.EventAboutAdapter;
@@ -41,6 +43,11 @@ public class EventsListActivity extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
         Realm.init(this);
+
+        ImageView mainImage = findViewById(R.id.iv_background);
+
+        getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition));
+        mainImage.setTransitionName("background");
 
         Bundle bundle=getIntent().getExtras();
         clubid=bundle.getString("id");

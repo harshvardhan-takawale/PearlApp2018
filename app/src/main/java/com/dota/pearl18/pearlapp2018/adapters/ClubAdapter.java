@@ -1,7 +1,9 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,9 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
             public void onClick(View view) {
                 Intent intent=new Intent(view.getContext(),EventsListActivity.class);
                 intent.putExtra("id",clubs.get(position).getId());
-                view.getContext().startActivity(intent);
+                holder.background.setTransitionName("background");
+                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) view.getContext(),holder.background,holder.background.getTransitionName());
+                view.getContext().startActivity(intent,optionsCompat.toBundle());
             }
         });
     }

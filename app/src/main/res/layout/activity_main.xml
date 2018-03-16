@@ -6,6 +6,21 @@
     android:background="@color/sky_color_animation"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
+  <ImageView
+      android:id="@+id/splash_img"
+      android:layout_width="300dp"
+      android:layout_height="300dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:src="@drawable/pearl"
+      android:visibility="visible"
+      app:layout_constraintBottom_toBottomOf="@+id/layer_bus"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
   <com.yarolegovich.discretescrollview.DiscreteScrollView
     android:id="@+id/Button_list"
     android:layout_width="match_parent"
