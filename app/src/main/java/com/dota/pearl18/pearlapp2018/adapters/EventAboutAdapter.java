@@ -93,7 +93,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
             return R.drawable.event_bullseye;
         }else if (lowerCaseName.contains("caption")){
             return R.drawable.event_caption_it;
-        }else if (lowerCaseName.contains("caricature")){
+        }else if (lowerCaseName.contains("loaded")){
             return R.drawable.event_caricature;
         }else if (lowerCaseName.contains("charades")){
             return R.drawable.event_charades;

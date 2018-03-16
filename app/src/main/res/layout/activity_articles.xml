@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
-  android:layout_width="match_parent"
-  android:orientation="vertical"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <TextView
-      android:id="@+id/tv_title"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/dp10"
-      android:gravity="center"
-      android:fontFamily="@font/montserrat_bold"
-      android:textColor="#000"
-      android:textSize="24sp"
-      android:text="Articles" />
-
-
-    <android.support.v4.widget.SwipeRefreshLayout android:id="@+id/articles_swiperefresh"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="8dp"
-    android:paddingStart="8dp"
-    android:paddingEnd="8dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.ArticlesActivity">
+    android:background="@color/sky_color_animation"
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Articles"
+        android:textColor="#000"
+        android:textSize="24sp" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/articles_swiperefresh"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        tools:context="com.dota.pearl18.pearlapp2018.activities.ArticlesActivity">
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_alignParentBottom="true"
-            android:id="@+id/articles_recycler"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/articles_empty"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:text="No articles to display"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/articles_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/articles_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:text="No articles to display"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </RelativeLayout>
 
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
