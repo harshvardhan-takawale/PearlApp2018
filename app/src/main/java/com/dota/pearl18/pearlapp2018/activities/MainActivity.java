@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,23 +46,54 @@ public class MainActivity extends AppCompatActivity {
 
         discreteScrollView.setVisibility(View.GONE);
         bname.setVisibility(View.GONE);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
-                anim.setDuration(500);
+                anim.setDuration(300);
                 anim.setRepeatCount(0);
+                anim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        splash.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 splash.startAnimation(anim);
-                splash.setVisibility(View.GONE);
 
                 AlphaAnimation anim2 = new AlphaAnimation(0.0f, 1.0f);
-                anim2.setDuration(500);
+                anim2.setDuration(300);
                 anim2.setRepeatCount(0);
+                anim2.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        discreteScrollView.setVisibility(View.VISIBLE);
+                        bname.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 discreteScrollView.startAnimation(anim2);
-                discreteScrollView.setVisibility(View.VISIBLE);
-                bname.setVisibility(View.VISIBLE);
             }
-        }, 3000);
+        }, 1500);
 
         Uri uri = Uri.parse("https://www.townscript.com/e/pearl2018-240304");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -69,41 +101,41 @@ public class MainActivity extends AppCompatActivity {
         buttonList = new ArrayList<LandingButtonDetails>();
 
         buttonList.add(new LandingButtonDetails("Events",
-            new Intent(MainActivity.this, EventsActivity.class),
-            this));
+                new Intent(MainActivity.this, EventsActivity.class),
+                this));
 
         buttonList.add(new LandingButtonDetails("News",
-            new Intent(getApplicationContext(),NewsActivity.class),
-            this));
+                new Intent(getApplicationContext(), NewsActivity.class),
+                this));
 
         buttonList.add(new LandingButtonDetails("Pro Shows",
-            new Intent(MainActivity.this, ProshowActivity.class),
-            this,R.drawable.ic_pro_shows));
+                new Intent(MainActivity.this, ProshowActivity.class),
+                this, R.drawable.ic_pro_shows));
 
         buttonList.add(new LandingButtonDetails("Schedule",
-            new Intent(MainActivity.this, ScheduleActivity.class),
-            this,R.drawable.ic_schedule));
+                new Intent(MainActivity.this, ScheduleActivity.class),
+                this, R.drawable.ic_schedule));
+
 
         buttonList.add(new LandingButtonDetails("Guide",
-            new Intent(getApplicationContext(),GuideActivity.class),
-            this));
+                new Intent(getApplicationContext(), GuideActivity.class),
+                this));
 
         buttonList.add(new LandingButtonDetails("App Credits",
-            new Intent(MainActivity.this, CreditsActivity.class),
-            this,R.drawable.ic_app_credits));
+                new Intent(MainActivity.this, CreditsActivity.class),
+                this, R.drawable.ic_app_credits));
 
         buttonList.add(new LandingButtonDetails("Contact Us",
-            new Intent(MainActivity.this, ContactsActivity.class),
-            this,R.drawable.ic_contact_us));
+                new Intent(MainActivity.this, ContactsActivity.class),
+                this, R.drawable.ic_contact_us));
 
         buttonList.add(new LandingButtonDetails("Register",
-            intent,
-            this,R.drawable.ic_register));
+                intent,
+                this, R.drawable.ic_register));
 
         buttonList.add(new LandingButtonDetails("QR Scanner",
-            new Intent(MainActivity.this, QRScannerActivity.class),
-            this,R.drawable.ic_qr_scanner));
-
+                new Intent(MainActivity.this, QRScannerActivity.class),
+                this, R.drawable.ic_qr_scanner));
 
         buttonAdapter = new LandingAdapter(buttonList, this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
@@ -120,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
         discreteScrollView.setAdapter(infiniteAdapter);
         discreteScrollView.setItemTransitionTimeMillis(150);
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
-            .setMinScale(0.8f)
-            .build());
+                .setMinScale(0.8f)
+                .build());
         onItemChanged(0);
 
         // landRightOne and cloudRightOne are the initially visible layers.
@@ -206,8 +238,6 @@ public class MainActivity extends AppCompatActivity {
 
         NewsSyncUtils.initialize(this);
     }
-
-    private void addAll(){}
 
     private void onItemChanged(int pos) {
         name = findViewById(R.id.Button_name);
