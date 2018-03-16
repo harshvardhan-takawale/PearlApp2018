@@ -34,6 +34,8 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
         //Log.d("ImageLink",list.get(position).getThumbnail());
         holder.ename.setText(list.get(position).getName());
         holder.eprize.setText("₹ "+list.get(position).getPrize());
+        holder.edecrip.setText(list.get(position).getTagline());
+        holder.evenue.setText(list.get(position).getVenue());
         holder.edetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +62,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView ename,eprize,edetails;
+        public TextView ename,eprize,edetails,edecrip,evenue;
         public ImageView logo;
         public Context context;
 
@@ -69,8 +71,10 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
             context=view.getContext();
             ename = view.findViewById(R.id.tv_desc);
             eprize=view.findViewById(R.id.cell_content_prize);
+            edecrip = view.findViewById(R.id.tv_info);
             logo=view.findViewById(R.id.avatar);
             edetails =view.findViewById(R.id.tv_status);
+            evenue = view.findViewById(R.id.cell_content_venue);
         }
     }
 

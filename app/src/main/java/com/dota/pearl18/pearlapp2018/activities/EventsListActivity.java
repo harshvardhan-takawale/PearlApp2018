@@ -101,18 +101,22 @@ public class EventsListActivity extends AppCompatActivity {
             eventabout.setName(details.getName());
 //            eventabout.setAbout(details.getAbout());
             eventabout.setBody(details.getBody());
-            eventabout.setPrice(details.getPrize());
+            eventabout.setPrize(details.getPrize());
             eventabout.setThumbnail(details.getThumbnail());
             eventabout.setType(details.getType());
+            eventabout.setVenue(details.getVenue());
+            eventabout.setTagline(details.getTagline());
         }
         else
         {
             model.setName(details.getName());
 //            model.setAbout(details.getAbout());
             model.setBody(details.getBody());
-            model.setPrice(details.getPrize());
+            model.setPrize(details.getPrize());
             model.setThumbnail(details.getThumbnail());
             model.setType(details.getType());
+            model.setVenue(details.getVenue());
+            model.setTagline(details.getTagline());
         }
         realm.commitTransaction();
 
