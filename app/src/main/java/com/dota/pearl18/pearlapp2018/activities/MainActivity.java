@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("Pro Shows",
             new Intent(MainActivity.this, ProshowActivity.class),
-            this));
+            this,R.drawable.ic_pro_shows));
 
         buttonList.add(new LandingButtonDetails("Schedule",
             new Intent(MainActivity.this, ScheduleActivity.class),
-            this));
+            this,R.drawable.ic_schedule));
 
         buttonList.add(new LandingButtonDetails("Guide",
             new Intent(getApplicationContext(),GuideActivity.class),
@@ -90,19 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("App Credits",
             new Intent(MainActivity.this, CreditsActivity.class),
-            this));
+            this,R.drawable.ic_app_credits));
 
         buttonList.add(new LandingButtonDetails("Contact Us",
             new Intent(MainActivity.this, ContactsActivity.class),
-            this));
+            this,R.drawable.ic_contact_us));
 
         buttonList.add(new LandingButtonDetails("Register",
             intent,
-            this));
+            this,R.drawable.ic_register));
 
         buttonList.add(new LandingButtonDetails("QR Scanner",
             new Intent(MainActivity.this, QRScannerActivity.class),
-            this));
+            this,R.drawable.ic_qr_scanner));
+
 
         buttonAdapter = new LandingAdapter(buttonList, this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
@@ -205,6 +206,8 @@ public class MainActivity extends AppCompatActivity {
 
         NewsSyncUtils.initialize(this);
     }
+
+    private void addAll(){}
 
     private void onItemChanged(int pos) {
         name = findViewById(R.id.Button_name);
