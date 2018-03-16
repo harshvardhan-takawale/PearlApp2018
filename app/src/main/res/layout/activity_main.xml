@@ -8,8 +8,8 @@
 
   <ImageView
       android:id="@+id/splash_img"
-      android:layout_width="400dp"
-      android:layout_height="400dp"
+      android:layout_width="250dp"
+      android:layout_height="250dp"
       android:layout_marginBottom="8dp"
       android:layout_marginEnd="8dp"
       android:layout_marginStart="8dp"

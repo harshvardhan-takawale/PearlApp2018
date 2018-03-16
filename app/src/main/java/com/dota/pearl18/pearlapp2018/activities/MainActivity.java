@@ -40,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView splash = findViewById(R.id.splash_img);
         discreteScrollView = findViewById(R.id.Button_list);
+        final TextView bname = findViewById(R.id.Button_name);
 
 
-        discreteScrollView.setVisibility(View.INVISIBLE);
+        discreteScrollView.setVisibility(View.GONE);
+        bname.setVisibility(View.GONE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 anim2.setRepeatCount(0);
                 discreteScrollView.startAnimation(anim2);
                 discreteScrollView.setVisibility(View.VISIBLE);
+                bname.setVisibility(View.VISIBLE);
             }
         }, 3000);
 
