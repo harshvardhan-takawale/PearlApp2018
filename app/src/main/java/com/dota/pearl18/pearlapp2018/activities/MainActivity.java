@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             new Intent(MainActivity.this, QRScannerActivity.class),
             this));
 
-        buttonAdapter = new LandingAdapter(buttonList);
+        buttonAdapter = new LandingAdapter(buttonList, this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
         discreteScrollView = findViewById(R.id.Button_list);

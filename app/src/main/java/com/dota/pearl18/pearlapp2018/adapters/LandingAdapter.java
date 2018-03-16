@@ -1,6 +1,8 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
+import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,9 +22,11 @@ import java.util.ArrayList;
 
 public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.MyViewHolder> {
   private ArrayList<LandingButtonDetails> list;
+  Context context;
 
-  public LandingAdapter(ArrayList<LandingButtonDetails> list) {
+  public LandingAdapter(ArrayList<LandingButtonDetails> list, Context context) {
     this.list = list;
+    this.context = context;
   }
 
   @Override
@@ -33,14 +37,14 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.MyViewHo
   @Override
   public void onBindViewHolder(final LandingAdapter.MyViewHolder holder, final int position) {
     Log.w("myApp", String.valueOf(position));
+    final Activity activity = (Activity) context;
     holder.background.setImageResource(R.drawable.pearl);
     holder.intent = list.get(position).getTargetActivity();
     holder.background.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        ActivityOptions options =
-            ActivityOptions.makeCustomAnimation(list.get(position).getButtonContext(), android.R.anim.fade_in, android.R.anim.fade_out);
-        list.get(position).getButtonContext().startActivity(holder.intent,options.toBundle());
+        list.get(position).getButtonContext().startActivity(holder.intent);
+        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
       }
     });
 
