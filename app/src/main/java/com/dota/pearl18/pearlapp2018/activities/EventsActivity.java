@@ -42,6 +42,11 @@ public class EventsActivity extends AppCompatActivity {
     private Realm realm;
     private String TAG = EventsActivity.class.getSimpleName();
     private boolean isnetwork = false;
+
+    final ValueAnimator busAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+    final ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+    final ValueAnimator cloudAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +97,7 @@ public class EventsActivity extends AppCompatActivity {
 
         final ImageView busFull = findViewById(R.id.layer_bus);
 
-        ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+
         landAnimator.setRepeatCount(ValueAnimator.INFINITE);
         landAnimator.setInterpolator(new LinearInterpolator());
         landAnimator.setDuration(10000L);
@@ -113,7 +118,7 @@ public class EventsActivity extends AppCompatActivity {
             }
         });
 
-        ValueAnimator cloudAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+
         cloudAnimator.setRepeatCount(ValueAnimator.INFINITE);
         cloudAnimator.setInterpolator(new LinearInterpolator());
         cloudAnimator.setDuration(30000L);
@@ -134,7 +139,7 @@ public class EventsActivity extends AppCompatActivity {
             }
         });
 
-        ValueAnimator busAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
+
         busAnimator.setRepeatCount(ValueAnimator.INFINITE);
         busAnimator.setInterpolator(new LinearInterpolator());
         busAnimator.setDuration(1000L);
@@ -241,5 +246,22 @@ public class EventsActivity extends AppCompatActivity {
                 .setMinScale(0.8f)
                 .build());
         onItemChanged(0);
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        landAnimator.pause();
+        busAnimator.pause();
+        cloudAnimator.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        landAnimator.resume();
+        busAnimator.resume();
+        cloudAnimator.resume();
     }
 }
