@@ -2,9 +2,12 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.text.util.LinkifyCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
@@ -35,6 +38,8 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         mTitle = findViewById(R.id.tv_title);
         mAuthors = findViewById(R.id.tv_authors);
         mContent = findViewById(R.id.tv_content);
+        LinkifyCompat.addLinks(mContent, Linkify.ALL);
+        mContent.setMovementMethod(LinkMovementMethod.getInstance());
 
         ArticlesInterface articlesInterface = ApiClient.getClient().create(ArticlesInterface.class);
 

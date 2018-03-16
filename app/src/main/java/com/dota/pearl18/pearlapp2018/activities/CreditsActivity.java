@@ -69,6 +69,7 @@ public class CreditsActivity extends AppCompatActivity {
         ArrayList<DeveloperDetails> details = new ArrayList<>();
 
         details.add(new DeveloperDetails("Suraj Thotakura", R.drawable.profile_icon, new String[]{"", null, null, ""}));
+        details.add(new DeveloperDetails("Govind Savio", R.drawable.profile_icon, new String[]{"", null, null, ""}));
         details.add(new DeveloperDetails("Abishek Yadav", R.drawable.profile_icon, new String[]{"",null,null,""}));
         return details;
     }
