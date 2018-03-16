@@ -4,9 +4,12 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,6 +37,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ImageView splash = findViewById(R.id.splash_img);
+        discreteScrollView = findViewById(R.id.Button_list);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
+                anim.setDuration(500);
+                anim.setRepeatCount(0);
+                splash.startAnimation(anim);
+                splash.setVisibility(View.GONE);
+
+                AlphaAnimation anim2 = new AlphaAnimation(0.0f, 1.0f);
+                anim2.setDuration(500);
+                anim2.setRepeatCount(0);
+                discreteScrollView.startAnimation(anim2);
+                discreteScrollView.setVisibility(View.VISIBLE);
+            }
+        }, 3000);
 
         Uri uri = Uri.parse("https://www.townscript.com/e/pearl2018-240304");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);

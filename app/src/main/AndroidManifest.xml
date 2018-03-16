@@ -46,7 +46,7 @@
         <activity android:name=".activities.EventsActivity" />
         <activity android:name=".activities.ScheduleActivity" />
         <activity android:name=".activities.QRScannerActivity" />
-        <activity android:name=".activities.EventsListActivity" />
+        <activity android:name=".activities.EventsListActivity"/>
         <activity android:name=".activities.DetailsActivity" />
         <activity android:name=".activities.ArticlesActivity" />
         <activity android:name=".activities.ProshowActivity" />
