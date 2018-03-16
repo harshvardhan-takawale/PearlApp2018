@@ -9,6 +9,7 @@ import android.support.v4.app.TaskStackBuilder;
 
 import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.ArticleDisplayActivity;
+import com.dota.pearl18.pearlapp2018.activities.FeedActivity;
 import com.dota.pearl18.pearlapp2018.api.FeedDetails;
 
 /**
@@ -32,7 +33,7 @@ public class NewsNotification {
                 .setContentText(content)
                 .setAutoCancel(true);
 
-        Intent articleIntent = new Intent(context, ArticleDisplayActivity.class);
+        Intent articleIntent = new Intent(context, FeedActivity.class);
         TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
         taskStackBuilder.addNextIntentWithParentStack(articleIntent);
         PendingIntent pendingIntent = taskStackBuilder

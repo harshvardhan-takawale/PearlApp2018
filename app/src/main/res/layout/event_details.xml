@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="310dp"
-    android:layout_height="wrap_content">
-
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="310dp"
+                                             android:layout_height="wrap_content">
 
 
     <View
         android:id="@+id/card"
         android:layout_width="0dp"
-        android:layout_height="423dp"
-        android:layout_marginTop="120dp"
+        android:layout_height="310dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:layout_marginTop="250dp"
         android:background="@drawable/white_corners"
         android:transitionName="card"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -110,9 +111,11 @@
         android:paddingRight="20dp"
         android:paddingTop="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/card"
         app:layout_constraintRight_toRightOf="@+id/card"
-        app:layout_constraintTop_toBottomOf="@+id/tv_status">
+        app:layout_constraintTop_toBottomOf="@+id/tv_status"
+        app:layout_constraintVertical_bias="0.0">
 
         <RelativeLayout
             android:id="@+id/prize_layout"
@@ -124,11 +127,12 @@
                 android:id="@+id/content_prize_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginStart="10dp"
                 android:text="Prize Money"
                 android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/cell_content_prize"
@@ -140,7 +144,7 @@
                 android:layout_toStartOf="@id/content_prize_view"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"
-                tools:text="20,000" />
+                tools:text="20,000"/>
 
         </RelativeLayout>
 
@@ -153,7 +157,7 @@
             android:layout_marginTop="9dp"
             android:clickable="false"
             android:src="@color/contentDividerLine"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"/>
 
         <LinearLayout
             android:id="@+id/content_location"
@@ -169,12 +173,12 @@
                 android:layout_marginStart="10dp"
                 android:text="Venue"
                 android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/cell_content_venue"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_marginStart="10dp"
                 android:autoSizeTextType="uniform"
@@ -182,7 +186,7 @@
                 android:gravity="end"
                 android:textColor="@color/mainTextColor"
                 android:textSize="16sp"
-                tools:text="BITS Pilani Hyderabad Campus" />
+                tools:text="BITS Pilani Hyderabad Campus"/>
 
         </LinearLayout>
 
