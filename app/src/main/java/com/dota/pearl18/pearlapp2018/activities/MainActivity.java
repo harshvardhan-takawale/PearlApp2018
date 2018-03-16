@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("Guide",
                 new Intent(getApplicationContext(), GuideActivity.class),
-                this));
+                this,R.drawable.ic_guid));
 
         buttonList.add(new LandingButtonDetails("App Credits",
                 new Intent(MainActivity.this, CreditsActivity.class),
