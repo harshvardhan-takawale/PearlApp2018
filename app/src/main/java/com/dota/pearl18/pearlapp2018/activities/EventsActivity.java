@@ -246,6 +246,11 @@ public class EventsActivity extends AppCompatActivity {
                 .setMinScale(0.8f)
                 .build());
         onItemChanged(0);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
         landAnimator.pause();
         busAnimator.pause();
         cloudAnimator.pause();
