@@ -37,7 +37,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:src="@drawable/profile_icon"
+                    tools:src="@drawable/dev_akhil"
                     tools:ignore="ContentDescription" />
             </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#CCCCCC"
-                    tools:src="@drawable/profile_icon"
+                    tools:src="@drawable/dev_harshvardhan"
                     tools:ignore="ContentDescription" />
 
             </com.jaouan.compoundlayout.CircleGradientRadioLayout>
@@ -67,7 +67,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:src="@drawable/profile_icon"
+                    tools:src="@drawable/dev_ashwik"
                     tools:ignore="ContentDescription" />
             </com.jaouan.compoundlayout.CircleGradientRadioLayout>
 
@@ -89,7 +89,7 @@
             android:id="@+id/credits_devname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
+            android:paddingTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="Harshvardhan Takawale" />
 
