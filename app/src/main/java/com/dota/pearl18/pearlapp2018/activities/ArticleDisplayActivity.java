@@ -2,7 +2,6 @@ package com.dota.pearl18.pearlapp2018.activities;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
@@ -13,7 +12,6 @@ import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.ArticleDetails;
 import com.dota.pearl18.pearlapp2018.api.ArticlesInterface;
-import com.dota.pearl18.pearlapp2018.api.TestApiClient;
 
 import java.util.ArrayList;
 
@@ -38,8 +36,7 @@ public class ArticleDisplayActivity extends AppCompatActivity {
         mAuthors = findViewById(R.id.tv_authors);
         mContent = findViewById(R.id.tv_content);
 
-        //TODO: CHANGE THIS ALSO TO APICLIENT
-        ArticlesInterface articlesInterface = TestApiClient.getClient().create(ArticlesInterface.class);
+        ArticlesInterface articlesInterface = ApiClient.getClient().create(ArticlesInterface.class);
 
         Call<ArticleDetails> call  = articlesInterface.getArticle(id);
         call.enqueue(new Callback<ArticleDetails>() {

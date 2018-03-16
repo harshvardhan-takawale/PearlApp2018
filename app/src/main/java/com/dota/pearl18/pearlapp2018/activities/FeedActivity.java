@@ -1,11 +1,11 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,10 +13,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
+import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.FeedDetails;
-import com.dota.pearl18.pearlapp2018.api.FeedResponseDetails;
 import com.dota.pearl18.pearlapp2018.api.FeedInterface;
-import com.dota.pearl18.pearlapp2018.api.TestApiClient;
+import com.dota.pearl18.pearlapp2018.api.FeedResponseDetails;
 import com.dota.pearl18.pearlapp2018.sync.NewsPrefs;
 
 import java.util.ArrayList;
@@ -120,7 +120,7 @@ public class FeedActivity extends AppCompatActivity {
     {
         swipeRefreshLayout.setRefreshing(true);
 
-        FeedInterface apiservice = TestApiClient.getClient().create(FeedInterface.class);
+        FeedInterface apiservice = ApiClient.getClient().create(FeedInterface.class);
         Call<FeedResponseDetails> call = apiservice.getScoresfeed(page, SORT_KEY, ORDER);
 
         call.enqueue(new Callback<FeedResponseDetails>() {
@@ -132,7 +132,7 @@ public class FeedActivity extends AppCompatActivity {
                     // no posts to show
                     recyclerView.setVisibility(View.GONE);
                     emptyView.setVisibility(View.VISIBLE);
-                    emptyView.setText("No posts available. Please try later");
+                    emptyView.setText("No posts available.");
                 } else {
                     recyclerView.setVisibility(View.VISIBLE);
                     emptyView.setVisibility(View.GONE);

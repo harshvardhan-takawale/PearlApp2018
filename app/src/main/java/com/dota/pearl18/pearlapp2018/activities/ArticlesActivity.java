@@ -1,17 +1,11 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dota.pearl18.pearlapp2018.R;
@@ -19,7 +13,6 @@ import com.dota.pearl18.pearlapp2018.adapters.ArticlesAdapter;
 import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.ArticleDetails;
 import com.dota.pearl18.pearlapp2018.api.ArticlesInterface;
-import com.dota.pearl18.pearlapp2018.api.TestApiClient;
 
 import java.util.ArrayList;
 
@@ -56,8 +49,7 @@ public class ArticlesActivity extends AppCompatActivity {
 
     private void refreshArticlesList() {
         mRefresh.setRefreshing(true);
-        //TODO: Change this to ApiClient
-        ArticlesInterface articles = TestApiClient.getClient().create(ArticlesInterface.class);
+        ArticlesInterface articles = ApiClient.getClient().create(ArticlesInterface.class);
         Call<ArrayList<ArticleDetails>> call = articles.getArticlesList();
 
         call.enqueue(new Callback<ArrayList<ArticleDetails>>() {

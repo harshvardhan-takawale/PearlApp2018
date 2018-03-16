@@ -4,10 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.dota.pearl18.pearlapp2018.api.ApiClient;
 import com.dota.pearl18.pearlapp2018.api.FeedDetails;
-import com.dota.pearl18.pearlapp2018.api.FeedResponseDetails;
 import com.dota.pearl18.pearlapp2018.api.FeedInterface;
-import com.dota.pearl18.pearlapp2018.api.TestApiClient;
+import com.dota.pearl18.pearlapp2018.api.FeedResponseDetails;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class NewsSyncTask {
 
     public static void syncNews(Context context){
 
-        FeedInterface apiservice = TestApiClient.getClient().create(FeedInterface.class);
+        FeedInterface apiservice = ApiClient.getClient().create(FeedInterface.class);
         Call<FeedResponseDetails> call = apiservice.getScoresfeed(1, SORT_KEY, ORDER);
 
         call.enqueue(new Callback<FeedResponseDetails>() {
