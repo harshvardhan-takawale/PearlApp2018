@@ -15,6 +15,7 @@ import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.DetailsActivity;
 import com.dota.pearl18.pearlapp2018.api.EventAbout;
 import java.util.List;
+import java.util.Locale;
 
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
@@ -24,6 +25,7 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.MyViewHolder>
 {
+    private static final String TAG = "EventAboutAdapter";
     public List<EventAbout> list;
     public EventAboutAdapter(List<EventAbout> list)
     {
@@ -33,7 +35,10 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         //Log.d("ImageLink",list.get(position).getThumbnail());
         holder.ename.setText(list.get(position).getName());
-        holder.eprize.setText("₹ "+list.get(position).getPrize());
+        String price = String.format( Locale.ENGLISH ,"₹ %s", list.get(position).getPrice());
+        if(price == null) holder.eprize.setVisibility(View.GONE);
+        else holder.eprize.setText(price);
+
         holder.edetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

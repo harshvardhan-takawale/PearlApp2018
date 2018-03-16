@@ -27,8 +27,6 @@ class DividerItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
 
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager)parent.getLayoutManager();
-
         int itemPosition = parent.getChildAdapterPosition(view);
         int itemCount = state.getItemCount();
         int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;

@@ -32,7 +32,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
         /*Glide.with(holder.context)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS")
                 .into(holder.background);*/
-        holder.background.setImageResource(R.drawable.pearl);
+        holder.background.setImageResource(R.drawable.ic_app_credits);
         holder.background.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
