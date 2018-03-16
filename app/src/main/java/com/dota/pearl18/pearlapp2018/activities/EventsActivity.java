@@ -176,12 +176,23 @@ public class EventsActivity extends AppCompatActivity {
         {
             ClubDetails club = realm.createObject(ClubDetails.class);
             club.setId(clublist.getId());
-            club.setName(clublist.getName());
-
+            if(clublist.getId().equals("5a83e757aefb42456b594b6d"))
+            {
+               club.setName("HeadLiners");
+            }
+            else {
+                club.setName(clublist.getName());
+            }
         }
         else
         {
-           model.setName(clublist.getName());
+            if(clublist.getId().equals("5a83e757aefb42456b594b6d"))
+            {
+                model.setName("HeadLiners");
+            }
+            else {
+                model.setName(clublist.getName());
+            }
         }
         realm.commitTransaction();
     }
@@ -202,7 +213,19 @@ public class EventsActivity extends AppCompatActivity {
                 if(isnetwork==false)
                 {Toast.makeText(this,"No Network...Loading Offline Data",Toast.LENGTH_SHORT).show();}
 
-                realmlist.addAll(results);
+                for(int i=0;i<results.size();i++)
+                {
+                    if(results.get(i).getId().equals("5a816324aefb42456b594b4f"))
+                    {
+
+                    }
+                    else
+                    {
+                        realmlist.add(results.get(i));
+
+                    }
+
+                 }
             }
             Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));
         }
