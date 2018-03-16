@@ -45,6 +45,10 @@ public class GuideActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
 
+        permCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (permCheck == PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        }
         buttonList = new ArrayList<LandingButtonDetails>();
 
         Intent aboutIntent = new Intent(GuideActivity.this, TextDisplayActivity.class);
@@ -164,5 +168,20 @@ public class GuideActivity extends AppCompatActivity {
     private void onItemChanged(int pos) {
         name = findViewById(R.id.Button_name);
         name.setText(buttonList.get(pos).getButtonName());
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_LOCATION:
+                if (grantResults.length > 0 && grantResults[0] == PERMISSION_GRANTED) {
+                    startActivity(new Intent(this, MapsActivity.class));
+                } else {
+                    finish();
+                }
+                break;
+            default: super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
     }
 }
