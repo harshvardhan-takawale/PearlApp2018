@@ -175,7 +175,7 @@ public class GuideActivity extends AppCompatActivity {
         switch (requestCode){
             case REQUEST_LOCATION:
                 if (grantResults.length > 0 && grantResults[0] == PERMISSION_GRANTED) {
-                    startActivity(new Intent(this, MapsActivity.class));
+
                 } else {
                     finish();
                 }
