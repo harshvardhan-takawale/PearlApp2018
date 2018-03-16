@@ -66,7 +66,7 @@ public class GuideActivity extends AppCompatActivity {
         buttonList.add(new LandingButtonDetails("Maps",
             new Intent(this,MapsActivity.class),this));
 
-        buttonAdapter = new LandingAdapter(buttonList);
+        buttonAdapter = new LandingAdapter(buttonList, this);
         //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
         discreteScrollView = findViewById(R.id.Button_list);

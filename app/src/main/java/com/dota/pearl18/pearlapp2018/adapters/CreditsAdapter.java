@@ -1,6 +1,7 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,7 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
         DeveloperLayoutDetails layoutDetails = data.get(position);
         final ArrayList<DeveloperDetails> devDetails = layoutDetails.getDevs();
 
+        if(layoutDetails.getTitle() == null) holder.mTitle.setVisibility(View.GONE);
         holder.mTitle.setText(layoutDetails.getTitle());
 
         if(devDetails.size() < 3){
@@ -97,6 +99,11 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
 
                         }
                     });
+
+                    circleLayout.setColorA(ContextCompat.getColor(mContext, R.color.circle3));
+                    circleLayout.setColorB(ContextCompat.getColor(mContext, R.color.circle4));
+                    circleLayout.setAngle(45);
+
                     holder.mDescriptionLayout.setVisibility(View.VISIBLE);
                     holder.mDescriptionLayout.startAnimation(fadeOutAnimation);
                 }

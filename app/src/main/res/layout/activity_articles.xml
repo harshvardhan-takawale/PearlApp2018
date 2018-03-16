@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout android:id="@+id/articles_swiperefresh"
+<LinearLayout android:layout_height="match_parent"
+  android:layout_width="match_parent"
+  android:orientation="vertical"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+      android:id="@+id/tv_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/dp10"
+      android:gravity="center"
+      android:fontFamily="@font/montserrat_bold"
+      android:textColor="#000"
+      android:textSize="24sp"
+      android:text="Articles" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout android:id="@+id/articles_swiperefresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="8dp"
@@ -34,3 +51,5 @@
 
 
 </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

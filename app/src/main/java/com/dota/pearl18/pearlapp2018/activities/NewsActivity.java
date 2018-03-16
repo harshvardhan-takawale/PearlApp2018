@@ -42,7 +42,7 @@ public class NewsActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("Articles",
                 articlesIntent,this));
-        buttonAdapter = new LandingAdapter(buttonList);
+        buttonAdapter = new LandingAdapter(buttonList, this);
         //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 
         discreteScrollView = findViewById(R.id.Button_list);
