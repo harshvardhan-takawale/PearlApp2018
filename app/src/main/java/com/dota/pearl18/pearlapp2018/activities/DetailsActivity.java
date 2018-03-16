@@ -49,17 +49,23 @@ public class DetailsActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         id=bundle.getString("id");
+        Log.e(TAG,id);
+
         ClubInterface apiservice = ApiClient.getClient().create(ClubInterface.class);
         Call<EventAbout> call = apiservice.getEventListDetails(id);
         call.enqueue(new Callback<EventAbout>() {
             @Override
             public void onResponse(Call<EventAbout> call, Response<EventAbout> response) {
-              event = response.body();
-              addDatatoRealm(event);
-              eventdetails.setText(event.getAbout());
-              time = getEventTime(event.getStartTime())[3] + ":"+getEventTime(event.getStartTime())[4]+" - "+
-                      getEventTime(event.getEndTime())[3]+":"+getEventTime(event.getEndTime())[4];
-              starttime.setText(time);
+                event = response.body();
+                addDatatoRealm(event);
+                eventdetails.setText(event.getAbout());
+                if (event.getStartTime().equals("")) {
+                    starttime.setText("");
+                } else {
+                    time = getEventTime(event.getStartTime())[3] + ":" + getEventTime(event.getStartTime())[4] + " - " +
+                            getEventTime(event.getEndTime())[3] + ":" + getEventTime(event.getEndTime())[4];
+                    starttime.setText(time);
+                }
             }
 
             @Override
@@ -74,9 +80,19 @@ public class DetailsActivity extends AppCompatActivity {
     {
         realm.beginTransaction();
         EventAbout model = realm.where(EventAbout.class).equalTo("id",id).findFirst();
-        model.setAbout(details.getAbout());
-        model.setStartTime(details.getStartTime());
-        model.setEndTime(details.getEndTime());
+        if(model==null)
+        {
+           EventAbout eventabout = realm.createObject(EventAbout.class);
+           eventabout.setId(details.getId());
+           eventabout.setStartTime(details.getStartTime());
+           eventabout.setEndTime(details.getEndTime());
+        }
+        else
+        {
+            model.setAbout(details.getAbout());
+            model.setStartTime(details.getStartTime());
+            model.setEndTime(details.getEndTime());
+        }
         realm.commitTransaction();
 
     }
@@ -91,12 +107,15 @@ public class DetailsActivity extends AppCompatActivity {
             {
                 Toast.makeText(this,"NO Internet",Toast.LENGTH_SHORT).show();
             }
-            else
-            {
+            else {
                 eventdetails.setText(result.getAbout());
-                time = getEventTime(result.getStartTime())[3] + ":"+getEventTime(result.getStartTime())[4]+" - "+
-                        getEventTime(result.getEndTime())[3]+":"+getEventTime(result.getEndTime())[4];
-                        starttime.setText(time);
+                if (result.getStartTime().equals("")) {
+                    starttime.setText("");
+                } else {
+                    time = getEventTime(result.getStartTime())[3] + ":" + getEventTime(result.getStartTime())[4] + " - " +
+                            getEventTime(result.getEndTime())[3] + ":" + getEventTime(result.getEndTime())[4];
+                    starttime.setText(time);
+                }
             }
         }
 
