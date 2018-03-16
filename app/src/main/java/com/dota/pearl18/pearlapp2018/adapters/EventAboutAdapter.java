@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -15,6 +17,7 @@ import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.DetailsActivity;
 import com.dota.pearl18.pearlapp2018.api.EventAbout;
 import java.util.List;
+import java.util.Locale;
 
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
@@ -33,9 +36,19 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         //Log.d("ImageLink",list.get(position).getThumbnail());
         holder.ename.setText(list.get(position).getName());
-        holder.eprize.setText("₹ "+list.get(position).getPrize());
+        String price = list.get(position).getPrize();
+        if(price == null) holder.eprize.setText("-     ");
+        else if(price.equals("")) holder.eprize.setText("-     ");
+        else holder.eprize.setText(String.format(Locale.US, "₹ %s", price));
+        String venue = list.get(position).getVenue();
+        if(venue==null){
+            holder.evenue.setText("-     ");
+        }else if(venue.equals("")){
+            holder.evenue.setText("-     ");
+        }else {
+            holder.evenue.setText(venue);
+        }
         holder.edecrip.setText(list.get(position).getTagline());
-        holder.evenue.setText(list.get(position).getVenue());
         holder.edetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,16 +78,20 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
         public TextView ename,eprize,edetails,edecrip,evenue;
         public ImageView logo;
         public Context context;
+        public RelativeLayout prize_layout;
+        public LinearLayout venue_layout;
 
         public MyViewHolder(View view) {
             super(view);
             context=view.getContext();
             ename = view.findViewById(R.id.tv_desc);
             eprize=view.findViewById(R.id.cell_content_prize);
+            prize_layout = view.findViewById(R.id.prize_layout);
             edecrip = view.findViewById(R.id.tv_info);
             logo=view.findViewById(R.id.avatar);
             edetails =view.findViewById(R.id.tv_status);
             evenue = view.findViewById(R.id.cell_content_venue);
+            venue_layout = view.findViewById(R.id.content_location);
         }
     }
 
