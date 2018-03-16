@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     private EventAbout event;
     private EventAbout model;
-    private TextView eventdetails,starttime;
+    private TextView eventdetails,starttime,eventname;
     private String TAG = DetailsActivity.class.getSimpleName();
     private boolean isnetwork = false;
     private Realm realm;
@@ -43,6 +44,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_eventdetails);
         eventdetails = findViewById(R.id.details);
         starttime = findViewById(R.id.starttime);
+        eventname = findViewById(R.id.event_details_name);
 
         realm = Realm.getDefaultInstance();
         Realm.init(this);
@@ -58,6 +60,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onResponse(Call<EventAbout> call, Response<EventAbout> response) {
                 event = response.body();
                 addDatatoRealm(event);
+                eventname.setText(event.getName());
                 eventdetails.setText(event.getAbout());
                 if (event.getStartTime().equals("")) {
                     starttime.setText("");
@@ -84,12 +87,14 @@ public class DetailsActivity extends AppCompatActivity {
         {
            EventAbout eventabout = realm.createObject(EventAbout.class);
            eventabout.setId(details.getId());
+           eventabout.setName(details.getName());
            eventabout.setStartTime(details.getStartTime());
            eventabout.setEndTime(details.getEndTime());
         }
         else
         {
             model.setAbout(details.getAbout());
+            model.setName(details.getName());
             model.setStartTime(details.getStartTime());
             model.setEndTime(details.getEndTime());
         }
@@ -108,9 +113,10 @@ public class DetailsActivity extends AppCompatActivity {
                 Toast.makeText(this,"NO Internet",Toast.LENGTH_SHORT).show();
             }
             else {
+                eventname.setText(result.getName());
                 eventdetails.setText(result.getAbout());
                 if (result.getStartTime().equals("")) {
-                    starttime.setText("");
+                    starttime.setVisibility(View.GONE);
                 } else {
                     time = getEventTime(result.getStartTime())[3] + ":" + getEventTime(result.getStartTime())[4] + " - " +
                             getEventTime(result.getEndTime())[3] + ":" + getEventTime(result.getEndTime())[4];
