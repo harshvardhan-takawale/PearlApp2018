@@ -1,14 +1,11 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.dota.pearl18.pearlapp2018.R;
-import com.uncopt.android.widget.text.justify.JustifiedTextView;
 
 public class TextDisplayActivity extends AppCompatActivity {
     private static final String TAG = TextDisplayActivity.class.getSimpleName();
@@ -18,7 +15,7 @@ public class TextDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_display);
 
-        JustifiedTextView display = findViewById(R.id.tv_display);
+        TextView display = findViewById(R.id.tv_display);
         TextView title = findViewById(R.id.tv_title);
 
         String s = getIntent().getStringExtra("text");
