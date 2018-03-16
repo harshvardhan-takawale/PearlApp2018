@@ -39,7 +39,7 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.MyViewHo
     Log.w("myApp", String.valueOf(position));
     final Activity activity = (Activity) context;
 
-    holder.background.setImageResource(R.drawable.ic_app_credits);
+    holder.background.setImageResource(list.get(position).getImageRef());
     holder.intent = list.get(position).getTargetActivity();
     holder.background.setOnClickListener(new View.OnClickListener() {
       @Override
