@@ -51,7 +51,7 @@ public class CreditsActivity extends AppCompatActivity {
 
     private ArrayList<DeveloperDetails> getAndroidDevs2(){
         ArrayList<DeveloperDetails> details = new ArrayList<>();
-        details.add(new DeveloperDetails("Kartheek Akella", R.drawable.profile_icon, new String[]{"","","",null} ));
+        details.add(new DeveloperDetails("Kartheek Akella", R.drawable.dev_kartheek, new String[]{"","","",null} ));
         details.add(new DeveloperDetails("Prateek Agarwal", R.drawable.dev_prateek, new String[]{"","","",null}));
         details.add(new DeveloperDetails("Vineeth P", R.drawable.dev_vineeth, new String[]{"","","",null}));
         return details;
