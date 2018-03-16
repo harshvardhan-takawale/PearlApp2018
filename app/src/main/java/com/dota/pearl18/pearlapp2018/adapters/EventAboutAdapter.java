@@ -40,6 +40,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
                 Intent i = new Intent(view.getContext(), DetailsActivity.class);
                 i.putExtra("id",list.get(position).getId());
                 view.getContext().startActivity(i);
+
             }
         });
 

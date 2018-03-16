@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -59,7 +58,6 @@ public class EventRecyclerView extends RecyclerView {
             if (leftEdge > screenWidth / 2) {
                 // go to next page
                 smoothScrollBy(-scrollDistanceRight, 0);
-                Log.d(TAG, "smoothScrollBy(" + -scrollDistanceRight + "," + 0);
             } else if (rightEdge < screenWidth / 2) {
                 // go to next page
                 smoothScrollBy(scrollDistanceLeft, 0);
@@ -67,7 +65,6 @@ public class EventRecyclerView extends RecyclerView {
                 // stay at current page
                 if (velocityX > 0) {
                     smoothScrollBy(-scrollDistanceRight, 0);
-                    Log.d(TAG, "smoothScrollBy(" + -scrollDistanceRight + "," + 0);
                 } else {
                     smoothScrollBy(scrollDistanceLeft, 0);
                 }

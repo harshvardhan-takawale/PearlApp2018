@@ -72,7 +72,12 @@ public class GuideActivity extends AppCompatActivity {
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
             .setMinScale(0.8f)
             .build());
-        onItemChanged(0);
+        discreteScrollView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+            @Override
+            public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+                onItemChanged(adapterPosition);
+            }
+        });
 
         // landRightOne and cloudRightOne are the initially visible layers.
         // They will then be scrolled off the screen toward the left, and the other two will scroll in.

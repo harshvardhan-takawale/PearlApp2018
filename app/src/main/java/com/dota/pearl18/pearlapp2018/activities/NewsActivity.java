@@ -54,6 +54,12 @@ public class NewsActivity extends AppCompatActivity {
         discreteScrollView.setItemTransformer(new ScaleTransformer.Builder()
                 .setMinScale(0.8f)
                 .build());
+        discreteScrollView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+            @Override
+            public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+                onItemChanged(adapterPosition);
+            }
+        });
         onItemChanged(0);
 
         // landRightOne and cloudRightOne are the initially visible layers.
@@ -142,6 +148,5 @@ public class NewsActivity extends AppCompatActivity {
         name = findViewById(R.id.Button_name);
         name.setText(buttonList.get(pos).getButtonName());
     }
-
 
 }
