@@ -1,6 +1,8 @@
 package com.dota.pearl18.pearlapp2018.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -79,13 +81,15 @@ public class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.CreditsV
                             //set Links
                             for (int j = 0; j < 4; j++){
                                 Button currentButton = holder.mSocialButtons[j];
-                                String currentLink = devLinks[j];
+                                final String currentLink = devLinks[j];
                                 if (currentLink != null){
                                     currentButton.setVisibility(View.VISIBLE);
                                     currentButton.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
-                                            //TODO - Clicks to be implemented Later
+                                            Uri uri = Uri.parse(currentLink);
+                                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                            mContext.startActivity(intent);
                                         }
                                     });
                                 }else {
