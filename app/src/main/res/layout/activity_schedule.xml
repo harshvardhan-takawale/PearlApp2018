@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/sky_color_animation"
     tools:context="com.dota.pearl18.pearlapp2018.activities.ScheduleActivity">
 
     <android.support.design.widget.AppBarLayout

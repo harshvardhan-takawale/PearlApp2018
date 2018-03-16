@@ -44,6 +44,8 @@ public class ScheduleFragment extends Fragment
     private String day;
     private int i ;
     private Context context;
+    private boolean isnetwork = false;
+
 
   /*  public static ScheduleFragment newInstance(int page)
     {
@@ -71,7 +73,7 @@ public class ScheduleFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
         Realm.init(context);
         realm = Realm.getDefaultInstance();
-         page = getArguments().getInt("page",0);
+        page = getArguments().getInt("page",0);
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
         adapter = new ScheduleAdapter(realmlist,context,day);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -93,7 +95,9 @@ public class ScheduleFragment extends Fragment
                break;
        }
        Log.e(TAG,"day:"+day);
+
         CallApi();
+        getDatafromRealm(realm);
 
     }
 
@@ -112,6 +116,7 @@ public class ScheduleFragment extends Fragment
 
                 }
                 getDatafromRealm(realm);
+                isnetwork=true;
                 Log.e(TAG,"reach"+String.valueOf(list.size()));
 
             }
@@ -119,6 +124,7 @@ public class ScheduleFragment extends Fragment
             @Override
             public void onFailure(Call<ArrayList<EventDetails>> call, Throwable t) {
                 Log.e(TAG,"Error in Connectivity");
+                isnetwork=false;
                 getDatafromRealm(realm);
             }
         });
@@ -159,7 +165,9 @@ public class ScheduleFragment extends Fragment
 
             if(results.size()==0)
             {
-                Toast.makeText(context,"NO Internet",Toast.LENGTH_SHORT).show();
+                if(isnetwork==false) {
+                    Toast.makeText(context, "NO Internet", Toast.LENGTH_SHORT).show();
+                }
             }
             for(int j=0;j<results.size();j++)
             {

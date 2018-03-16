@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/sky_color_animation"
     tools:context="com.dota.pearl18.pearlapp2018.activities.ContactsActivity">
 
     <android.support.design.widget.AppBarLayout

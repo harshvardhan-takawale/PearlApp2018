@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-             tools:context="com.dota.pearl18.pearlapp2018.activities.ContactsFragment">
+    android:orientation="vertical"
+    tools:context="com.dota.pearl18.pearlapp2018.activities.ContactsFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/club_senate_recycler"
@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false" />
 
 </LinearLayout>
