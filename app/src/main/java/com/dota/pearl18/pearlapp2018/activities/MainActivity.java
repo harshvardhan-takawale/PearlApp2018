@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         final ImageView splash = findViewById(R.id.splash_img);
         discreteScrollView = findViewById(R.id.Button_list);
 
+
+        discreteScrollView.setVisibility(View.INVISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
