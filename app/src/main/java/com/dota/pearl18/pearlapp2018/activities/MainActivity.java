@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("Events",
                 new Intent(MainActivity.this, EventsActivity.class),
-                this));
+                this,R.drawable.ic_other_events));
 
         buttonList.add(new LandingButtonDetails("News",
                 new Intent(getApplicationContext(), NewsActivity.class),
-                this));
+                this,R.drawable.ic_news));
 
         buttonList.add(new LandingButtonDetails("Pro Shows",
                 new Intent(MainActivity.this, ProshowActivity.class),
