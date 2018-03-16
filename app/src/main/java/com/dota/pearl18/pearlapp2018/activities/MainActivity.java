@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
     private InfiniteScrollAdapter infiniteAdapter;
-    private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         final ImageView splash = findViewById(R.id.splash_img);
         discreteScrollView = findViewById(R.id.Button_list);
-        final TextView bname = findViewById(R.id.Button_name);
 
 
         discreteScrollView.setVisibility(View.GONE);
-        bname.setVisibility(View.GONE);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -83,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         discreteScrollView.setVisibility(View.VISIBLE);
-                        bname.setVisibility(View.VISIBLE);
                     }
 
                     @Override
@@ -240,7 +236,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onItemChanged(int pos) {
-        name = findViewById(R.id.Button_name);
-        name.setText(buttonList.get(pos).getButtonName());
+
     }
 }
