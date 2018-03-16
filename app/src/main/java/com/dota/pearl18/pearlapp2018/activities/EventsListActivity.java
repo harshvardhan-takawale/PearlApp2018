@@ -66,16 +66,6 @@ public class EventsListActivity extends AppCompatActivity {
         call.enqueue(new Callback<ArrayList<EventAbout>>() {
             @Override
             public void onResponse(Call<ArrayList<EventAbout>> call, Response<ArrayList<EventAbout>> response) {
-               /* for(EventAbout e:response.body())
-                {
-                    Log.d("EventDetails",e.getName()+" id="+e.getId());
-                    Log.d("EventBodyID",e.getBody());
-                    if(e.getBody().equals(id))
-                    {
-                        Log.d("addingEvent",e.getName());
-                        list.add(e);
-                    }
-                }*/
                list = response.body();
                for(int i=0;i<list.size();i++)
                {
@@ -113,6 +103,7 @@ public class EventsListActivity extends AppCompatActivity {
             eventabout.setBody(details.getBody());
             eventabout.setPrice(details.getPrize());
             eventabout.setThumbnail(details.getThumbnail());
+            eventabout.setType(details.getType());
         }
         else
         {
@@ -121,6 +112,7 @@ public class EventsListActivity extends AppCompatActivity {
             model.setBody(details.getBody());
             model.setPrice(details.getPrize());
             model.setThumbnail(details.getThumbnail());
+            model.setType(details.getType());
         }
         realm.commitTransaction();
 
@@ -140,7 +132,13 @@ public class EventsListActivity extends AppCompatActivity {
             }
            else
             {
-             realmlist.addAll(results);
+                for(int i=0;i<results.size();i++)
+                {
+                    if(results.get(i).getType().equals("Competition"))
+                    {
+                        realmlist.add(results.get(i));
+                    }
+                }
             }
             Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
 
