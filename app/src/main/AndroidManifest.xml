@@ -18,7 +18,7 @@
         <!-- TODO: Update API Key (Manifest) -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB1XaiMjb3mPHnAG5JR3urnGF6-jbzQecc" />
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".activities.MainActivity"
