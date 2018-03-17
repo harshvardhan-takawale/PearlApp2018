@@ -44,6 +44,7 @@ public class ScheduleFragment extends Fragment
     private int i ;
     private Context context;
     private boolean isnetwork = false;
+    private int start;
 
 
   /*  public static ScheduleFragment newInstance(int page)
@@ -73,6 +74,8 @@ public class ScheduleFragment extends Fragment
         Realm.init(context);
         realm = Realm.getDefaultInstance();
         page = getArguments().getInt("page",0);
+        start = getArguments().getInt("start",0);
+        Log.e(TAG,"start"+String.valueOf(start));
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
         adapter = new ScheduleAdapter(realmlist,context,day);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -94,8 +97,11 @@ public class ScheduleFragment extends Fragment
                break;
        }
        Log.e(TAG,"day:"+day);
-
-        CallApi();
+        if(start==0)
+        {CallApi();}
+        else {
+            getDatafromRealm(realm);
+        }
 
     }
 
@@ -169,7 +175,7 @@ public class ScheduleFragment extends Fragment
             }
             else
             {
-                if(isnetwork==false)
+                if(isnetwork==false&&start==0)
                 {
                     Toast.makeText(context,"No Network....Loading Offline Data",Toast.LENGTH_SHORT).show();
                 }

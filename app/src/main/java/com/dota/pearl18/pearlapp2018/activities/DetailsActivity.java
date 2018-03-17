@@ -108,12 +108,18 @@ public class DetailsActivity extends AppCompatActivity {
         {
             EventAbout result = realm1.where(EventAbout.class).equalTo("id",id).findFirst();
 
-            if(result.getStartTime() == null)
+            if(result == null)
             {
-                Toast.makeText(this,"NO Network...Get Connected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "NO Network...Get Connected", Toast.LENGTH_SHORT).show();
                 starttime.setText("Please Get Connected to Network .... the App needs Network to Load data for the first time");
             }
-            else {
+
+            if(result != null)
+            {
+                if( result.getStartTime() == null) {
+                    Toast.makeText(this, "NO Network...Get Connected", Toast.LENGTH_SHORT).show();
+                    starttime.setText("Please Get Connected to Network .... the App needs Network to Load data for the first time");
+                }
                 Toast.makeText(this,"No Network....Loading Offline Data",Toast.LENGTH_SHORT).show();
                 eventname.setText(result.getName());
                 eventdetails.setText(result.getAbout());
