@@ -9,7 +9,7 @@
     <View
         android:id="@+id/card"
         android:layout_width="0dp"
-        android:layout_height="330dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="210dp"
@@ -20,7 +20,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"/>
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -104,15 +104,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
     <LinearLayout
+        android:id="@+id/event_content"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/details_lists_corners_bottom"
         android:orientation="vertical"
-        android:paddingBottom="6dp"
+        android:paddingBottom="9dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="9dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/card"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/card"
@@ -135,7 +137,7 @@
                 android:layout_marginTop="5dp"
                 android:text="Prize Money"
                 android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/cell_content_prize"
@@ -147,19 +149,20 @@
                 android:layout_toStartOf="@id/content_prize_view"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"
-                tools:text="20,000" />
+                tools:text="20,000"/>
 
         </RelativeLayout>
 
         <!-- divider line -->
         <ImageView
+            android:id="@+id/thirdline"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="9dp"
             android:clickable="false"
             android:src="@color/contentDividerLine"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"/>
 
         <LinearLayout
             android:id="@+id/content_location"
@@ -175,7 +178,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Venue"
                 android:textColor="@color/mainTextColor"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/cell_content_venue"
@@ -187,8 +190,8 @@
                 android:drawablePadding="8dp"
                 android:gravity="end"
                 android:textColor="@color/mainTextColor"
-                android:textSize="16sp"
-                tools:text="BITS Pilani Hyderabad Campus" />
+                android:textSize="18sp"
+                tools:text="BITS Pilani Hyderabad Campus"/>
 
         </LinearLayout>
 
