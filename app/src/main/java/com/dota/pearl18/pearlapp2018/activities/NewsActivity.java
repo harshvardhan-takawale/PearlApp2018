@@ -41,7 +41,8 @@ public class NewsActivity extends AppCompatActivity {
                 feedIntent,this));
 
         buttonList.add(new LandingButtonDetails("Articles",
-                articlesIntent,this));
+                articlesIntent,this,
+            R.drawable.ic_articles));
         buttonAdapter = new LandingAdapter(buttonList, this);
         //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
 

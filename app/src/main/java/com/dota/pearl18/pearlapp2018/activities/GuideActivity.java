@@ -58,13 +58,16 @@ public class GuideActivity extends AppCompatActivity {
         reachIntent.putExtra("text","dir");
 
         buttonList.add(new LandingButtonDetails("About",
-            aboutIntent,this));
+            aboutIntent,this,
+            R.drawable.ic_about_us));
 
         buttonList.add(new LandingButtonDetails("Reach",
-            reachIntent,this));
+            reachIntent,this,
+            R.drawable.ic_reach_us));
 
         buttonList.add(new LandingButtonDetails("Maps",
-            new Intent(this,MapsActivity.class),this));
+            new Intent(this,MapsActivity.class),this,
+            R.drawable.ic_campus_map));
 
         buttonAdapter = new LandingAdapter(buttonList, this);
         //infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);

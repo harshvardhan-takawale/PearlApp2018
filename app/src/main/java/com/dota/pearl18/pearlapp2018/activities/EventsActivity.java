@@ -42,6 +42,7 @@ public class EventsActivity extends AppCompatActivity {
     private Realm realm;
     private String TAG = EventsActivity.class.getSimpleName();
     private boolean isnetwork = false;
+    private ArrayList<Integer> cardimages;
 
     final ValueAnimator busAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
     final ValueAnimator landAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -54,6 +55,21 @@ public class EventsActivity extends AppCompatActivity {
         Realm.init(this);
         realm = Realm.getDefaultInstance();
 
+        cardimages = new ArrayList<Integer>();
+        cardimages.add(R.drawable.ic_music);
+        cardimages.add(R.drawable.ic_dance);
+        cardimages.add(R.drawable.ic_drama);
+        cardimages.add(R.drawable.ic_journal);
+        cardimages.add(R.drawable.ic_english_lit);
+        cardimages.add(R.drawable.ic_hindi_tarang);
+        cardimages.add(R.drawable.ic_foreign_language);
+        cardimages.add(R.drawable.ic_fine_arts);
+        cardimages.add(R.drawable.ic_movie);
+        cardimages.add(R.drawable.ic_photography);
+        cardimages.add(R.drawable.ic_quiz);
+        cardimages.add(R.drawable.ic_digital_art);
+        cardimages.add(R.drawable.ic_vfx);
+        cardimages.add(R.drawable.ic_other_events);
         itemPicker = findViewById(R.id.club_list);
         itemPicker.setOrientation(DSVOrientation.HORIZONTAL);
         itemPicker.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
@@ -236,7 +252,7 @@ public class EventsActivity extends AppCompatActivity {
 
     private void setAdapter()
     {
-        infiniteAdapter = InfiniteScrollAdapter.wrap(new ClubAdapter(realmlist));
+        infiniteAdapter = InfiniteScrollAdapter.wrap(new ClubAdapter(realmlist, cardimages));
         itemPicker.setAdapter(infiniteAdapter);
         itemPicker.setItemTransitionTimeMillis(150);
         itemPicker.setItemTransformer(new ScaleTransformer.Builder()

@@ -14,6 +14,7 @@ import com.dota.pearl18.pearlapp2018.R;
 import com.dota.pearl18.pearlapp2018.activities.EventsListActivity;
 import com.dota.pearl18.pearlapp2018.api.ClubDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,16 +24,18 @@ import java.util.List;
 public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
 {
     private List<ClubDetails> clubs;
-    public ClubAdapter(List<ClubDetails> club_list)
+    private ArrayList<Integer> clubimages;
+    public ClubAdapter(List<ClubDetails> club_list, ArrayList<Integer> clubimages)
     {
         this.clubs=club_list;
+        this.clubimages = clubimages;
     }
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         /*Glide.with(holder.context)
                 .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW7X6D7YJbn0rcswQwrb_x-Cfq30lsyrJQhE7kRaLWLUFwcSS")
                 .into(holder.background);*/
-        holder.background.setImageResource(R.drawable.ic_app_credits);
+        holder.background.setImageResource(clubimages.get(position));
         holder.background.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
