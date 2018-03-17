@@ -22,7 +22,7 @@ public class EventDetails extends RealmObject {
     @SerializedName("endTime")
     String endtime;
 
-    @SerializedName("tagline")
+    @SerializedName("venue")
     String eventDescription ;
 
     String eventdate;

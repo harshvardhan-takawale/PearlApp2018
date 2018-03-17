@@ -15,7 +15,7 @@ public interface EventsInterface {
     @GET("events")
     Call<ArrayList<EventDetails>> getEvents();
 
-    @GET("events/schedule")
+    @GET("events?fields=name,startTime,endTime,tagline,venue")
     Call<ArrayList<EventDetails>> getEventSchedule();
 
 }
