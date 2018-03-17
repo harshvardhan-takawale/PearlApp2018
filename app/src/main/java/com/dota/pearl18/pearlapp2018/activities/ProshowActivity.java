@@ -34,18 +34,18 @@ public class ProshowActivity extends AppCompatActivity {
 
     String[] titles = new String[]{
             "Aron Chupa",
-            "Tony Junior",
+            "Raghu Dixit",
             "Amit Trivedi",
             "Ashish Shakya",
             "Tony Junior"
     };
 
     String[] descriptions = new String[]{
-            "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 8PM to 9PM<br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 9PM to 12AM<br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 10PM<br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 7PM<br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 9PM<br/><b>Venue:</b> Stage 1 Lawns"
+            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers ,Aronchupa .Swedish rapper,singer, DJ and record producer. <br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 25/03/18<br/><b>Desc:</b> Raghu Dixit, giving Indian fusion music a new face and voice on a global scale.  <br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 24/03/18<br/><b>Desc:</b> Amit Trivedi is an Indian film composer, musician, singer and lyricist. Heading the Bollywood night (day2) of Pearl'18. <br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 24/03/18<br/><b>Desc:</b>  Ashish Shakya from AIB is an stand-up comedian, humour columnist,writer,actor and TV writer. <br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Tony Junior, a Dutch record producer and DJ. <br/><b>Venue:</b> Stage 1 Lawns"
     };
 
     @Override
