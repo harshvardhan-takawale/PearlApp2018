@@ -59,14 +59,14 @@ public class CreditsActivity extends AppCompatActivity {
         ArrayList<DeveloperDetails> details = new ArrayList<>();
 
         details.add(new DeveloperDetails("Rohitt Vashishtha", R.drawable.dev_rohitt, new String[] {"https://www.facebook.com/VagrantRohitt","https://github.com/aero31aero",null,null}));
-        details.add(new DeveloperDetails("Sohail Rajdev", R.drawable.profile_icon, new String[]{"https://www.facebook.com/srajdev97","",null, null}));
+        details.add(new DeveloperDetails("Sohail Rajdev", R.drawable.dev_sohail, new String[]{"https://www.facebook.com/srajdev97","https://github.com/sohailrajdev97",null, null}));
         return details;
     }
 
     private ArrayList<DeveloperDetails> getDesigners(){
         ArrayList<DeveloperDetails> details = new ArrayList<>();
 
-        details.add(new DeveloperDetails("Suraj Thotakura", R.drawable.profile_icon, new String[]{"https://www.facebook.com/satya.suraj.7", null, null, "https://www.behance.net/surajsatyaa29d"}));
+        details.add(new DeveloperDetails("Suraj Thotakura", R.drawable.des_suraj, new String[]{"https://www.facebook.com/satya.suraj.7", null, null, "https://www.behance.net/surajsatyaa29d"}));
         details.add(new DeveloperDetails("Govind Savio", R.drawable.profile_icon, new String[]{"https://www.facebook.com/savio.sunny.79", null, null, ""}));
         details.add(new DeveloperDetails("Abishek Yadav", R.drawable.profile_icon, new String[]{"https://www.facebook.com/profile.php?id=100000513640766",null,null,""}));
         return details;
