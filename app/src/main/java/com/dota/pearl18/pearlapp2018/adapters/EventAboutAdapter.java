@@ -97,7 +97,7 @@ public class EventAboutAdapter extends RecyclerView.Adapter<EventAboutAdapter.My
 
     public Integer loadImage(String eventName){
         String lowerCaseName = eventName.toLowerCase();
-        Log.i("EventAboutAdapter", "loadImage: testing against " + lowerCaseName);
+//        Log.i("EventAboutAdapter", "loadImage: testing against " + lowerCaseName);
         if (lowerCaseName.contains("abhivy")){
             return R.drawable.event_abhivyaktika;
         }else if (lowerCaseName.contains("album")){

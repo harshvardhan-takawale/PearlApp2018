@@ -49,7 +49,6 @@ public class QRScannerActivity extends AppCompatActivity implements ZXingScanner
                 .configureMessageView(new ViewConfigurator<TextView>() {
                     @Override
                     public void configureView(TextView message) {
-                        Log.d(TAG, "configureView: called");
                         LinkifyCompat.addLinks(message, Linkify.WEB_URLS);
                         message.setMovementMethod(LinkMovementMethod.getInstance());
                     }

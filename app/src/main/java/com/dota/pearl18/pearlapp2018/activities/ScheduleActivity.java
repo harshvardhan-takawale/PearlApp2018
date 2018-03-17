@@ -58,7 +58,7 @@ public class ScheduleActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
 
 
-            Log.e(TAG,"page:"+String.valueOf(position));
+//            Log.e(TAG,"page:"+String.valueOf(position));
             ScheduleFragment scheduleFragment = new ScheduleFragment();
             Bundle args = new Bundle();
             args.putInt("page",position);

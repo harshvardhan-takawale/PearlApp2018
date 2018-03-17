@@ -75,7 +75,7 @@ public class ScheduleFragment extends Fragment
         realm = Realm.getDefaultInstance();
         page = getArguments().getInt("page",0);
         start = getArguments().getInt("start",0);
-        Log.e(TAG,"start"+String.valueOf(start));
+//        Log.e(TAG,"start"+String.valueOf(start));
         recyclerView = view.findViewById(R.id.schedule_recyclerview);
         adapter = new ScheduleAdapter(realmlist,context,day);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -84,7 +84,7 @@ public class ScheduleFragment extends Fragment
        /* switch (page) {
             case 0: CallApi();break;
         }*/
-       Log.e(TAG,"pagein:"+String.valueOf(page));
+//       Log.e(TAG,"pagein:"+String.valueOf(page));
        switch (page) {
            case 0:
                day = "23";
@@ -96,7 +96,7 @@ public class ScheduleFragment extends Fragment
                day = "25";
                break;
        }
-       Log.e(TAG,"day:"+day);
+//       Log.e(TAG,"day:"+day);
         if(start==0)
         {CallApi();}
         else {
@@ -121,7 +121,7 @@ public class ScheduleFragment extends Fragment
                 }
                 isnetwork=true;
                 getDatafromRealm(realm);
-                Log.e(TAG,"reach"+String.valueOf(list.size()));
+//                Log.e(TAG,"reach"+String.valueOf(list.size()));
 
             }
 
@@ -165,7 +165,7 @@ public class ScheduleFragment extends Fragment
             realmlist = new ArrayList<>();
             //RealmResults<EventDetails> results = realm1.where(EventDetails.class).findAll();
             RealmResults<EventDetails> results = realm1.where(EventDetails.class).equalTo("eventdate",day).findAll();
-            Log.e(TAG,"results="+String.valueOf(results.size()));
+//            Log.e(TAG,"results="+String.valueOf(results.size()));
 
             if(results.size()==0)
             {
@@ -188,7 +188,7 @@ public class ScheduleFragment extends Fragment
             Set<String> set = new LinkedHashSet<>(realmlist);
             realmlist.clear();
             realmlist.addAll(set);
-            Log.e(TAG,"setsize"+String.valueOf(set.size())+""+realmlist.size());
+//            Log.e(TAG,"setsize"+String.valueOf(set.size())+""+realmlist.size());
 
             recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext(),day));
         }

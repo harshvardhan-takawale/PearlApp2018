@@ -53,7 +53,7 @@ public class EventsListActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         clubid=bundle.getString("id");
-        Log.e(TAG,clubid);
+//        Log.e(TAG,clubid);
         list=new ArrayList<EventAbout>();
         recyclerView=findViewById(R.id.event_recycler);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -130,7 +130,7 @@ public class EventsListActivity extends AppCompatActivity {
         {
             realmlist = new ArrayList<>();
             RealmResults<EventAbout> results = realm1.where(EventAbout.class).equalTo("body",clubid).findAll();
-            Log.e(TAG,"results="+String.valueOf(results.size()));
+//            Log.e(TAG,"results="+String.valueOf(results.size()));
 
             if(results.size()==0)
             {
@@ -146,7 +146,7 @@ public class EventsListActivity extends AppCompatActivity {
                     }
                 }
             }
-            Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
+//            Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
 
         }
 

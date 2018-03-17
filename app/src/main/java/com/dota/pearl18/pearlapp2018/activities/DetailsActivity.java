@@ -51,7 +51,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         id=bundle.getString("id");
-        Log.e(TAG,id);
 
         ClubInterface apiservice = ApiClient.getClient().create(ClubInterface.class);
         Call<EventAbout> call = apiservice.getEventListDetails(id);
@@ -156,7 +155,7 @@ public class DetailsActivity extends AppCompatActivity {
             // parts[2] => DD => 11
             // parts[3] => HH => 10
             // parts[4] => mm => 5
-            Log.e(TAG,parts[0]);
+//            Log.e(TAG,parts[0]);
             return parts;
         }
 

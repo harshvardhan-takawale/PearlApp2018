@@ -36,7 +36,7 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingAdapter.MyViewHo
 
   @Override
   public void onBindViewHolder(final LandingAdapter.MyViewHolder holder, final int position) {
-    Log.w("myApp", String.valueOf(position));
+//    Log.w("myApp", String.valueOf(position));
     final Activity activity = (Activity) context;
 
     holder.background.setImageResource(list.get(position).getImageRef());

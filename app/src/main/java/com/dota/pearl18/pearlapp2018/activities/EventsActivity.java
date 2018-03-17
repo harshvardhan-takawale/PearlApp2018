@@ -245,7 +245,7 @@ public class EventsActivity extends AppCompatActivity {
 
                  }
             }
-            Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));
+//            Log.e(TAG,"realmlist:"+String.valueOf(realmlist.size()));
         }
 
     }
