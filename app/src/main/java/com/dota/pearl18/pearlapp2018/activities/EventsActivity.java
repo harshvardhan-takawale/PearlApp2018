@@ -70,6 +70,7 @@ public class EventsActivity extends AppCompatActivity {
         cardimages.add(R.drawable.ic_digital_art);
         cardimages.add(R.drawable.ic_vfx);
         cardimages.add(R.drawable.ic_other_events);
+
         itemPicker = findViewById(R.id.club_list);
         itemPicker.setOrientation(DSVOrientation.HORIZONTAL);
         itemPicker.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {

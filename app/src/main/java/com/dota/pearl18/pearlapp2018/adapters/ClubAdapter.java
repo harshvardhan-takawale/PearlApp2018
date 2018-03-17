@@ -41,6 +41,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.MyViewHolder>
             public void onClick(View view) {
                 Intent intent=new Intent(view.getContext(),EventsListActivity.class);
                 intent.putExtra("id",clubs.get(position).getId());
+                intent.putExtra("img_res",clubimages.get(position));
                 holder.background.setTransitionName("background");
                 ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) view.getContext(),holder.background,holder.background.getTransitionName());
                 view.getContext().startActivity(intent,optionsCompat.toBundle());

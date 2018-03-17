@@ -47,8 +47,8 @@ public class EventsListActivity extends AppCompatActivity {
         ImageView mainImage = findViewById(R.id.iv_background);
 
         getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition));
-        // TODO set mainImage resource here. Get int from intent
-        mainImage.setImageResource(R.drawable.ic_app_credits);
+
+        mainImage.setImageResource(getIntent().getIntExtra("img_res",R.drawable.ic_app_credits));
         mainImage.setTransitionName("background");
 
         Bundle bundle=getIntent().getExtras();

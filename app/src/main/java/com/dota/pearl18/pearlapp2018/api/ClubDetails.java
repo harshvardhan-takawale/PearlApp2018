@@ -13,9 +13,13 @@ public class ClubDetails extends RealmObject{
     String id;
     @SerializedName("name")
     String name;
+    @SerializedName("img_res")
+    int img_res;
 
     public String getId() {return id;}
     public String getName() {return name;}
+    public int getImg_res(){return img_res;}
     public void setId(String id) {this.id = id;}
     public void setName(String name) {this.name = name;}
+    public void setImg_res(int img_res){this.img_res=img_res;}
 }

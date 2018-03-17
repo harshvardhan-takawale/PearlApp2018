@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
-                anim.setDuration(300);
+                anim.setDuration(500);
                 anim.setRepeatCount(0);
                 anim.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 splash.startAnimation(anim);
 
                 AlphaAnimation anim2 = new AlphaAnimation(0.0f, 1.0f);
-                anim2.setDuration(300);
+                anim2.setDuration(500);
                 anim2.setRepeatCount(0);
                 anim2.setAnimationListener(new Animation.AnimationListener() {
                     @Override
@@ -135,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAdapter = new LandingAdapter(buttonList, this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
+
+        ImageView img = findViewById(R.id.iv_background);
 
         discreteScrollView = findViewById(R.id.Button_list);
         discreteScrollView.setOrientation(DSVOrientation.HORIZONTAL);
