@@ -96,7 +96,6 @@ public class ScheduleFragment extends Fragment
        Log.e(TAG,"day:"+day);
 
         CallApi();
-        getDatafromRealm(realm);
 
     }
 
@@ -114,8 +113,8 @@ public class ScheduleFragment extends Fragment
                     addDatatoRealm(list.get(i));
 
                 }
-                getDatafromRealm(realm);
                 isnetwork=true;
+                getDatafromRealm(realm);
                 Log.e(TAG,"reach"+String.valueOf(list.size()));
 
             }
@@ -168,11 +167,17 @@ public class ScheduleFragment extends Fragment
                     Toast.makeText(context, "NO Internet", Toast.LENGTH_SHORT).show();
                 }
             }
+            else
+            {
+                if(isnetwork==false)
+                {
+                    Toast.makeText(context,"No Network....Loading Offline Data",Toast.LENGTH_SHORT).show();
+                }
+            }
             for(int j=0;j<results.size();j++)
             {
                 realmlist.add(results.get(j).getStarttime());
             }
-            Log.e(TAG,"realmlist="+String.valueOf(realmlist.size()));
 
             Set<String> set = new LinkedHashSet<>(realmlist);
             realmlist.clear();

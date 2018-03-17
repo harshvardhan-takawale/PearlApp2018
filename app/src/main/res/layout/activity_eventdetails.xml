@@ -41,6 +41,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat"
                 android:paddingLeft="8dp"
+                android:text="Loading...."
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="30sp" />
 
@@ -53,7 +54,6 @@
                 android:fontFamily="@font/montserrat"
                 android:lineSpacingExtra="2dp"
                 android:padding="8dp"
-                android:text="Loading......."
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
