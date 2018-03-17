@@ -3,7 +3,7 @@ apply plugin: 'realm-android'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.dota.pearl18.pearlapp2018"
+        applicationId "com.dota.pearl18"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1

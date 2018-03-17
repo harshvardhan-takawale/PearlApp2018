@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:transitionName="@string/transition_string"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.MapsActivity">
+    tools:context="com.dota.pearl18.activities.MapsActivity">
 
     <com.quinny898.library.persistentsearch.SearchBox
         android:id="@+id/searchbox"

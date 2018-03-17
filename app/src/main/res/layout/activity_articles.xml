@@ -25,7 +25,7 @@
         android:paddingEnd="8dp"
         android:paddingStart="8dp"
         android:paddingTop="8dp"
-        tools:context="com.dota.pearl18.pearlapp2018.activities.ArticlesActivity">
+        tools:context="com.dota.pearl18.activities.ArticlesActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"
