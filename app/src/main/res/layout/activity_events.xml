@@ -7,17 +7,6 @@
     android:background="@color/sky_color_animation"
     tools:context="com.dota.pearl18.pearlapp2018.activities.EventsActivity">
 
-    <TextView
-        android:id="@+id/club_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#000"
-        android:textSize="22sp"
-        app:layout_constraintTop_toBottomOf="@id/club_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.yarolegovich.discretescrollview.DiscreteScrollView
         android:id="@+id/club_list"
         android:layout_width="match_parent"

@@ -182,8 +182,7 @@ public class EventsActivity extends AppCompatActivity {
     }
     private void onItemChanged(int pos) {
         if(realmlist.size()!=0) {
-            TextView name = findViewById(R.id.club_name);
-            name.setText(realmlist.get(pos).getName());
+
         }
     }
 
