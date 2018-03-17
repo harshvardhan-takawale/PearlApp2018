@@ -19,6 +19,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private PagerAdapter adapter;
     private TabLayout tabs;
     private String TAG = ScheduleActivity.class.getSimpleName();
+    private int start = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,22 @@ public class ScheduleActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabs = findViewById(R.id.schedule_tabs);
         tabs.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                start++;
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 
@@ -45,6 +62,7 @@ public class ScheduleActivity extends AppCompatActivity {
             ScheduleFragment scheduleFragment = new ScheduleFragment();
             Bundle args = new Bundle();
             args.putInt("page",position);
+            args.putInt("start",start);
             scheduleFragment.setArguments(args);
             return scheduleFragment;
         }
