@@ -1,98 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-    android:background="@color/sky_color_animation"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
-
-  <ImageView
-      android:id="@+id/splash_img"
-      android:layout_width="250dp"
-      android:layout_height="250dp"
-      android:layout_marginBottom="8dp"
-      android:layout_marginEnd="8dp"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="8dp"
-      android:src="@drawable/pearl"
-      android:visibility="visible"
-      app:layout_constraintBottom_toBottomOf="@+id/layer_bus"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  <com.yarolegovich.discretescrollview.DiscreteScrollView
-    android:id="@+id/Button_list"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent">
 
-  <!-- Fixed Sun frame, appears beneath the clouds-->
-  <ImageView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:src="@drawable/sun"/>
+    <ImageView
+        android:id="@+id/splash_img"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/pearl"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/layer_bus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <!-- Moving Frames -->
-  <!-- First frame, right side -->
-  <ImageView
-      android:id="@+id/land_right_one"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_land_right"/>
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/Button_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <ImageView
-      android:id="@+id/cloud_right_one"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_clouds_right"/>
+    <!-- Fixed Sun frame, appears beneath the clouds-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sun" />
 
-  <!-- Second frame, left side-->
-  <ImageView
-      android:id="@+id/land_left_one"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_land_left"/>
+    <!-- Moving Frames -->
+    <!-- First frame, right side -->
+    <ImageView
+        android:id="@+id/land_right_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_land_right" />
 
-  <ImageView
-      android:id="@+id/cloud_left_one"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_clouds_left"/>
+    <ImageView
+        android:id="@+id/cloud_right_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_clouds_right" />
 
-  <!-- Third frame, right side-->
-  <ImageView
-      android:id="@+id/land_right_two"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_land_right"/>
+    <!-- Second frame, left side-->
+    <ImageView
+        android:id="@+id/land_left_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_land_left" />
 
-  <ImageView
-      android:id="@+id/cloud_right_two"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="fitXY"
-      android:src="@drawable/ic_clouds_right"/>
-  <!-- End of Moving Frames -->
+    <ImageView
+        android:id="@+id/cloud_left_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_clouds_left" />
 
-  <!-- Relatively fixed bus frames -->
-  <ImageView
-      android:id="@+id/layer_bus"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingBottom="4dp"
-      android:src="@drawable/bus_top_with_padding"/>
-  <ImageView
-      android:id="@+id/layer_wheels"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:paddingBottom="4dp"
-      android:src="@drawable/wheels_with_padding"/>
+    <!-- Third frame, right side-->
+    <ImageView
+        android:id="@+id/land_right_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_land_right" />
+
+    <ImageView
+        android:id="@+id/cloud_right_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_clouds_right" />
+    <!-- End of Moving Frames -->
+
+    <!-- Relatively fixed bus frames -->
+    <ImageView
+        android:id="@+id/layer_bus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="4dp"
+        android:src="@drawable/bus_top_with_padding" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="4dp"
+        android:src="@drawable/wheels_with_padding" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,8 +1,6 @@
 <resources>
-    <string name="app_name">PearlApp2018</string>
+    <string name="app_name">Pearl 2018</string>
     <string name="transition_string">hello</string>
-    <string name="transition_text">hi</string>
-    <string name="action_settings">Settings</string>
     <string name="about_us">Pearl is the Annual Cultural Festival of Birla Institute of Technology and Science (BITS) Pilani, Hyderabad Campus.\n\nThe fest was a resounding success last year, and we\'re back with a bang to help you add a few more cherishable moments to your collection. Pearl \'18 guarantees three fun-filled days that will be an unforgettable experience you will treasure forever, with a smile on your face and a feeling of nostalgia in your heart.\n\nA wide array of amazing events, workshops, performances and competitions await your presence. Make your way down to us this March 23rd-25th, to see the show come center stage.</string>
 
     <string name="directions">From Secunderabad Railway Station to BITS Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Aalankrita Resorts in Thumkunta Village and then take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS sign boards indicating the directions are available on the way.\n\n
@@ -119,7 +117,5 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>9000456353</item>
         <item>8209589297</item>
     </string-array>
-
-    <string name="reach_us">Reach Us</string>
 
 </resources>

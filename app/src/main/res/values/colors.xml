@@ -6,10 +6,6 @@
 
     <color name="mainTextColor">#343d43</color>
     <color name="contentDividerLine">#e0e0e0</color>
-    <color name="item_name_color">#aab4ba</color>
-    <color name="item_info_color">#bdc5cc</color>
-    <color name="item_separator_color">#c8c9cc</color>
-    <color name="backgroundTop">#444a5a</color>
 
     <color name="sky_color_animation">#e7eef6</color>
 
