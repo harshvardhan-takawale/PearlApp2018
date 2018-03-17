@@ -1,197 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="310dp"
-  android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content">
 
 
-  <View
-    android:id="@+id/card"
-    android:layout_width="0dp"
-    android:layout_height="310dp"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
-    android:layout_marginTop="210dp"
-    android:background="@drawable/white_corners"
-    android:transitionName="card"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0" />
+    <View
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="310dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/white_corners"
+        android:transitionName="card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-  <FrameLayout
-    android:id="@+id/frameLayout"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_centerVertical="true"
-    android:layout_marginEnd="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginStart="8dp"
-    android:background="@drawable/avatar_border_details"
-    android:transitionName="avatar_border"
-    app:layout_constraintBottom_toTopOf="@+id/card"
-    app:layout_constraintLeft_toLeftOf="@+id/card"
-    app:layout_constraintRight_toRightOf="@+id/card"
-    app:layout_constraintTop_toTopOf="@+id/card">
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/avatar_border_details"
+        android:transitionName="avatar_border"
+        app:layout_constraintBottom_toTopOf="@+id/card"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"
+        app:layout_constraintTop_toTopOf="@+id/card">
 
-    <ImageView
-      android:id="@+id/avatar"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_gravity="center"
-      android:layout_margin="@dimen/details_avatar_border"
-      android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/details_avatar_border"
+            android:scaleType="centerCrop" />
 
-  </FrameLayout>
+    </FrameLayout>
 
-  <TextView
-    android:id="@+id/tv_desc"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="32dp"
-    android:layout_marginRight="32dp"
-    android:layout_marginTop="16dp"
-    android:ellipsize="end"
-    android:gravity="center"
-    android:maxLines="1"
-    android:text="Event Name"
-    android:textColor="#333333"
-    android:textSize="24sp"
-    app:layout_constraintLeft_toLeftOf="@+id/card"
-    app:layout_constraintRight_toRightOf="@+id/card"
-    app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
-
-  <TextView
-    android:id="@+id/tv_info"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="32dp"
-    android:layout_marginRight="32dp"
-    android:layout_marginTop="8dp"
-    android:ellipsize="end"
-    android:gravity="center"
-    android:maxLines="1"
-    android:text="Description"
-    android:textColor="#aab4ba"
-    android:textSize="17sp"
-    app:layout_constraintLeft_toLeftOf="@+id/card"
-    app:layout_constraintRight_toRightOf="@+id/card"
-    app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
-
-  <TextView
-    android:id="@+id/tv_status"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="32dp"
-    android:layout_marginRight="32dp"
-    android:layout_marginTop="16dp"
-    android:ellipsize="end"
-    android:gravity="center"
-    android:maxLines="2"
-    android:paddingBottom="@dimen/dp10"
-    android:paddingTop="@dimen/dp10"
-    android:text="Details"
-    android:textColor="#90ba47"
-    android:textSize="18.4sp"
-    app:layout_constraintLeft_toLeftOf="@+id/card"
-    app:layout_constraintRight_toRightOf="@+id/card"
-    app:layout_constraintTop_toBottomOf="@+id/tv_info" />
-
-  <LinearLayout
-    android:id="@+id/event_content"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="16dp"
-    android:background="@drawable/details_lists_corners_bottom"
-    android:orientation="vertical"
-    android:paddingBottom="6dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:paddingTop="9dp"
-    app:layout_constraintBottom_toBottomOf="@+id/card"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintLeft_toLeftOf="@+id/card"
-    app:layout_constraintRight_toRightOf="@+id/card"
-    app:layout_constraintTop_toBottomOf="@+id/tv_status"
-    app:layout_constraintVertical_bias="0.0">
-
-    <RelativeLayout
-      android:id="@+id/prize_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-
-
-      <TextView
-        android:id="@+id/content_prize_view"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:text="Prize Money"
-        android:textColor="@color/mainTextColor"
-        android:textSize="18sp" />
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Event Name"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-      <TextView
-        android:id="@+id/cell_content_prize"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="2dp"
-        android:layout_marginStart="10dp"
-        android:layout_toStartOf="@id/content_prize_view"
-        android:textColor="@color/mainTextColor"
-        android:textSize="18sp"
-        tools:text="20,000" />
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Description"
+        android:textColor="#aab4ba"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
 
-    </RelativeLayout>
-
-    <!-- divider line -->
-    <ImageView
-      android:id="@+id/thirdline"
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:layout_marginBottom="6dp"
-      android:layout_marginTop="9dp"
-      android:clickable="false"
-      android:src="@color/contentDividerLine"
-      tools:ignore="ContentDescription" />
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="16dp"
+        android:background="#F5F5F5"
+        android:elevation="2dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:paddingBottom="@dimen/dp10"
+        android:paddingTop="@dimen/dp10"
+        android:text="Details"
+        android:textColor="#90ba47"
+        android:textSize="18.4sp"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
     <LinearLayout
-      android:id="@+id/content_location"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal">
+        android:id="@+id/event_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/details_lists_corners_bottom"
+        android:orientation="vertical"
+        android:paddingBottom="6dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/card"
+        app:layout_constraintRight_toRightOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:id="@+id/prize_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="2dp"
-        android:layout_marginStart="10dp"
-        android:text="Venue"
-        android:textColor="@color/mainTextColor"
-        android:textSize="18sp" />
+            <TextView
+                android:id="@+id/content_prize_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Prize Money"
+                android:textColor="@color/mainTextColor"
+                android:textSize="18sp" />
 
-      <TextView
-        android:id="@+id/cell_content_venue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:layout_marginStart="10dp"
-        android:autoSizeTextType="uniform"
-        android:drawablePadding="8dp"
-        android:gravity="end"
-        android:textColor="@color/mainTextColor"
-        android:textSize="16sp"
-        tools:text="BITS Pilani Hyderabad Campus" />
+            <TextView
+                android:id="@+id/cell_content_prize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@id/content_prize_view"
+                android:textColor="@color/mainTextColor"
+                android:textSize="18sp"
+                tools:text="20,000" />
+
+        </RelativeLayout>
+
+        <!-- divider line -->
+        <ImageView
+            android:id="@+id/thirdline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="9dp"
+            android:clickable="false"
+            android:src="@color/contentDividerLine"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/content_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="10dp"
+                android:text="Venue"
+                android:textColor="@color/mainTextColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/cell_content_venue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginStart="10dp"
+                android:autoSizeTextType="uniform"
+                android:drawablePadding="8dp"
+                android:gravity="end"
+                android:textColor="@color/mainTextColor"
+                android:textSize="16sp"
+                tools:text="BITS Pilani Hyderabad Campus" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-  </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

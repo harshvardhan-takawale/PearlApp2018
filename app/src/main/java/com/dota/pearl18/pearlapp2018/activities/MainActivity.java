@@ -108,30 +108,29 @@ public class MainActivity extends AppCompatActivity {
                 new Intent(MainActivity.this, ProshowActivity.class),
                 this, R.drawable.ic_pro_shows));
 
-        buttonList.add(new LandingButtonDetails("Schedule",
-                new Intent(MainActivity.this, ScheduleActivity.class),
-                this, R.drawable.ic_schedule));
-
-
         buttonList.add(new LandingButtonDetails("Guide",
                 new Intent(getApplicationContext(), GuideActivity.class),
                 this,R.drawable.ic_guid));
-
-        buttonList.add(new LandingButtonDetails("App Credits",
-                new Intent(MainActivity.this, CreditsActivity.class),
-                this, R.drawable.ic_app_credits));
 
         buttonList.add(new LandingButtonDetails("Contact Us",
                 new Intent(MainActivity.this, ContactsActivity.class),
                 this, R.drawable.ic_contact_us));
 
+        buttonList.add(new LandingButtonDetails("QR Scanner",
+                new Intent(MainActivity.this, QRScannerActivity.class),
+                this, R.drawable.ic_qr_scanner));
+
         buttonList.add(new LandingButtonDetails("Register",
                 intent,
                 this, R.drawable.ic_register));
 
-        buttonList.add(new LandingButtonDetails("QR Scanner",
-                new Intent(MainActivity.this, QRScannerActivity.class),
-                this, R.drawable.ic_qr_scanner));
+        buttonList.add(new LandingButtonDetails("App Credits",
+                new Intent(MainActivity.this, CreditsActivity.class),
+                this, R.drawable.ic_app_credits));
+
+        buttonList.add(new LandingButtonDetails("Schedule",
+                new Intent(MainActivity.this, ScheduleActivity.class),
+                this, R.drawable.ic_schedule));
 
         buttonAdapter = new LandingAdapter(buttonList, this);
         infiniteAdapter = InfiniteScrollAdapter.wrap(buttonAdapter);
