@@ -1,7 +1,10 @@
 package com.dota.pearl18.pearlapp2018.activities;
 
+import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
@@ -21,10 +24,15 @@ import com.google.maps.android.ui.IconGenerator;
 import com.quinny898.library.persistentsearch.SearchBox;
 import com.quinny898.library.persistentsearch.SearchResult;
 
+import static android.support.v4.content.PermissionChecker.PERMISSION_DENIED;
+import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
 
+    private static int permCheck;
+    public static final int REQUEST_LOCATION = 1;
     private SearchBox mSearchBox;
     private GoogleMap mMap;
 
@@ -32,6 +40,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        permCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (permCheck == PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        }
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -144,6 +157,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .build();
 //            mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cam));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case REQUEST_LOCATION:
+                if (grantResults.length > 0 && grantResults[0] == PERMISSION_GRANTED) {
+
+                } else {
+                    finish();
+                }
+                break;
+            default: super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
     }
 
     public static String[] location_names = {
