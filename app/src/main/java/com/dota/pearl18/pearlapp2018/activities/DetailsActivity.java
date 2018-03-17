@@ -110,15 +110,15 @@ public class DetailsActivity extends AppCompatActivity {
 
             if(result == null)
             {
-                Toast.makeText(this, "NO Network...Get Connected", Toast.LENGTH_SHORT).show();
-                starttime.setText("Please Get Connected to Network .... the App needs Network to Load data for the first time");
+                Toast.makeText(this, "No Network...Get Connected", Toast.LENGTH_SHORT).show();
+                starttime.setText("Please connect to network .... the App needs internet to load data for the first time");
             }
 
             if(result != null)
             {
                 if( result.getStartTime() == null) {
-                    Toast.makeText(this, "NO Network...Get Connected", Toast.LENGTH_SHORT).show();
-                    starttime.setText("Please Get Connected to Network .... the App needs Network to Load data for the first time");
+                    Toast.makeText(this, "No Network...Get Connected", Toast.LENGTH_SHORT).show();
+                    starttime.setText("Please connect to network .... the App needs internet to load data for the first time");
                 }
                 Toast.makeText(this,"No Network....Loading Offline Data",Toast.LENGTH_SHORT).show();
                 eventname.setText(result.getName());
