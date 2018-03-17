@@ -34,18 +34,18 @@ public class ProshowActivity extends AppCompatActivity {
 
     String[] titles = new String[]{
             "Aron Chupa",
-            "Raghu Dixit",
+            "Tony Junior",
             "Amit Trivedi",
             "Ashish Shakya",
-            "Tony Junior"
+            "Raghu Dixit"
     };
 
     String[] descriptions = new String[]{
-            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers, Aronchupa. Swedish rapper,singer, DJ and record producer. <br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> 25/03/18<br/><b>Desc:</b> Raghu Dixit, giving Indian fusion music a new face and voice on a global scale.  <br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> 24/03/18<br/><b>Desc:</b> Amit Trivedi is an Indian film composer, musician, singer and lyricist. Heading the Bollywood night (day2) of Pearl'18. <br/><b>Venue:</b> Stage 1 Lawns",
-            "<b>Date:</b> 24/03/18<br/><b>Desc:</b>  Ashish Shakya from AIB is an stand-up comedian, humour columnist,writer,actor and TV writer. <br/><b>Venue:</b> Auditorium",
-            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Tony Junior, a Dutch record producer and DJ. <br/><b>Venue:</b> Stage 1 Lawns"
+            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers, Aronchupa - Swedish rapper,singer, DJ and record producer.<br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Tony Junior, a Dutch record producer and DJ.<br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 24/03/18<br/><b>Desc:</b> Amit Trivedi is an Indian film composer, musician, singer and lyricist. Don't miss the Bollywood night of Pearl'18. <br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 24/03/18<br/><b>Desc:</b> Ashish Shakya from AIB is a stand-up comedian, humour columnist, writer, actor and TV writer.<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 25/03/18<br/><b>Desc:</b> Raghu Dixit, giving Indian fusion music a new face and voice on a global scale.<br/><b>Venue:</b> Stage 1 Lawns"
     };
 
     @Override
@@ -86,10 +86,10 @@ public class ProshowActivity extends AppCompatActivity {
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
         int resId[] = new int[]{
                 R.drawable.proshow_chupa,
-                R.drawable.proshow_raghu,
+                R.drawable.proshow_tony,
                 R.drawable.proshow_trivedi,
                 R.drawable.proshow_shakya,
-                R.drawable.proshow_tony
+                R.drawable.proshow_raghu
         };
 
         @Override
