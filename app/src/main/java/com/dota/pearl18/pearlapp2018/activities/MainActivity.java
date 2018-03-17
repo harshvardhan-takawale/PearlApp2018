@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonList.add(new LandingButtonDetails("Events",
                 new Intent(MainActivity.this, EventsActivity.class),
-                this,R.drawable.ic_other_events));
+                this,R.drawable.ic_events));
 
         buttonList.add(new LandingButtonDetails("News",
                 new Intent(getApplicationContext(), NewsActivity.class),
