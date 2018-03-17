@@ -41,7 +41,7 @@ public class ProshowActivity extends AppCompatActivity {
     };
 
     String[] descriptions = new String[]{
-            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers ,Aronchupa .Swedish rapper,singer, DJ and record producer. <br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers, Aronchupa. Swedish rapper,singer, DJ and record producer. <br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 25/03/18<br/><b>Desc:</b> Raghu Dixit, giving Indian fusion music a new face and voice on a global scale.  <br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 24/03/18<br/><b>Desc:</b> Amit Trivedi is an Indian film composer, musician, singer and lyricist. Heading the Bollywood night (day2) of Pearl'18. <br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 24/03/18<br/><b>Desc:</b>  Ashish Shakya from AIB is an stand-up comedian, humour columnist,writer,actor and TV writer. <br/><b>Venue:</b> Auditorium",
