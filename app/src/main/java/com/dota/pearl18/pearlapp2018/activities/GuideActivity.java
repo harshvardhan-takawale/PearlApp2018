@@ -37,8 +37,6 @@ public class GuideActivity extends AppCompatActivity {
     private ArrayList<LandingButtonDetails> buttonList;
     private LandingAdapter buttonAdapter;
     private DiscreteScrollView discreteScrollView;
-    private InfiniteScrollAdapter infiniteAdapter;
-    private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,8 +167,7 @@ public class GuideActivity extends AppCompatActivity {
     }
 
     private void onItemChanged(int pos) {
-        name = findViewById(R.id.Button_name);
-        name.setText(buttonList.get(pos).getButtonName());
+
     }
 
     @Override
