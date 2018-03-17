@@ -37,7 +37,7 @@ public class NewsActivity extends AppCompatActivity {
         Intent feedIntent = new Intent(NewsActivity.this,FeedActivity.class);
 
         buttonList.add(new LandingButtonDetails("Feed",
-                feedIntent,this));
+                feedIntent,this, R.drawable.ic_feed));
 
         buttonList.add(new LandingButtonDetails("Articles",
                 articlesIntent,this,
