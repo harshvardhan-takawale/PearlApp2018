@@ -57,6 +57,7 @@ public class ProshowActivity extends AppCompatActivity {
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         final CarouselLayoutManager mLayoutManager2 = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        mLayoutManager2.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         final RecyclerView mRecycler = findViewById(R.id.recycler_pro_show);
         final RecyclerView mRecyclerTalks = findViewById(R.id.recycler_talks);
         mRecycler.setLayoutManager(mLayoutManager);
@@ -102,21 +103,34 @@ public class ProshowActivity extends AppCompatActivity {
             }
         };
 
-        mRecycler.setAdapter(new ProShowAdapter());
-        mRecycler.scrollToPosition(2);
-
-        mRecyclerTalks.setAdapter(new TalksAdapter());
-        mRecycler.scrollToPosition(2);
-    }
-
-    class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
-        int resId[] = new int[]{
+        int proshow_res_ids[] = new int[]{
                 R.drawable.proshow_chupa,
                 R.drawable.proshow_tony,
                 R.drawable.proshow_trivedi,
                 R.drawable.proshow_shakya,
                 R.drawable.proshow_raghu
         };
+
+        int[] talks_res_ids = new int[]{
+                R.drawable.proshow_chupa,
+                R.drawable.proshow_raghu,
+                R.drawable.proshow_trivedi,
+                R.drawable.proshow_shakya,
+                R.drawable.proshow_tony
+        };
+
+        mRecycler.setAdapter(new ProShowAdapter(proshow_res_ids));
+        mRecycler.scrollToPosition(2);
+
+        mRecyclerTalks.setAdapter(new ProShowAdapter(talks_res_ids));
+        mRecyclerTalks.scrollToPosition(2);
+    }
+
+    class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
+        int resId[];
+        public ProShowAdapter(int[] imageResources){
+            resId = imageResources;
+        }
 
         @Override
         public ProShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -153,37 +167,4 @@ public class ProshowActivity extends AppCompatActivity {
         }
     }
 
-    class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder>{
-        int resId[] = new int[]{
-                R.drawable.proshow_chupa,
-                R.drawable.proshow_raghu,
-                R.drawable.proshow_trivedi,
-                R.drawable.proshow_shakya,
-                R.drawable.proshow_tony
-        };
-
-        @Override
-        public TalksAdapter.TalksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(TalksViewHolder holder, int position) {
-            holder.img.setImageResource(resId[position]);
-        }
-
-        @Override
-        public int getItemCount() {
-            return resId.length;
-        }
-
-        class TalksViewHolder extends RecyclerView.ViewHolder {
-            private ImageView img;
-
-            TalksViewHolder(View v) {
-                super(v);
-                img = v.findViewById(R.id.image_pro_show);
-            }
-        }
-    }
 }
