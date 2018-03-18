@@ -22,6 +22,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
             android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:text="Code Jam"
             android:textColor="#000000"
             android:textSize="20sp" />
@@ -33,7 +34,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/montserrat"
             android:paddingLeft="16dp"
-            android:text="TextView"
+            android:paddingRight="16dp"
             android:textColor="#000000"
             android:textSize="15sp" />
     </LinearLayout>

@@ -2,6 +2,6 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/image_pro_show"
-    tools:src="@drawable/proshow_sonu"
+    tools:src="@drawable/proshow_trivedi"
     android:layout_width="225dp"
     android:layout_height="400dp" />

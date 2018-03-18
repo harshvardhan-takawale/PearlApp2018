@@ -4,8 +4,7 @@
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sky_color_animation"
-    tools:context=".activities.TextDisplayActivity">
+    tools:context="com.dota.pearl18.activities.TextDisplayActivity">
 
     <TextView
         android:id="@+id/tv_title"

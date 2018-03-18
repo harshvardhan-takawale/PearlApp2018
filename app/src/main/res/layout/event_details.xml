@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="310dp"
-                                             android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content">
 
 
     <View
         android:id="@+id/card"
         android:layout_width="0dp"
-        android:layout_height="310dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginTop="210dp"
@@ -89,11 +89,15 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/details_button"
+        android:elevation="2dp"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="2"
+        android:paddingBottom="@dimen/dp10"
+        android:paddingTop="@dimen/dp10"
         android:text="Details"
-        android:textColor="#90ba47"
+        android:textColor="#f5f5f5"
         android:textSize="18.4sp"
         app:layout_constraintLeft_toLeftOf="@+id/card"
         app:layout_constraintRight_toRightOf="@+id/card"
@@ -102,14 +106,15 @@
     <LinearLayout
         android:id="@+id/event_content"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/details_lists_corners_bottom"
         android:orientation="vertical"
-        android:paddingBottom="6dp"
+        android:paddingBottom="9dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="9dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/card"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/card"
@@ -185,7 +190,7 @@
                 android:drawablePadding="8dp"
                 android:gravity="end"
                 android:textColor="@color/mainTextColor"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 tools:text="BITS Pilani Hyderabad Campus"/>
 
         </LinearLayout>

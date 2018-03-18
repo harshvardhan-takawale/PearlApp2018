@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sky_color_animation"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.CreditsActivity">
+    tools:context="com.dota.pearl18.activities.CreditsActivity">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/credits_recycler"
         android:layout_width="match_parent"

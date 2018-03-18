@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sky_color_animation"
     android:orientation="vertical">
 
     <TextView
@@ -12,7 +11,7 @@
         android:layout_marginTop="@dimen/dp10"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="Feed"
+        android:text="Live Feed"
         android:textColor="#000"
         android:textSize="24sp" />
 
@@ -22,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="18dp"
-        tools:context=".activities.FeedActivity">
+        tools:context="com.dota.pearl18.activities.FeedActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"

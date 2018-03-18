@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FF454B5A"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.EventsListActivity">
+    tools:context="com.dota.pearl18.activities.EventsListActivity">
     <ImageView
         android:id="@+id/iv_background"
         android:layout_width="0dp"
@@ -27,7 +27,7 @@
         app:layout_constraintRight_toRightOf="@+id/iv_background"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.dota.pearl18.pearlapp2018.activities.EventRecyclerView
+    <com.dota.pearl18.activities.EventRecyclerView
         android:id="@+id/event_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

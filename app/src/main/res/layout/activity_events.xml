@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/sky_color_animation"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.EventsActivity">
+    tools:context="com.dota.pearl18.activities.EventsActivity">
 
     <com.yarolegovich.discretescrollview.DiscreteScrollView
         android:id="@+id/club_list"
@@ -76,7 +75,6 @@
       android:src="@drawable/bus_top_with_padding"/>
 
     <ImageView
-        android:id="@+id/layer_wheels"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="4dp"

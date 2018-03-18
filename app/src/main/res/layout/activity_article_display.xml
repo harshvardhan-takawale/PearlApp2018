@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/sky_color_animation"
-    tools:context="com.dota.pearl18.pearlapp2018.activities.ArticleDisplayActivity">
+    tools:context="com.dota.pearl18.activities.ArticleDisplayActivity">
     <TextView
         android:id="@+id/tv_title"
         tools:text="Pure HTML, Multiple elements. Should be interesting. Also, long heading. Have fun."
@@ -42,7 +41,6 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/divider"
                 android:layout_marginTop="8dp"
                 android:background="#E0E0E0"
                 android:layout_width="match_parent"
