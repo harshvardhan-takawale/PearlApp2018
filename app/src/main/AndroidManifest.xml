@@ -22,7 +22,8 @@
 
         <activity
             android:name="com.dota.pearl18.activities.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,24 +33,38 @@
         <activity
             android:name="com.dota.pearl18.activities.ContactsActivity"
             android:label="Contact Us"
-            android:parentActivityName="com.dota.pearl18.activities.MainActivity" />
-        <activity android:name="com.dota.pearl18.activities.GuideActivity" />
-        <activity android:name="com.dota.pearl18.activities.MapsActivity" />
-        <activity android:name="com.dota.pearl18.activities.TextDisplayActivity" />
+            android:parentActivityName="com.dota.pearl18.activities.MainActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.GuideActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.MapsActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.TextDisplayActivity"
+          android:screenOrientation="portrait"/>
         <activity
             android:name="com.dota.pearl18.activities.CreditsActivity"
             android:label="App Credits"
-            android:parentActivityName="com.dota.pearl18.activities.MainActivity" />
-        <activity android:name="com.dota.pearl18.activities.EventsActivity" />
-        <activity android:name="com.dota.pearl18.activities.ScheduleActivity" />
+            android:parentActivityName="com.dota.pearl18.activities.MainActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.EventsActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.ScheduleActivity"
+          android:screenOrientation="portrait"/>
         <activity android:name="com.dota.pearl18.activities.QRScannerActivity" />
-        <activity android:name="com.dota.pearl18.activities.EventsListActivity"/>
-        <activity android:name="com.dota.pearl18.activities.DetailsActivity" />
-        <activity android:name="com.dota.pearl18.activities.ArticlesActivity" />
-        <activity android:name="com.dota.pearl18.activities.ProshowActivity" />
-        <activity android:name="com.dota.pearl18.activities.ArticleDisplayActivity" />
-        <activity android:name="com.dota.pearl18.activities.NewsActivity" />
-        <activity android:name="com.dota.pearl18.activities.FeedActivity" />
+        <activity android:name="com.dota.pearl18.activities.EventsListActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.DetailsActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.ArticlesActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.ProshowActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.ArticleDisplayActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.NewsActivity"
+          android:screenOrientation="portrait"/>
+        <activity android:name="com.dota.pearl18.activities.FeedActivity"
+          android:screenOrientation="portrait"/>
 
         <service
             android:name="com.dota.pearl18.sync.NewsFirebaseJobService"
