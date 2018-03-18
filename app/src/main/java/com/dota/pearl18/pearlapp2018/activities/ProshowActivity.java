@@ -40,6 +40,13 @@ public class ProshowActivity extends AppCompatActivity {
             "Tony Junior"
     };
 
+    String[] talk_titles = new String[]{
+            "Aron Chupa",
+            "Tony Junior",
+            "Amit Trivedi",
+            "Ashish Trivedi"
+    };
+
     String[] descriptions = new String[]{
             "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 8PM to 9PM<br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> __/03/18<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 9PM to 12AM<br/><b>Venue:</b> Stage 1 Lawns",
@@ -55,10 +62,14 @@ public class ProshowActivity extends AppCompatActivity {
 
 
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
+        final CarouselLayoutManager mLayoutManager2 = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         final RecyclerView mRecycler = findViewById(R.id.recycler_pro_show);
+        final RecyclerView mRecyclerTalks = findViewById(R.id.recycler_talks);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setHasFixedSize(true);
+        mRecyclerTalks.setLayoutManager(mLayoutManager2);
+        mRecyclerTalks.setHasFixedSize(true);
 
         new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
             @Override
@@ -79,7 +90,29 @@ public class ProshowActivity extends AppCompatActivity {
             }
         };
 
+        new CarouselChildSelectionListener(mRecyclerTalks, mLayoutManager2){
+            @Override
+            protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
+                int pos = recyclerView.getChildAdapterPosition(v);
+                new LovelyInfoDialog(ProshowActivity.this)
+                        .setTopColorRes(R.color.colorPrimary)
+                        .setTopTitleColor(Color.WHITE)
+                        .setTopTitle(titles[pos])
+                        .setMessage(formatContent(descriptions[pos]))
+                        .show();
+            }
+
+            @Override
+            protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
+                //bring that item to center
+                recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
+            }
+        };
+
         mRecycler.setAdapter(new ProShowAdapter());
+        mRecycler.scrollToPosition(2);
+
+        mRecyclerTalks.setAdapter(new TalksAdapter());
         mRecycler.scrollToPosition(2);
     }
 
@@ -124,6 +157,40 @@ public class ProshowActivity extends AppCompatActivity {
         } else {
             //noinspection deprecation
             return Html.fromHtml(content);
+        }
+    }
+
+    class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder>{
+        int resId[] = new int[]{
+                R.drawable.proshow_chupa,
+                R.drawable.proshow_raghu,
+                R.drawable.proshow_trivedi,
+                R.drawable.proshow_shakya,
+                R.drawable.proshow_tony
+        };
+
+        @Override
+        public TalksAdapter.TalksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(TalksViewHolder holder, int position) {
+            holder.img.setImageResource(resId[position]);
+        }
+
+        @Override
+        public int getItemCount() {
+            return resId.length;
+        }
+
+        class TalksViewHolder extends RecyclerView.ViewHolder {
+            private ImageView img;
+
+            TalksViewHolder(View v) {
+                super(v);
+                img = v.findViewById(R.id.image_pro_show);
+            }
         }
     }
 }
