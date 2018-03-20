@@ -33,13 +33,6 @@ public class ProshowActivity extends AppCompatActivity {
             "Raghu Dixit"
     };
 
-    String[] talk_titles = new String[]{
-            "Aron Chupa",
-            "Tony Junior",
-            "Amit Trivedi",
-            "Ashish Trivedi"
-    };
-
     String[] descriptions = new String[]{
             "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Heading the new breed of hitmakers, Aronchupa - Swedish rapper,singer, DJ and record producer.<br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 23/03/18<br/><b>Desc:</b> Tony Junior, a Dutch record producer and DJ.<br/><b>Venue:</b> Stage 1 Lawns",
@@ -55,36 +48,12 @@ public class ProshowActivity extends AppCompatActivity {
 
 
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
-        final CarouselLayoutManager mLayoutManager2 = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-        mLayoutManager2.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         final RecyclerView mRecycler = findViewById(R.id.recycler_pro_show);
-        final RecyclerView mRecyclerTalks = findViewById(R.id.recycler_talks);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setHasFixedSize(true);
-        mRecyclerTalks.setLayoutManager(mLayoutManager2);
-        mRecyclerTalks.setHasFixedSize(true);
 
         new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
-            @Override
-            protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                int pos = recyclerView.getChildAdapterPosition(v);
-                new LovelyInfoDialog(ProshowActivity.this)
-                        .setTopColorRes(R.color.colorPrimary)
-                        .setTopTitleColor(Color.WHITE)
-                        .setTopTitle(titles[pos])
-                        .setMessage(formatContent(descriptions[pos]))
-                        .show();
-            }
-
-            @Override
-            protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //bring that item to center
-                recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
-            }
-        };
-
-        new CarouselChildSelectionListener(mRecyclerTalks, mLayoutManager2){
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 int pos = recyclerView.getChildAdapterPosition(v);
@@ -111,19 +80,8 @@ public class ProshowActivity extends AppCompatActivity {
                 R.drawable.proshow_raghu
         };
 
-        int[] talks_res_ids = new int[]{
-                R.drawable.proshow_chupa,
-                R.drawable.proshow_raghu,
-                R.drawable.proshow_trivedi,
-                R.drawable.proshow_shakya,
-                R.drawable.proshow_tony
-        };
-
         mRecycler.setAdapter(new ProShowAdapter(proshow_res_ids));
         mRecycler.scrollToPosition(2);
-
-        mRecyclerTalks.setAdapter(new ProShowAdapter(talks_res_ids));
-        mRecyclerTalks.scrollToPosition(2);
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
