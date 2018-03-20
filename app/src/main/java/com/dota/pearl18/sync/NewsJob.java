@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class NewsJob extends Job{
 
-
-    public static boolean mSynchronised;
     public static final String  TAG = "show_feed";
     @NonNull
     @Override
@@ -27,7 +25,7 @@ public class NewsJob extends Job{
 
     public static void schedulePeriodic(){
         int jobId = new JobRequest.Builder(NewsJob.TAG)
-                .setPeriodic(TimeUnit.MINUTES.toMillis(15), TimeUnit.MINUTES.toMillis(5))
+                .setPeriodic(TimeUnit.MINUTES.toMillis(30), TimeUnit.MINUTES.toMillis(15))
                 .setUpdateCurrent(true)
                 .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
                 .build()

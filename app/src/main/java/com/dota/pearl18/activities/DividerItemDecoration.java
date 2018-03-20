@@ -1,14 +1,9 @@
 package com.dota.pearl18.activities;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
-import com.dota.pearl18.R;
 
 /**
  * Created by Vineeth on 3/16/2018.
@@ -16,11 +11,6 @@ import com.dota.pearl18.R;
 
 class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
-    private Drawable mDivider;
-
-    public DividerItemDecoration(Context context) {
-        mDivider = ContextCompat.getDrawable(context, R.drawable.divider);
-    }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {

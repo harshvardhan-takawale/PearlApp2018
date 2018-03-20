@@ -145,7 +145,7 @@ public class FeedActivity extends AppCompatActivity {
                         if(page==1){
                             String saveId = result.get(0).getId();
                             NewsPrefs.setLastNewsId(getApplicationContext(), saveId);
-//                            Log.d(TAG , "saved id: "+saveId);
+//                           Log.d(TAG , "saved id: "+saveId);
                         }
 
                         list.addAll(result);
