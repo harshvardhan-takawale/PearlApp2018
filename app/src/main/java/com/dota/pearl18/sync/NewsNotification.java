@@ -1,9 +1,13 @@
 package com.dota.pearl18.sync;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
@@ -18,6 +22,7 @@ import com.dota.pearl18.api.FeedDetails;
 public class NewsNotification {
 
     private static final int NEWS_NOTIFICATION_ID = 101;
+    public static final String NOTIFICATION_CHANNEL_ID = "News";
 
     public static void showNotification(Context context, FeedDetails details){
 
@@ -26,7 +31,20 @@ public class NewsNotification {
         String title = details.getSport();
         String content = details.getScorestext();
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context)
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "My Notifications", NotificationManager.IMPORTANCE_DEFAULT);
+
+            // Configure the notification channel.
+            notificationChannel.setDescription("Channel description");
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(false);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setSmallIcon(R.drawable.pearl)
                 .setContentTitle(title)
                 .setContentText(content)
@@ -38,10 +56,8 @@ public class NewsNotification {
         PendingIntent pendingIntent = taskStackBuilder
                 .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        notificationBuilder.setContentIntent(pendingIntent);
+        builder.setContentIntent(pendingIntent);
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(NEWS_NOTIFICATION_ID, notificationBuilder.build());
+        notificationManager.notify(NEWS_NOTIFICATION_ID, builder.build());
     }
 }

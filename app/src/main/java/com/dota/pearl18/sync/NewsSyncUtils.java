@@ -1,7 +1,14 @@
 package com.dota.pearl18.sync;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.util.Log;
 
+import com.dota.pearl18.api.ApiClient;
+import com.dota.pearl18.api.FeedDetails;
+import com.dota.pearl18.api.FeedInterface;
+import com.dota.pearl18.api.FeedResponseDetails;
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.Driver;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
@@ -10,7 +17,12 @@ import com.firebase.jobdispatcher.Job;
 import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.Trigger;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Vineeth on 3/12/2018.
@@ -18,9 +30,11 @@ import java.util.concurrent.TimeUnit;
 
 public class NewsSyncUtils {
 
-    private static final int SYNC_INTERVAL_MINUTES = 15;
+    public static final String TAG = "NewsSyncUtils";
+
+    private static final int SYNC_INTERVAL_MINUTES = 5;
     private static final int SYNC_INTERVAL_SECONDS = (int) TimeUnit.MINUTES.toSeconds(SYNC_INTERVAL_MINUTES);
-    private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS / 3;
+    private static final int SYNC_FLEXTIME_SECONDS = SYNC_INTERVAL_SECONDS / 2;
 
     private static boolean sInitialized;
 
@@ -39,16 +53,23 @@ public class NewsSyncUtils {
                 .setRecurring(true)
                 .setTrigger(Trigger.executionWindow(
                         SYNC_INTERVAL_SECONDS, SYNC_INTERVAL_SECONDS+SYNC_FLEXTIME_SECONDS))
-                .setReplaceCurrent(true)
+                .setReplaceCurrent(false)
                 .build();
 
-        dispatcher.schedule(newsSyncJob);
+        int result = dispatcher.schedule(newsSyncJob);
+        if(result == FirebaseJobDispatcher.SCHEDULE_RESULT_SUCCESS){
+            Log.d(TAG, "Job Successfully scheduled");
+        }else {
+            Log.d(TAG, "Job not scheduled");
+        }
     }
 
     synchronized public static void initialize(final Context context){
         if(sInitialized) return;
         sInitialized = true;
         scheduleFirebaseJobDispatcherSync(context);
+
     }
+
 
 }

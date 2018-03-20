@@ -120,7 +120,7 @@ public class FeedActivity extends AppCompatActivity {
         swipeRefreshLayout.setRefreshing(true);
 
         FeedInterface apiservice = ApiClient.getClient().create(FeedInterface.class);
-        Call<FeedResponseDetails> call = apiservice.getScoresfeed(page, SORT_KEY, ORDER);
+        Call<FeedResponseDetails> call = apiservice.getFeed(page, SORT_KEY, ORDER);
 
         call.enqueue(new Callback<FeedResponseDetails>() {
             @Override

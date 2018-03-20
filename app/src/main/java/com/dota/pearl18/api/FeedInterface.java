@@ -10,5 +10,5 @@ import retrofit2.http.Query;
 
 public interface FeedInterface {
     @GET("feed")
-    Call<FeedResponseDetails> getScoresfeed(@Query("page") int num, @Query("sort") String key, @Query("direction") String ord);
+    Call<FeedResponseDetails> getFeed(@Query("page") int num, @Query("sort") String key, @Query("direction") String ord);
 }

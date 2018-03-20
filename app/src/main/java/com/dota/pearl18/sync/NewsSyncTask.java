@@ -26,19 +26,31 @@ public class NewsSyncTask {
     private static final String SORT_KEY = "createdAt";
     private static final String ORDER = "desc";
 
-    public static void syncNews(Context context){
+    public static void syncNews(final Context context){
 
         FeedInterface apiservice = ApiClient.getClient().create(FeedInterface.class);
-        Call<FeedResponseDetails> call = apiservice.getScoresfeed(1, SORT_KEY, ORDER);
+            Call<FeedResponseDetails> call = apiservice.getFeed(1, SORT_KEY, ORDER);
 
         call.enqueue(new Callback<FeedResponseDetails>() {
             @Override
             public void onResponse(@NonNull Call<FeedResponseDetails> call, @NonNull Response<FeedResponseDetails> response) {
                 FeedResponseDetails feedResponse = response.body();
-                int resultCount = feedResponse.getTotalresults();
-                if (resultCount != 0) {
-                    list = feedResponse.getDocs();
+                if(feedResponse!=null){
+                    int resultCount = feedResponse.getTotalresults();
+                    if (resultCount != 0) {
+                        list = feedResponse.getDocs();
+                        if(list!=null && list.size()>0){
+                            Log.d(TAG, list.toString());
+                            String lastSavedId = NewsPrefs.getLastNewsId(context);
+                            FeedDetails details = list.get(0);
+                            if(!details.getId().equals(lastSavedId)){
+                                NewsNotification.showNotification(context, list.get(0));
+                                //NewsPrefs.setLastNewsId(context, list.get(0).getId());
+                            }
+                        }
+                    }
                 }
+
             }
 
             @Override
@@ -48,20 +60,8 @@ public class NewsSyncTask {
         });
 
 
-        if(list!=null && list.size()>0){
-            String lastSavedId = NewsPrefs.getLastNewsId(context);
-            FeedDetails details = list.get(0);
-            if(!details.getId().equals(lastSavedId)){
-                NewsNotification.showNotification(context, list.get(0));
-                NewsPrefs.setLastNewsId(context, list.get(0).getId());
-            }
-        }
-    //    testNotification(context);
+
     }
 
-    /*public static void testNotification(Context context){
-        ArticleDetails testDetail = new ArticleDetails("123", "Test title", null, null, null, null);
-        NewsNotification.showNotification(context, testDetail);
-    }*/
 
 }
