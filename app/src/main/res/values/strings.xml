@@ -64,7 +64,7 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>8297633120</item>
         <item>7095979695</item>
         <item>8019683351</item>
-        <item>8553355316</item>
+        <item>7892642907</item>
     </string-array>
 
     <string-array name="club_secretaries">
@@ -73,8 +73,9 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>Shardul Parab</item>
         <item>Ankush Rawat</item>
         <item>Suchit Kar</item>
+        <item>Monarch Moolchandani</item>
         <item>Aryan Sahi</item>
-        <item>Nikitha Mandapati</item>
+        <item>Nikita Mandapati</item>
         <item>Ameen Tarik Shaikh</item>
         <item>Lokvamsi Anumukonda</item>
         <item>Krishna Mohan Sahay</item>
@@ -90,6 +91,7 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>Dance</item>
         <item>Dramatics</item>
         <item>ELAS</item>
+        <item>Embryo</item>
         <item>Hindi Tarang</item>
         <item>Journal</item>
         <item>Movie</item>
@@ -107,6 +109,7 @@ Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 
         <item>9133312963</item>
         <item>9705942655</item>
         <item>7286823259</item>
+        <item>8104101188</item>
         <item>9705943042</item>
         <item>9177545277</item>
         <item>9975578320</item>
