@@ -42,7 +42,6 @@ public class NewsSyncTask {
                     if (resultCount != 0) {
                         list = feedResponse.getDocs();
                         if(list!=null && list.size()>0){
-                            Log.d(TAG, list.toString());
                             String lastSavedId = NewsPrefs.getLastNewsId(context);
                             FeedDetails details = list.get(0);
                             if(!details.getId().equals(lastSavedId)){

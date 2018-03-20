@@ -30,6 +30,6 @@ public class NewsJob extends Job{
                 .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
                 .build()
                 .schedule();
-        Log.d(TAG, String.valueOf(jobId));
+//        Log.d(TAG, String.valueOf(jobId));
     }
 }
