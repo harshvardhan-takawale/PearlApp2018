@@ -40,5 +40,5 @@ dependencies {
     implementation 'com.firebase:firebase-jobdispatcher:0.5.2'
     compile 'com.yarolegovich:discrete-scrollview:1.4.4'
     compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
-    compile 'com.evernote:android-job:1.1.8'
+    compile 'com.evernote:android-job:1.2.5'
 }

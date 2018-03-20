@@ -47,7 +47,7 @@ public class NewsSyncTask {
                             FeedDetails details = list.get(0);
                             if(!details.getId().equals(lastSavedId)){
                                 NewsNotification.showNotification(context, list.get(0));
-                                //NewsPrefs.setLastNewsId(context, list.get(0).getId());
+                                NewsPrefs.setLastNewsId(context, list.get(0).getId());
                             }
                         }
                     }

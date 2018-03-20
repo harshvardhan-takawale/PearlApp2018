@@ -1,5 +1,6 @@
 package com.dota.pearl18.sync;
 
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class NewsJob extends Job{
+
     public static final String  TAG = "show_feed";
     @NonNull
     @Override
@@ -23,10 +25,9 @@ public class NewsJob extends Job{
 
     public static void schedulePeriodic(){
         int jobId = new JobRequest.Builder(NewsJob.TAG)
-                .setPeriodic(TimeUnit.MINUTES.toMillis(15), TimeUnit.MINUTES.toMillis(5))
+                .setPeriodic(TimeUnit.MINUTES.toMillis(30), TimeUnit.MINUTES.toMillis(15))
                 .setUpdateCurrent(true)
                 .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
-                .setPersisted(true)
                 .build()
                 .schedule();
         Log.d(TAG, String.valueOf(jobId));
