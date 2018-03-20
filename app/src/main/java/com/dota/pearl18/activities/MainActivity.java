@@ -14,9 +14,9 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
-import com.dota.pearl18.adapters.LandingAdapter;
 import com.dota.pearl18.R;
-import com.dota.pearl18.sync.NewsSyncUtils;
+import com.dota.pearl18.adapters.LandingAdapter;
+import com.dota.pearl18.sync.NewsJob;
 import com.yarolegovich.discretescrollview.DSVOrientation;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.InfiniteScrollAdapter;
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         cloudAnimator.start();
         busAnimator.start();
 
-        NewsSyncUtils.initialize(this);
+        NewsJob.schedulePeriodic();
     }
 
     private void onItemChanged(int pos) {

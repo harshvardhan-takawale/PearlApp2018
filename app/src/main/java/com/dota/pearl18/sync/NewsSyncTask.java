@@ -11,6 +11,8 @@ import com.dota.pearl18.api.FeedResponseDetails;
 
 import java.util.List;
 
+import javax.xml.transform.Result;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
