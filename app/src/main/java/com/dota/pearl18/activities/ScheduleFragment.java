@@ -20,6 +20,7 @@ import com.dota.pearl18.api.EventDetails;
 import com.dota.pearl18.api.EventsInterface;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -190,6 +191,7 @@ public class ScheduleFragment extends Fragment
             realmlist.addAll(set);
 //            Log.e(TAG,"setsize"+String.valueOf(set.size())+""+realmlist.size());
 
+            Collections.sort(realmlist);
             recyclerView.setAdapter(new ScheduleAdapter(realmlist,getContext(),day));
         }
 
